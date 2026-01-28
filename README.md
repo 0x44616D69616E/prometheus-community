@@ -50,33 +50,33 @@ Traditional tools rely on one detection method:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│            PROMETHEUS 6-LAYER DETECTION                  │
+│            PROMETHEUS 6-LAYER DETECTION                 │
 ├─────────────────────────────────────────────────────────┤
-│                                                          │
+│                                                         │
 │  Layer 1: File Signatures      276 patterns             │
-│           ├─ PE, ELF, Mach-O executables               │
+│           ├─ PE, ELF, Mach-O executables                │
 │           └─ Documents, archives, images                │
-│                                                          │
+│                                                         │
 │  Layer 2: Behavioral Indicators 203 patterns            │
 │           ├─ Mutex names (WannaCry, Zeus)               │
 │           ├─ Registry keys                              │
 │           └─ File extensions, ransom notes              │
-│                                                          │
+│                                                         │
 │  Layer 3: Exploit Patterns      168 patterns            │
 │           ├─ Buffer overflows (NOP sleds)               │
 │           ├─ ROP chains                                 │
 │           └─ Shellcode patterns                         │
-│                                                          │
+│                                                         │
 │  Layer 4: PE Heuristics         8 rules                 │
 │           ├─ Suspicious permissions                     │
 │           └─ Import anomalies                           │
-│                                                          │
+│                                                         │
 │  Layer 5: Dynamic Analysis      Behavior inference      │
 │           └─ Runtime behavior patterns                  │
-│                                                          │
+│                                                         │
 │  Layer 6: ML Classification     Pattern matching        │
 │           └─ Family identification                      │
-│                                                          │
+│                                                         │
 └─────────────────────────────────────────────────────────┘
                          ▼
                 UNIFIED VERDICT

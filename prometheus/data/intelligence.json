@@ -1,0 +1,4443 @@
+{
+  "file_signatures": [
+    {
+      "format_name": "PNG",
+      "hex_pattern": "b'\\x89PNG\\r\\n\\x1a\\n'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for PNG"
+    },
+    {
+      "format_name": "JPEG/JPG",
+      "hex_pattern": "b'\\xff\\xd8\\xff\\xe0'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for JPEG/JPG"
+    },
+    {
+      "format_name": "JPEG/JPG",
+      "hex_pattern": "b'\\xff\\xd8\\xff\\xe1'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for JPEG/JPG"
+    },
+    {
+      "format_name": "JPEG/JPG",
+      "hex_pattern": "b'\\xff\\xd8\\xff\\xe8'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for JPEG/JPG"
+    },
+    {
+      "format_name": "GIF87a",
+      "hex_pattern": "b'GIF87a'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for GIF87a"
+    },
+    {
+      "format_name": "GIF89a",
+      "hex_pattern": "b'GIF89a'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for GIF89a"
+    },
+    {
+      "format_name": "TIFF (LE)",
+      "hex_pattern": "b'II*\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for TIFF (LE)"
+    },
+    {
+      "format_name": "TIFF (BE)",
+      "hex_pattern": "b'MM\\x00*'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for TIFF (BE)"
+    },
+    {
+      "format_name": "ICO",
+      "hex_pattern": "b'\\x00\\x00\\x01\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for ICO"
+    },
+    {
+      "format_name": "PSD",
+      "hex_pattern": "b'8BPS'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for PSD"
+    },
+    {
+      "format_name": "SVG",
+      "hex_pattern": "b'<svg'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for SVG"
+    },
+    {
+      "format_name": "PDF",
+      "hex_pattern": "b'%PDF-'",
+      "offset": 0,
+      "category": "document",
+      "description": "File signature for PDF"
+    },
+    {
+      "format_name": "PDF (end)",
+      "hex_pattern": "b'%%EOF'",
+      "offset": 0,
+      "category": "document",
+      "description": "File signature for PDF (end)"
+    },
+    {
+      "format_name": "PostScript",
+      "hex_pattern": "b'%!PS'",
+      "offset": 0,
+      "category": "document",
+      "description": "File signature for PostScript"
+    },
+    {
+      "format_name": "RTF",
+      "hex_pattern": "b'{\\\\rtf1'",
+      "offset": 0,
+      "category": "document",
+      "description": "File signature for RTF"
+    },
+    {
+      "format_name": "MS Word (old)",
+      "hex_pattern": "b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1'",
+      "offset": 0,
+      "category": "document",
+      "description": "File signature for MS Word (old)"
+    },
+    {
+      "format_name": "DOCX/XLSX/PPTX",
+      "hex_pattern": "b'PK\\x03\\x04'",
+      "offset": 0,
+      "category": "document",
+      "description": "File signature for DOCX/XLSX/PPTX"
+    },
+    {
+      "format_name": "ZIP (empty)",
+      "hex_pattern": "b'PK\\x05\\x06'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for ZIP (empty)"
+    },
+    {
+      "format_name": "ZIP (spanned)",
+      "hex_pattern": "b'PK\\x07\\x08'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for ZIP (spanned)"
+    },
+    {
+      "format_name": "RAR v1.5-4.0",
+      "hex_pattern": "b'Rar!\\x1a\\x07\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for RAR v1.5-4.0"
+    },
+    {
+      "format_name": "RAR v5.0+",
+      "hex_pattern": "b'Rar!\\x1a\\x07\\x01\\x00'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for RAR v5.0+"
+    },
+    {
+      "format_name": "7-Zip",
+      "hex_pattern": "b\"7z\\xbc\\xaf'\\x1c\"",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for 7-Zip"
+    },
+    {
+      "format_name": "GZIP",
+      "hex_pattern": "b'\\x1f\\x8b\\x08'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for GZIP"
+    },
+    {
+      "format_name": "BZIP2",
+      "hex_pattern": "b'BZh'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for BZIP2"
+    },
+    {
+      "format_name": "XZ",
+      "hex_pattern": "b'\\xfd7zXZ\\x00'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for XZ"
+    },
+    {
+      "format_name": "TAR",
+      "hex_pattern": "b'ustar'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for TAR"
+    },
+    {
+      "format_name": "CAB",
+      "hex_pattern": "b'MSCF'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for CAB"
+    },
+    {
+      "format_name": "ISO 9660",
+      "hex_pattern": "b'CD001'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for ISO 9660"
+    },
+    {
+      "format_name": "LZMA",
+      "hex_pattern": "b']\\x00\\x00\\x80\\x00'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for LZMA"
+    },
+    {
+      "format_name": "SQLite 3",
+      "hex_pattern": "b'SQLite format 3\\x00'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for SQLite 3"
+    },
+    {
+      "format_name": "MS Access",
+      "hex_pattern": "b'\\x00\\x01\\x00\\x00Standard Jet DB'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for MS Access"
+    },
+    {
+      "format_name": "Berkeley DB",
+      "hex_pattern": "b'\\x00\\x051b'",
+      "offset": 0,
+      "category": "database",
+      "description": "File signature for Berkeley DB"
+    },
+    {
+      "format_name": "UTF-8 BOM",
+      "hex_pattern": "b'\\xef\\xbb\\xbf'",
+      "offset": 0,
+      "category": "database",
+      "description": "File signature for UTF-8 BOM"
+    },
+    {
+      "format_name": "UTF-32 LE BOM",
+      "hex_pattern": "b'\\xff\\xfe\\x00\\x00'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for UTF-32 LE BOM"
+    },
+    {
+      "format_name": "UTF-32 BE BOM",
+      "hex_pattern": "b'\\x00\\x00\\xfe\\xff'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for UTF-32 BE BOM"
+    },
+    {
+      "format_name": "UTF-1 BOM",
+      "hex_pattern": "b'\\xf7dL'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for UTF-1 BOM"
+    },
+    {
+      "format_name": "UTF-EBCDIC BOM",
+      "hex_pattern": "b'\\xddsfs'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for UTF-EBCDIC BOM"
+    },
+    {
+      "format_name": "SCSU BOM",
+      "hex_pattern": "b'\\x0e\\xfe\\xff'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for SCSU BOM"
+    },
+    {
+      "format_name": "BOCU-1 BOM",
+      "hex_pattern": "b'\\xfb\\xee('",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for BOCU-1 BOM"
+    },
+    {
+      "format_name": "NTFS",
+      "hex_pattern": "b'\\xebR\\x90NTFS    '",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for NTFS"
+    },
+    {
+      "format_name": "exFAT",
+      "hex_pattern": "b'\\xebv\\x90EXFAT   '",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for exFAT"
+    },
+    {
+      "format_name": "XFS",
+      "hex_pattern": "b'XFSB'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for XFS"
+    },
+    {
+      "format_name": "Btrfs",
+      "hex_pattern": "b'_BHRfS_M'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Btrfs"
+    },
+    {
+      "format_name": "APFS",
+      "hex_pattern": "b'NXSB'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for APFS"
+    },
+    {
+      "format_name": "ReiserFS",
+      "hex_pattern": "b'ReIsErFs'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for ReiserFS"
+    },
+    {
+      "format_name": "JFS",
+      "hex_pattern": "b'JFS1'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for JFS"
+    },
+    {
+      "format_name": "ZFS",
+      "hex_pattern": "b'\\x00\\x00\\x00\\x00\\x00\\xba\\xb1\\x0c'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for ZFS"
+    },
+    {
+      "format_name": "VMware VMDK",
+      "hex_pattern": "b'KDM'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for VMware VMDK"
+    },
+    {
+      "format_name": "VMware VMDK (sparse)",
+      "hex_pattern": "b'COWD'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for VMware VMDK (sparse)"
+    },
+    {
+      "format_name": "VirtualBox VDI",
+      "hex_pattern": "b'<<< Oracle VM VirtualBox Disk Image >>>'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for VirtualBox VDI"
+    },
+    {
+      "format_name": "QCOW (v1)",
+      "hex_pattern": "b'QFI\\x00'",
+      "offset": 0,
+      "category": "media",
+      "description": "File signature for QCOW (v1)"
+    },
+    {
+      "format_name": "QCOW2 (v2/v3)",
+      "hex_pattern": "b'QFI\\xfb'",
+      "offset": 0,
+      "category": "media",
+      "description": "File signature for QCOW2 (v2/v3)"
+    },
+    {
+      "format_name": "VHD (Virtual PC)",
+      "hex_pattern": "b'conectix'",
+      "offset": 0,
+      "category": "media",
+      "description": "File signature for VHD (Virtual PC)"
+    },
+    {
+      "format_name": "VHDX",
+      "hex_pattern": "b'vhdxfile'",
+      "offset": 0,
+      "category": "media",
+      "description": "File signature for VHDX"
+    },
+    {
+      "format_name": "Parallels HDD",
+      "hex_pattern": "b'Without free spa'",
+      "offset": 0,
+      "category": "media",
+      "description": "File signature for Parallels HDD"
+    },
+    {
+      "format_name": "PEM Certificate",
+      "hex_pattern": "b'-----BEGIN CERTIFICATE-----'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for PEM Certificate"
+    },
+    {
+      "format_name": "PEM Private Key (RSA)",
+      "hex_pattern": "b'-----BEGIN RSA PRIVATE KEY-----'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for PEM Private Key (RSA)"
+    },
+    {
+      "format_name": "PEM Private Key (PKCS#8)",
+      "hex_pattern": "b'-----BEGIN PRIVATE KEY-----'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for PEM Private Key (PKCS#8)"
+    },
+    {
+      "format_name": "PEM Public Key",
+      "hex_pattern": "b'-----BEGIN PUBLIC KEY-----'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for PEM Public Key"
+    },
+    {
+      "format_name": "PEM EC Private Key",
+      "hex_pattern": "b'-----BEGIN EC PRIVATE KEY-----'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for PEM EC Private Key"
+    },
+    {
+      "format_name": "OpenSSH Private Key",
+      "hex_pattern": "b'-----BEGIN OPENSSH PRIVATE KEY-----'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for OpenSSH Private Key"
+    },
+    {
+      "format_name": "PGP Public Key Block",
+      "hex_pattern": "b'-----BEGIN PGP PUBLIC KEY BLOCK-----'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for PGP Public Key Block"
+    },
+    {
+      "format_name": "PGP Private Key Block",
+      "hex_pattern": "b'-----BEGIN PGP PRIVATE KEY BLOCK-----'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for PGP Private Key Block"
+    },
+    {
+      "format_name": "PGP Message",
+      "hex_pattern": "b'-----BEGIN PGP MESSAGE-----'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for PGP Message"
+    },
+    {
+      "format_name": "PGP Signature",
+      "hex_pattern": "b'-----BEGIN PGP SIGNATURE-----'",
+      "offset": 0,
+      "category": "cryptographic",
+      "description": "File signature for PGP Signature"
+    },
+    {
+      "format_name": "SSH Public Key (RSA)",
+      "hex_pattern": "b'ssh-rsa'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for SSH Public Key (RSA)"
+    },
+    {
+      "format_name": "SSH Public Key (Ed25519)",
+      "hex_pattern": "b'ssh-ed25519'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for SSH Public Key (Ed25519)"
+    },
+    {
+      "format_name": "SSH Public Key (ECDSA)",
+      "hex_pattern": "b'ecdsa-sha2-nistp'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for SSH Public Key (ECDSA)"
+    },
+    {
+      "format_name": "PGP Public Key",
+      "hex_pattern": "b'-----BEGIN PGP PUBLIC'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for PGP Public Key"
+    },
+    {
+      "format_name": "PGP Private Key",
+      "hex_pattern": "b'-----BEGIN PGP PRIVATE'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for PGP Private Key"
+    },
+    {
+      "format_name": "OpenSSH Private Key",
+      "hex_pattern": "b'-----BEGIN OPENSSH'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for OpenSSH Private Key"
+    },
+    {
+      "format_name": "RSA Private Key",
+      "hex_pattern": "b'-----BEGIN RSA PRIVATE'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for RSA Private Key"
+    },
+    {
+      "format_name": "SSL/TLS Certificate",
+      "hex_pattern": "b'-----BEGIN CERTIFICATE'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for SSL/TLS Certificate"
+    },
+    {
+      "format_name": "DSA Private Key",
+      "hex_pattern": "b'-----BEGIN DSA PRIVATE'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for DSA Private Key"
+    },
+    {
+      "format_name": "EC Private Key",
+      "hex_pattern": "b'-----BEGIN EC PRIVATE'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for EC Private Key"
+    },
+    {
+      "format_name": "ZFS",
+      "hex_pattern": "b'\\x00\\xba\\xb1\\x0c'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for ZFS"
+    },
+    {
+      "format_name": "VirtualBox VDI",
+      "hex_pattern": "b'<<< Oracle VM VirtualBox'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for VirtualBox VDI"
+    },
+    {
+      "format_name": "VirtualBox VDI (alt)",
+      "hex_pattern": "b'\\x7f\\x10\\xda\\xbe'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for VirtualBox VDI (alt)"
+    },
+    {
+      "format_name": "QCOW2",
+      "hex_pattern": "b'QFI\\xfb\\x00\\x00\\x00\\x02'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for QCOW2"
+    },
+    {
+      "format_name": "QCOW3",
+      "hex_pattern": "b'QFI\\xfb\\x00\\x00\\x00\\x03'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for QCOW3"
+    },
+    {
+      "format_name": "Parallels HDD",
+      "hex_pattern": "b'WithoutFreeSpace'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Parallels HDD"
+    },
+    {
+      "format_name": "ELF 32-bit LE",
+      "hex_pattern": "b'\\x7fELF\\x01\\x01\\x01'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for ELF 32-bit LE"
+    },
+    {
+      "format_name": "ELF 64-bit LE",
+      "hex_pattern": "b'\\x7fELF\\x02\\x01\\x01'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for ELF 64-bit LE"
+    },
+    {
+      "format_name": "ELF 32-bit BE",
+      "hex_pattern": "b'\\x7fELF\\x01\\x02\\x01'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for ELF 32-bit BE"
+    },
+    {
+      "format_name": "ELF 64-bit BE",
+      "hex_pattern": "b'\\x7fELF\\x02\\x02\\x01'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for ELF 64-bit BE"
+    },
+    {
+      "format_name": "Mach-O 32 (LE)",
+      "hex_pattern": "b'\\xce\\xfa\\xed\\xfe'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Mach-O 32 (LE)"
+    },
+    {
+      "format_name": "Mach-O 64 (LE)",
+      "hex_pattern": "b'\\xcf\\xfa\\xed\\xfe'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Mach-O 64 (LE)"
+    },
+    {
+      "format_name": "Mach-O 32 (BE)",
+      "hex_pattern": "b'\\xfe\\xed\\xfa\\xce'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Mach-O 32 (BE)"
+    },
+    {
+      "format_name": "Mach-O 64 (BE)",
+      "hex_pattern": "b'\\xfe\\xed\\xfa\\xcf'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Mach-O 64 (BE)"
+    },
+    {
+      "format_name": "Mach-O Fat/Universal",
+      "hex_pattern": "b'\\xca\\xfe\\xba\\xbe'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Mach-O Fat/Universal"
+    },
+    {
+      "format_name": "Android DEX",
+      "hex_pattern": "b'dex\\n035\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Android DEX"
+    },
+    {
+      "format_name": "Android DEX (alt)",
+      "hex_pattern": "b'dex\\n036\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Android DEX (alt)"
+    },
+    {
+      "format_name": "Android DEX (alt2)",
+      "hex_pattern": "b'dex\\n037\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Android DEX (alt2)"
+    },
+    {
+      "format_name": "WebAssembly",
+      "hex_pattern": "b'\\x00asm'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for WebAssembly"
+    },
+    {
+      "format_name": "LLVM Bitcode",
+      "hex_pattern": "b'BC\\xc0\\xde'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for LLVM Bitcode"
+    },
+    {
+      "format_name": "Shell Script",
+      "hex_pattern": "b'#!/bin/'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Shell Script"
+    },
+    {
+      "format_name": "Python",
+      "hex_pattern": "b'#!/usr/bin/python'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Python"
+    },
+    {
+      "format_name": "Perl",
+      "hex_pattern": "b'#!/usr/bin/perl'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Perl"
+    },
+    {
+      "format_name": "Ruby",
+      "hex_pattern": "b'#!/usr/bin/ruby'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Ruby"
+    },
+    {
+      "format_name": "PHP",
+      "hex_pattern": "b'<?php'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for PHP"
+    },
+    {
+      "format_name": "XML",
+      "hex_pattern": "b'<?xml'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for XML"
+    },
+    {
+      "format_name": "HTML",
+      "hex_pattern": "b'<!DOCTYPE html'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for HTML"
+    },
+    {
+      "format_name": "HTML (alt)",
+      "hex_pattern": "b'<html'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for HTML (alt)"
+    },
+    {
+      "format_name": "LZMA",
+      "hex_pattern": "b']\\x00\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for LZMA"
+    },
+    {
+      "format_name": "LZ4",
+      "hex_pattern": "b'\\x04\"M\\x18'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for LZ4"
+    },
+    {
+      "format_name": "Zstandard",
+      "hex_pattern": "b'(\\xb5/\\xfd'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for Zstandard"
+    },
+    {
+      "format_name": "Brotli",
+      "hex_pattern": "b'\\xce\\xb2\\xcf\\x81'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for Brotli"
+    },
+    {
+      "format_name": "HTTP GET",
+      "hex_pattern": "b'GET '",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for HTTP GET"
+    },
+    {
+      "format_name": "HTTP POST",
+      "hex_pattern": "b'POST '",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for HTTP POST"
+    },
+    {
+      "format_name": "HTTP/1.1",
+      "hex_pattern": "b'HTTP/1.1'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for HTTP/1.1"
+    },
+    {
+      "format_name": "HTTP/2",
+      "hex_pattern": "b'PRI * HTTP/2.0'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for HTTP/2"
+    },
+    {
+      "format_name": "TLS 1.0",
+      "hex_pattern": "b'\\x16\\x03\\x01'",
+      "offset": 0,
+      "category": "network",
+      "description": "File signature for TLS 1.0"
+    },
+    {
+      "format_name": "TLS 1.1",
+      "hex_pattern": "b'\\x16\\x03\\x02'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for TLS 1.1"
+    },
+    {
+      "format_name": "TLS 1.2",
+      "hex_pattern": "b'\\x16\\x03\\x03'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for TLS 1.2"
+    },
+    {
+      "format_name": "SMB",
+      "hex_pattern": "b'\\xffSMB'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for SMB"
+    },
+    {
+      "format_name": "SMB2",
+      "hex_pattern": "b'\\xfeSMB'",
+      "offset": 0,
+      "category": "network",
+      "description": "File signature for SMB2"
+    },
+    {
+      "format_name": "FTP Response",
+      "hex_pattern": "b'220'",
+      "offset": 0,
+      "category": "network",
+      "description": "File signature for FTP Response"
+    },
+    {
+      "format_name": "SSH",
+      "hex_pattern": "b'SSH-'",
+      "offset": 0,
+      "category": "network",
+      "description": "File signature for SSH"
+    },
+    {
+      "format_name": "PCAP",
+      "hex_pattern": "b'\\xd4\\xc3\\xb2\\xa1'",
+      "offset": 0,
+      "category": "network",
+      "description": "File signature for PCAP"
+    },
+    {
+      "format_name": "PCAP",
+      "hex_pattern": "b'\\xa1\\xb2\\xc3\\xd4'",
+      "offset": 0,
+      "category": "network",
+      "description": "File signature for PCAP"
+    },
+    {
+      "format_name": "PCAPNG",
+      "hex_pattern": "b'\\n\\r\\r\\n'",
+      "offset": 0,
+      "category": "network",
+      "description": "File signature for PCAPNG"
+    },
+    {
+      "format_name": "MP3 (ID3v1)",
+      "hex_pattern": "b'TAG'",
+      "offset": 0,
+      "category": "media",
+      "description": "File signature for MP3 (ID3v1)"
+    },
+    {
+      "format_name": "MP3 (ID3v2)",
+      "hex_pattern": "b'ID3'",
+      "offset": 0,
+      "category": "media",
+      "description": "File signature for MP3 (ID3v2)"
+    },
+    {
+      "format_name": "FLAC",
+      "hex_pattern": "b'fLaC'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for FLAC"
+    },
+    {
+      "format_name": "OGG",
+      "hex_pattern": "b'OggS'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for OGG"
+    },
+    {
+      "format_name": "MIDI",
+      "hex_pattern": "b'MThd'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for MIDI"
+    },
+    {
+      "format_name": "AMR",
+      "hex_pattern": "b'#!AMR'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for AMR"
+    },
+    {
+      "format_name": "WMA",
+      "hex_pattern": "b'0&\\xb2u\\x8ef\\xcf\\x11'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for WMA"
+    },
+    {
+      "format_name": "MKV/WebM",
+      "hex_pattern": "b'\\x1aE\\xdf\\xa3'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for MKV/WebM"
+    },
+    {
+      "format_name": "FLV",
+      "hex_pattern": "b'FLV\\x01'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for FLV"
+    },
+    {
+      "format_name": "TTF",
+      "hex_pattern": "b'\\x00\\x01\\x00\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for TTF"
+    },
+    {
+      "format_name": "OTF",
+      "hex_pattern": "b'OTTO'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for OTF"
+    },
+    {
+      "format_name": "WOFF",
+      "hex_pattern": "b'wOFF'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for WOFF"
+    },
+    {
+      "format_name": "WOFF2",
+      "hex_pattern": "b'wOF2'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for WOFF2"
+    },
+    {
+      "format_name": "SSH Private Key (OpenSSH)",
+      "hex_pattern": "b'-----BEGIN OPENSSH PRIVATE KEY'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for SSH Private Key (OpenSSH)"
+    },
+    {
+      "format_name": "SSH Private Key (RSA)",
+      "hex_pattern": "b'-----BEGIN RSA PRIVATE KEY'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for SSH Private Key (RSA)"
+    },
+    {
+      "format_name": "PKCS#7 Certificate",
+      "hex_pattern": "b'-----BEGIN PKCS7'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for PKCS#7 Certificate"
+    },
+    {
+      "format_name": "SSH Public Key",
+      "hex_pattern": "b'ssh-'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for SSH Public Key"
+    },
+    {
+      "format_name": "OpenSSL Encrypted Key",
+      "hex_pattern": "b'-----BEGIN ENCRYPTED PRIVATE KEY'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for OpenSSL Encrypted Key"
+    },
+    {
+      "format_name": "UFS",
+      "hex_pattern": "b'\\x19T\\x01\\x19'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for UFS"
+    },
+    {
+      "format_name": "UFS2",
+      "hex_pattern": "b'\\x19\\x01T\\x19'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for UFS2"
+    },
+    {
+      "format_name": "QCOW (v1)",
+      "hex_pattern": "b'QFI\\x00\\x00\\x00\\x00\\x01'",
+      "offset": 0,
+      "category": "media",
+      "description": "File signature for QCOW (v1)"
+    },
+    {
+      "format_name": "U-Boot uImage",
+      "hex_pattern": "b\"'\\x05\\x19V\"",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for U-Boot uImage"
+    },
+    {
+      "format_name": "UBIFS",
+      "hex_pattern": "b'1\\x18\\x10\\x06'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for UBIFS"
+    },
+    {
+      "format_name": "CramFS",
+      "hex_pattern": "b'E=\\xcd('",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for CramFS"
+    },
+    {
+      "format_name": "JSON with BOM",
+      "hex_pattern": "b'\\xef\\xbb\\xbf{'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for JSON with BOM"
+    },
+    {
+      "format_name": "YAML",
+      "hex_pattern": "b'---'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for YAML"
+    },
+    {
+      "format_name": "Apache Avro",
+      "hex_pattern": "b'Obj\\x01'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Apache Avro"
+    },
+    {
+      "format_name": "Apache Parquet",
+      "hex_pattern": "b'PAR1'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Apache Parquet"
+    },
+    {
+      "format_name": "Apache Arrow",
+      "hex_pattern": "b'ARROW1'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Apache Arrow"
+    },
+    {
+      "format_name": "Windows PDB (v2.0)",
+      "hex_pattern": "b'Microsoft C/C++ program database 2.00'",
+      "offset": 0,
+      "category": "network",
+      "description": "File signature for Windows PDB (v2.0)"
+    },
+    {
+      "format_name": "Windows PDB (v7.0)",
+      "hex_pattern": "b'Microsoft C/C++ MSF 7.00'",
+      "offset": 0,
+      "category": "database",
+      "description": "File signature for Windows PDB (v7.0)"
+    },
+    {
+      "format_name": "Multi-byte NOP (3)",
+      "hex_pattern": "b'\\x0f\\x1f\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Multi-byte NOP (3)"
+    },
+    {
+      "format_name": "XOR RDI, RDI",
+      "hex_pattern": "b'H1\\xff'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for XOR RDI, RDI"
+    },
+    {
+      "format_name": "NOP (ARM)",
+      "hex_pattern": "b'\\x00\\x00\\xa0\\xe1'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for NOP (ARM)"
+    },
+    {
+      "format_name": "BX LR (return)",
+      "hex_pattern": "b'\\x1e\\xff/\\xe1'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for BX LR (return)"
+    },
+    {
+      "format_name": "SVC 0 (syscall)",
+      "hex_pattern": "b'\\x00\\x00\\x00\\xef'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for SVC 0 (syscall)"
+    },
+    {
+      "format_name": "`0x000000FF`",
+      "hex_pattern": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x11\\x11\\x11\\x11'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `0x000000FF`"
+    },
+    {
+      "format_name": "`0x0000FF00`",
+      "hex_pattern": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x11\\x11\\x11\\x11\\x00\\x00\\x00\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `0x0000FF00`"
+    },
+    {
+      "format_name": "`0x0000FFFF`",
+      "hex_pattern": "b'\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x11\\x11\\x11\\x11\\x11\\x11\\x11\\x11'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `0x0000FFFF`"
+    },
+    {
+      "format_name": "`0xFFFF0000`",
+      "hex_pattern": "b'\\x11\\x11\\x11\\x11\\x11\\x11\\x11\\x11\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `0xFFFF0000`"
+    },
+    {
+      "format_name": "`0xFFFFFFFF`",
+      "hex_pattern": "b'\\x11\\x11\\x11\\x11\\x11\\x11\\x11\\x11\\x11\\x11\\x11\\x11\\x11\\x11\\x11\\x11'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `0xFFFFFFFF`"
+    },
+    {
+      "format_name": "`0x80000000`",
+      "hex_pattern": "b'\\x10\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+      "offset": 0,
+      "category": "document",
+      "description": "File signature for `0x80000000`"
+    },
+    {
+      "format_name": "`0xAAAAAAAA`",
+      "hex_pattern": "b'\\x10\\x10\\x10\\x10\\x10\\x10\\x10\\x10\\x10\\x10\\x10\\x10\\x10\\x10\\x10\\x10'",
+      "offset": 0,
+      "category": "document",
+      "description": "File signature for `0xAAAAAAAA`"
+    },
+    {
+      "format_name": "`0x55555555`",
+      "hex_pattern": "b'\\x01\\x01\\x01\\x01\\x01\\x01\\x01\\x01\\x01\\x01\\x01\\x01\\x01\\x01\\x01\\x01'",
+      "offset": 0,
+      "category": "document",
+      "description": "File signature for `0x55555555`"
+    },
+    {
+      "format_name": "0x12345678",
+      "hex_pattern": "b'xV4\\x12'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for 0x12345678"
+    },
+    {
+      "format_name": "0xDEADBEEF",
+      "hex_pattern": "b'\\xef\\xbe\\xad\\xde'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for 0xDEADBEEF"
+    },
+    {
+      "format_name": "tEXt",
+      "hex_pattern": "b'tEXt'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for tEXt"
+    },
+    {
+      "format_name": "zTXt",
+      "hex_pattern": "b'zTXt'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for zTXt"
+    },
+    {
+      "format_name": "iTXt",
+      "hex_pattern": "b'iTXt'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for iTXt"
+    },
+    {
+      "format_name": "tIME",
+      "hex_pattern": "b'tIME'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for tIME"
+    },
+    {
+      "format_name": "pHYs",
+      "hex_pattern": "b'pHYs'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for pHYs"
+    },
+    {
+      "format_name": "`PAGEDUMP` or `PAGEDU64`",
+      "hex_pattern": "b'PAGEDU'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `PAGEDUMP` or `PAGEDU64`"
+    },
+    {
+      "format_name": "`MDMP`",
+      "hex_pattern": "b'MDMP'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `MDMP`"
+    },
+    {
+      "format_name": "`hibr` or `HIBR`",
+      "hex_pattern": "b'hibr'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `hibr` or `HIBR`"
+    },
+    {
+      "format_name": "`PAGE`",
+      "hex_pattern": "b'PAGE'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `PAGE`"
+    },
+    {
+      "format_name": "PST (Outlook)",
+      "hex_pattern": "b'!BDN'",
+      "offset": 0,
+      "category": "document",
+      "description": "File signature for PST (Outlook)"
+    },
+    {
+      "format_name": "`From `",
+      "hex_pattern": "b'From '",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `From `"
+    },
+    {
+      "format_name": "OLE Compound",
+      "hex_pattern": "b'\\xd0\\xcf\\x11\\xe0'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for OLE Compound"
+    },
+    {
+      "format_name": "DBX (Outlook Express)",
+      "hex_pattern": "b'\\xcf\\xad\\x12\\xfe'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for DBX (Outlook Express)"
+    },
+    {
+      "format_name": "2.7",
+      "hex_pattern": "b'\\x03\\xf3\\r\\n'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for 2.7"
+    },
+    {
+      "format_name": "3.5",
+      "hex_pattern": "b'\\x16\\r\\r\\n'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for 3.5"
+    },
+    {
+      "format_name": "3.6",
+      "hex_pattern": "b'3\\r\\r\\n'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for 3.6"
+    },
+    {
+      "format_name": "3.7",
+      "hex_pattern": "b'B\\r\\r\\n'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for 3.7"
+    },
+    {
+      "format_name": "3.8",
+      "hex_pattern": "b'U\\r\\r\\n'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for 3.8"
+    },
+    {
+      "format_name": "3.9",
+      "hex_pattern": "b'a\\r\\r\\n'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for 3.9"
+    },
+    {
+      "format_name": "3.10",
+      "hex_pattern": "b'o\\r\\r\\n'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for 3.10"
+    },
+    {
+      "format_name": "3.11",
+      "hex_pattern": "b'\\xa7\\r\\r\\n'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for 3.11"
+    },
+    {
+      "format_name": "3.12",
+      "hex_pattern": "b'\\xcb\\r\\r\\n'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for 3.12"
+    },
+    {
+      "format_name": "`UnityFS`",
+      "hex_pattern": "b'UnityFS'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for `UnityFS`"
+    },
+    {
+      "format_name": "`0x5A6F12E1`",
+      "hex_pattern": "b'\\xe1\\x12oZ'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for `0x5A6F12E1`"
+    },
+    {
+      "format_name": "`0x55AA1234`",
+      "hex_pattern": "b'4\\x12\\xaaU'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for `0x55AA1234`"
+    },
+    {
+      "format_name": "`VBSP`",
+      "hex_pattern": "b'VBSP'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `VBSP`"
+    },
+    {
+      "format_name": "`CryTek`",
+      "hex_pattern": "b'CryTek'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `CryTek`"
+    },
+    {
+      "format_name": "`PACK`",
+      "hex_pattern": "b'PACK'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `PACK`"
+    },
+    {
+      "format_name": "`FORM`",
+      "hex_pattern": "b'FORM'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `FORM`"
+    },
+    {
+      "format_name": "`RGSSAD`",
+      "hex_pattern": "b'RGSSAD'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `RGSSAD`"
+    },
+    {
+      "format_name": "`NES` + `1A`",
+      "hex_pattern": "b'NES\\x1a'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for `NES` + `1A`"
+    },
+    {
+      "format_name": "ISO/GCM",
+      "hex_pattern": "b'\\xc23\\x9f='",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for ISO/GCM"
+    },
+    {
+      "format_name": "BIN/CUE",
+      "hex_pattern": "b'\\x00\\xff\\xff\\xff\\xff\\xff\\xff\\xff\\xff\\xff\\xff\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for BIN/CUE"
+    },
+    {
+      "format_name": "UEFI Capsule",
+      "hex_pattern": "b'\\xbd\\x86f;'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for UEFI Capsule"
+    },
+    {
+      "format_name": "`_FVH`",
+      "hex_pattern": "b'_FVH'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `_FVH`"
+    },
+    {
+      "format_name": "TRX/BIN",
+      "hex_pattern": "b'HDR0'",
+      "offset": 0,
+      "category": "cryptographic",
+      "description": "File signature for TRX/BIN"
+    },
+    {
+      "format_name": "NPK",
+      "hex_pattern": "b'NPK'",
+      "offset": 0,
+      "category": "cryptographic",
+      "description": "File signature for NPK"
+    },
+    {
+      "format_name": "RedBoot",
+      "hex_pattern": "b'RedBoot'",
+      "offset": 0,
+      "category": "media",
+      "description": "File signature for RedBoot"
+    },
+    {
+      "format_name": "GRUB",
+      "hex_pattern": "b'GRUB'",
+      "offset": 0,
+      "category": "media",
+      "description": "File signature for GRUB"
+    },
+    {
+      "format_name": ".bit",
+      "hex_pattern": "b'\\x00\\t\\x0f\\xf0\\x0f\\xf0\\x0f\\xf0\\x0f\\xf0\\x00\\x00\\x01'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for .bit"
+    },
+    {
+      "format_name": "Full Dump",
+      "hex_pattern": "b'PAGEDUMP'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for Full Dump"
+    },
+    {
+      "format_name": "Full Dump (alt)",
+      "hex_pattern": "b'PAGEDU64'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for Full Dump (alt)"
+    },
+    {
+      "format_name": "Kernel Dump",
+      "hex_pattern": "b'DUMP'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for Kernel Dump"
+    },
+    {
+      "format_name": "Minidump",
+      "hex_pattern": "b'MDMP\\x93\\xa7'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for Minidump"
+    },
+    {
+      "format_name": "ELF Core",
+      "hex_pattern": "b'\\x7fELF'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for ELF Core"
+    },
+    {
+      "format_name": "HIBR",
+      "hex_pattern": "b'HIBR'",
+      "offset": 0,
+      "category": "media",
+      "description": "File signature for HIBR"
+    },
+    {
+      "format_name": "WAKE",
+      "hex_pattern": "b'WAKE'",
+      "offset": 0,
+      "category": "media",
+      "description": "File signature for WAKE"
+    },
+    {
+      "format_name": "Lua 5.1",
+      "hex_pattern": "b'\\x1bLuaQ'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Lua 5.1"
+    },
+    {
+      "format_name": "Lua 5.2",
+      "hex_pattern": "b'\\x1bLuaR'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Lua 5.2"
+    },
+    {
+      "format_name": "Lua 5.3",
+      "hex_pattern": "b'\\x1bLuaS'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Lua 5.3"
+    },
+    {
+      "format_name": "`pop ebx ; pop ecx ; ret`",
+      "hex_pattern": "b'[Y\\xc3'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `pop ebx ; pop ecx ; ret`"
+    },
+    {
+      "format_name": "`mov [eax], ebx ; ret`",
+      "hex_pattern": "b'\\x89\\x18\\xc3'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `mov [eax], ebx ; ret`"
+    },
+    {
+      "format_name": "UTF-7 BOM",
+      "hex_pattern": "b'+/v8'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for UTF-7 BOM"
+    },
+    {
+      "format_name": "CSR",
+      "hex_pattern": "b'-----BEGIN CERTIFICATE REQ'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for CSR"
+    },
+    {
+      "format_name": "APFS Volume",
+      "hex_pattern": "b'APSB'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for APFS Volume"
+    },
+    {
+      "format_name": "ReFS",
+      "hex_pattern": "b'\\x00\\x00\\x00ReFS'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for ReFS"
+    },
+    {
+      "format_name": "UFS",
+      "hex_pattern": "b'\\x00\\x01\\x13T'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for UFS"
+    },
+    {
+      "format_name": "VMware VMDK (text)",
+      "hex_pattern": "b'# Disk Desc'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for VMware VMDK (text)"
+    },
+    {
+      "format_name": "VirtualBox VDI",
+      "hex_pattern": "b'<<< Oracle'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for VirtualBox VDI"
+    },
+    {
+      "format_name": "Parallels HDD",
+      "hex_pattern": "b'Without free'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Parallels HDD"
+    },
+    {
+      "format_name": "IPA Code Signature",
+      "hex_pattern": "b'\\xfa\\xde\\x0c\\xc0'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for IPA Code Signature"
+    },
+    {
+      "format_name": "U-Boot FIT",
+      "hex_pattern": "b'\\xd0\\r\\xfe\\xed'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for U-Boot FIT"
+    },
+    {
+      "format_name": "UBI",
+      "hex_pattern": "b'UBI#'",
+      "offset": 0,
+      "category": "media",
+      "description": "File signature for UBI"
+    },
+    {
+      "format_name": "XML (with BOM)",
+      "hex_pattern": "b'\\xef\\xbb\\xbf<'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for XML (with BOM)"
+    },
+    {
+      "format_name": "HDF5",
+      "hex_pattern": "b'\\x89HDF\\r\\n\\x1a\\n'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for HDF5"
+    },
+    {
+      "format_name": "NOP (ARM64)",
+      "hex_pattern": "b'\\x1f \\x03\\xd5'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for NOP (ARM64)"
+    },
+    {
+      "format_name": "NOP (MIPS)",
+      "hex_pattern": "b'\\x00\\x00\\x00\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for NOP (MIPS)"
+    },
+    {
+      "format_name": "XOR RCX,RCX",
+      "hex_pattern": "b'H1\\xc9'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for XOR RCX,RCX"
+    },
+    {
+      "format_name": "Egg hunter",
+      "hex_pattern": "b'f\\x81\\xca\\xff\\x0f'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for Egg hunter"
+    },
+    {
+      "format_name": "CodeView (PE)",
+      "hex_pattern": "b'RSDS'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for CodeView (PE)"
+    },
+    {
+      "format_name": "`0x00FF`",
+      "hex_pattern": "b'\\x00\\x00\\x00\\x00\\x11\\x11\\x11\\x11'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `0x00FF`"
+    },
+    {
+      "format_name": "`0xFF00`",
+      "hex_pattern": "b'\\x11\\x11\\x11\\x11\\x00\\x00\\x00\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `0xFF00`"
+    },
+    {
+      "format_name": "`0x0F`",
+      "hex_pattern": "b'\\x00\\x00\\x11\\x11'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `0x0F`"
+    },
+    {
+      "format_name": "`0xF0`",
+      "hex_pattern": "b'\\x11\\x11\\x00\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `0xF0`"
+    },
+    {
+      "format_name": "`0x01`",
+      "hex_pattern": "b'\\x00\\x00\\x00\\x01'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `0x01`"
+    },
+    {
+      "format_name": "`0x80`",
+      "hex_pattern": "b'\\x10\\x00\\x00\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `0x80`"
+    },
+    {
+      "format_name": "PKCS#8 Private Key",
+      "hex_pattern": "b'-----BEGIN PRIVATE KEY'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for PKCS#8 Private Key"
+    },
+    {
+      "format_name": "GPT",
+      "hex_pattern": "b'EFI PART'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for GPT"
+    },
+    {
+      "format_name": "VirtualBox VDI",
+      "hex_pattern": "b'<<< Oracle VM'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for VirtualBox VDI"
+    },
+    {
+      "format_name": "QCOW",
+      "hex_pattern": "b'QFI\\xfb\\x00\\x00\\x00\\x01'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for QCOW"
+    },
+    {
+      "format_name": "SquashFS (LE)",
+      "hex_pattern": "b'hsqs'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for SquashFS (LE)"
+    },
+    {
+      "format_name": "SquashFS (BE)",
+      "hex_pattern": "b'sqsh'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for SquashFS (BE)"
+    },
+    {
+      "format_name": "Android Boot Image",
+      "hex_pattern": "b'ANDROID!'",
+      "offset": 0,
+      "category": "archive",
+      "description": "File signature for Android Boot Image"
+    },
+    {
+      "format_name": "ASPack",
+      "hex_pattern": "b'`\\xe8\\x00\\x00\\x00\\x00]'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for ASPack"
+    },
+    {
+      "format_name": "XML (UTF-16 LE)",
+      "hex_pattern": "b'\\xff\\xfe<\\x00?\\x00'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for XML (UTF-16 LE)"
+    },
+    {
+      "format_name": "Ansible Playbook",
+      "hex_pattern": "b'---\\n'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Ansible Playbook"
+    },
+    {
+      "format_name": "GetPC (x86)",
+      "hex_pattern": "b'\\xe8\\x00\\x00\\x00\\x00['",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for GetPC (x86)"
+    },
+    {
+      "format_name": "GetPC (x64)",
+      "hex_pattern": "b'H\\x8d\\x05\\x00\\x00\\x00\\x00'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for GetPC (x64)"
+    },
+    {
+      "format_name": "PUSH string (little-endian)",
+      "hex_pattern": "b'h//shh/bin'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for PUSH string (little-endian)"
+    },
+    {
+      "format_name": "Egg hunter pattern",
+      "hex_pattern": "b'f\\x81\\xca\\xff\\x0fBRj\\x02X\\xcd.'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Egg hunter pattern"
+    },
+    {
+      "format_name": "Reverse shell stub",
+      "hex_pattern": "b'j\\x02_j\\x01^j\\x06Zj)X\\x99\\xcd\\x80'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Reverse shell stub"
+    },
+    {
+      "format_name": "Standard prologue (x86)",
+      "hex_pattern": "b'U\\x89\\xe5'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Standard prologue (x86)"
+    },
+    {
+      "format_name": "Standard epilogue (x86)",
+      "hex_pattern": "b'\\x89\\xec]\\xc3'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for Standard epilogue (x86)"
+    },
+    {
+      "format_name": "x64 prologue",
+      "hex_pattern": "b'UH\\x89\\xe5'",
+      "offset": 0,
+      "category": "format",
+      "description": "File signature for x64 prologue"
+    },
+    {
+      "format_name": "`0xFF`",
+      "hex_pattern": "b'\\x11\\x11\\x11\\x11'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `0xFF`"
+    },
+    {
+      "format_name": "`0xFFFF`",
+      "hex_pattern": "b'\\x11\\x11\\x11\\x11\\x11\\x11\\x11\\x11'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `0xFFFF`"
+    },
+    {
+      "format_name": "`0x7F`",
+      "hex_pattern": "b'\\x01\\x11\\x11\\x11'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for `0x7F`"
+    },
+    {
+      "format_name": "",
+      "hex_pattern": "b'\\x89PNG'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for "
+    },
+    {
+      "format_name": "",
+      "hex_pattern": "b'\\xff\\xd8\\xff'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for "
+    },
+    {
+      "format_name": "",
+      "hex_pattern": "b'%PDF'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for "
+    },
+    {
+      "format_name": "",
+      "hex_pattern": "b'Rar!'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for "
+    },
+    {
+      "format_name": "",
+      "hex_pattern": "b'GIF8'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for "
+    },
+    {
+      "format_name": "",
+      "hex_pattern": "b'7z\\xbc\\xaf'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for "
+    },
+    {
+      "format_name": "",
+      "hex_pattern": "b'RIFF'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for "
+    },
+    {
+      "format_name": "",
+      "hex_pattern": "b'dex\\n'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for "
+    },
+    {
+      "format_name": "",
+      "hex_pattern": "b'SQLite'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for "
+    },
+    {
+      "format_name": "GetPC code",
+      "hex_pattern": "b'\\xe8\\x00\\x00\\x00\\x00X'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for GetPC code"
+    },
+    {
+      "format_name": "F4",
+      "hex_pattern": "b'\\x00\\x01\\x00\\x01'",
+      "offset": 0,
+      "category": "cryptographic",
+      "description": "File signature for F4"
+    },
+    {
+      "format_name": ".rtf",
+      "hex_pattern": "b'{\\\\rtf'",
+      "offset": 0,
+      "category": "executable",
+      "description": "File signature for .rtf"
+    }
+  ],
+  "behavioral_indicators": [
+    {
+      "family": "WannaCry",
+      "indicator_type": "file_extension",
+      "value": ".WNCRY",
+      "description": "File extension used by WannaCry ransomware"
+    },
+    {
+      "family": "WannaCry",
+      "indicator_type": "file_extension",
+      "value": ".WCRY",
+      "description": "File extension used by WannaCry ransomware"
+    },
+    {
+      "family": "WannaCry",
+      "indicator_type": "mutex",
+      "value": "`Global\\MsWinZonesCacheCounterMutexA`",
+      "description": "Mutex used by WannaCry ransomware"
+    },
+    {
+      "family": "WannaCry",
+      "indicator_type": "ransom_note",
+      "value": "`@Please_Read_Me@.txt`",
+      "description": "Ransom note filename for WannaCry"
+    },
+    {
+      "family": "Locky",
+      "indicator_type": "file_extension",
+      "value": ".locky",
+      "description": "File extension used by Locky ransomware"
+    },
+    {
+      "family": "Locky",
+      "indicator_type": "file_extension",
+      "value": ".zepto",
+      "description": "File extension used by Locky ransomware"
+    },
+    {
+      "family": "Locky",
+      "indicator_type": "file_extension",
+      "value": ".odin",
+      "description": "File extension used by Locky ransomware"
+    },
+    {
+      "family": "Locky",
+      "indicator_type": "mutex",
+      "value": "`Global\\{GUID}`",
+      "description": "Mutex used by Locky ransomware"
+    },
+    {
+      "family": "Locky",
+      "indicator_type": "ransom_note",
+      "value": "`_HELP_instructions.html`",
+      "description": "Ransom note filename for Locky"
+    },
+    {
+      "family": "CryptoLocker",
+      "indicator_type": "file_extension",
+      "value": ".encrypted",
+      "description": "File extension used by CryptoLocker ransomware"
+    },
+    {
+      "family": "CryptoLocker",
+      "indicator_type": "file_extension",
+      "value": ".cryptolocker",
+      "description": "File extension used by CryptoLocker ransomware"
+    },
+    {
+      "family": "CryptoLocker",
+      "indicator_type": "ransom_note",
+      "value": "`DECRYPT_INSTRUCTION.txt`",
+      "description": "Ransom note filename for CryptoLocker"
+    },
+    {
+      "family": "TeslaCrypt",
+      "indicator_type": "file_extension",
+      "value": ".micro",
+      "description": "File extension used by TeslaCrypt ransomware"
+    },
+    {
+      "family": "TeslaCrypt",
+      "indicator_type": "file_extension",
+      "value": ".xxx",
+      "description": "File extension used by TeslaCrypt ransomware"
+    },
+    {
+      "family": "TeslaCrypt",
+      "indicator_type": "file_extension",
+      "value": ".ttt",
+      "description": "File extension used by TeslaCrypt ransomware"
+    },
+    {
+      "family": "TeslaCrypt",
+      "indicator_type": "mutex",
+      "value": "`Global\\{GUID}`",
+      "description": "Mutex used by TeslaCrypt ransomware"
+    },
+    {
+      "family": "TeslaCrypt",
+      "indicator_type": "ransom_note",
+      "value": "`_H_e_l_p_RECOVER_INSTRUCTIONS.txt`",
+      "description": "Ransom note filename for TeslaCrypt"
+    },
+    {
+      "family": "Cerber",
+      "indicator_type": "file_extension",
+      "value": ".cerber",
+      "description": "File extension used by Cerber ransomware"
+    },
+    {
+      "family": "Cerber",
+      "indicator_type": "file_extension",
+      "value": ".cerber2",
+      "description": "File extension used by Cerber ransomware"
+    },
+    {
+      "family": "Cerber",
+      "indicator_type": "file_extension",
+      "value": ".cerber3",
+      "description": "File extension used by Cerber ransomware"
+    },
+    {
+      "family": "Cerber",
+      "indicator_type": "mutex",
+      "value": "`Global\\{GUID}`",
+      "description": "Mutex used by Cerber ransomware"
+    },
+    {
+      "family": "Cerber",
+      "indicator_type": "ransom_note",
+      "value": "`# DECRYPT MY FILES #.html`",
+      "description": "Ransom note filename for Cerber"
+    },
+    {
+      "family": "Petya/NotPetya",
+      "indicator_type": "mutex",
+      "value": "N/A (bootkit)",
+      "description": "Mutex used by Petya/NotPetya ransomware"
+    },
+    {
+      "family": "Petya/NotPetya",
+      "indicator_type": "ransom_note",
+      "value": "`README.txt`",
+      "description": "Ransom note filename for Petya/NotPetya"
+    },
+    {
+      "family": "Ryuk",
+      "indicator_type": "file_extension",
+      "value": ".RYK",
+      "description": "File extension used by Ryuk ransomware"
+    },
+    {
+      "family": "Ryuk",
+      "indicator_type": "ransom_note",
+      "value": "`RyukReadMe.txt`",
+      "description": "Ransom note filename for Ryuk"
+    },
+    {
+      "family": "Sodinokibi/REvil",
+      "indicator_type": "mutex",
+      "value": "`Global\\{GUID}`",
+      "description": "Mutex used by Sodinokibi/REvil ransomware"
+    },
+    {
+      "family": "Sodinokibi/REvil",
+      "indicator_type": "ransom_note",
+      "value": "`{random}-readme.txt`",
+      "description": "Ransom note filename for Sodinokibi/REvil"
+    },
+    {
+      "family": "Maze",
+      "indicator_type": "file_extension",
+      "value": ".maze",
+      "description": "File extension used by Maze ransomware"
+    },
+    {
+      "family": "Maze",
+      "indicator_type": "ransom_note",
+      "value": "`DECRYPT-FILES.txt`",
+      "description": "Ransom note filename for Maze"
+    },
+    {
+      "family": "Conti",
+      "indicator_type": "file_extension",
+      "value": ".CONTI",
+      "description": "File extension used by Conti ransomware"
+    },
+    {
+      "family": "Conti",
+      "indicator_type": "ransom_note",
+      "value": "`readme.txt`",
+      "description": "Ransom note filename for Conti"
+    },
+    {
+      "family": "LockBit",
+      "indicator_type": "file_extension",
+      "value": ".lockbit",
+      "description": "File extension used by LockBit ransomware"
+    },
+    {
+      "family": "LockBit",
+      "indicator_type": "mutex",
+      "value": "`Global\\{GUID}`",
+      "description": "Mutex used by LockBit ransomware"
+    },
+    {
+      "family": "LockBit",
+      "indicator_type": "ransom_note",
+      "value": "`Restore-My-Files.txt`",
+      "description": "Ransom note filename for LockBit"
+    },
+    {
+      "family": "DarkSide",
+      "indicator_type": "ransom_note",
+      "value": "`README.{ID}.TXT`",
+      "description": "Ransom note filename for DarkSide"
+    },
+    {
+      "family": "RAT Name",
+      "indicator_type": "mutex",
+      "value": "Registry Keys",
+      "description": "Mutex used by RAT Name ransomware"
+    },
+    {
+      "family": "RAT Name",
+      "indicator_type": "ransom_note",
+      "value": "Mutex",
+      "description": "Ransom note filename for RAT Name"
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "-------",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "---------------",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "`HKLM\\SOFTWARE\\Classes\\http\\shell\\open\\ddeexec`",
+      "indicator_type": "mutex",
+      "value": "DarkComet",
+      "description": "Mutex used by `HKLM\\SOFTWARE\\Classes\\http\\shell\\open\\ddeexec` ransomware"
+    },
+    {
+      "family": "`DC_MUTEX-{GUID}`",
+      "indicator_type": "ransom_note",
+      "value": "HTTP POST",
+      "description": "Ransom note filename for `DC_MUTEX-{GUID}`"
+    },
+    {
+      "family": "5552",
+      "indicator_type": "mutex",
+      "value": "Base64 over TCP",
+      "description": "Mutex used by 5552 ransomware"
+    },
+    {
+      "family": "5552",
+      "indicator_type": "ransom_note",
+      "value": "`HKCU\\Software\\{random}`",
+      "description": "Ransom note filename for 5552"
+    },
+    {
+      "family": "QuasarRAT",
+      "indicator_type": "mutex",
+      "value": "`HKCU\\Software\\Quasar`",
+      "description": "Mutex used by QuasarRAT ransomware"
+    },
+    {
+      "family": "QuasarRAT",
+      "indicator_type": "ransom_note",
+      "value": "`QSR_MUTEX_{GUID}`",
+      "description": "Ransom note filename for QuasarRAT"
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "`{GUID}`",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "4782",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "DES encrypted",
+      "indicator_type": "mutex",
+      "value": "2404",
+      "description": "Mutex used by DES encrypted ransomware"
+    },
+    {
+      "family": "DES encrypted",
+      "indicator_type": "ransom_note",
+      "value": "Remcos",
+      "description": "Ransom note filename for DES encrypted"
+    },
+    {
+      "family": "`HKCU\\Software\\Remcos`",
+      "indicator_type": "mutex",
+      "value": "AsyncRAT",
+      "description": "Mutex used by `HKCU\\Software\\Remcos` ransomware"
+    },
+    {
+      "family": "`AsyncMutex_{GUID}`",
+      "indicator_type": "ransom_note",
+      "value": "AES/Pastebin C2",
+      "description": "Ransom note filename for `AsyncMutex_{GUID}`"
+    },
+    {
+      "family": "80, 443",
+      "indicator_type": "mutex",
+      "value": "Custom protocol",
+      "description": "Mutex used by 80, 443 ransomware"
+    },
+    {
+      "family": "80, 443",
+      "indicator_type": "ransom_note",
+      "value": "Various",
+      "description": "Ransom note filename for 80, 443"
+    },
+    {
+      "family": "PlugX",
+      "indicator_type": "mutex",
+      "value": "`HKLM\\SOFTWARE\\BINARY`",
+      "description": "Mutex used by PlugX ransomware"
+    },
+    {
+      "family": "PlugX",
+      "indicator_type": "ransom_note",
+      "value": "`Global\\{GUID}`",
+      "description": "Ransom note filename for PlugX"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "80, 443, 8080",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "HTTP/HTTPS/DNS",
+      "indicator_type": "file_extension",
+      "value": ".exe",
+      "description": "File extension used by HTTP/HTTPS/DNS ransomware"
+    },
+    {
+      "family": "HTTP/HTTPS/DNS",
+      "indicator_type": "file_extension",
+      "value": ".3",
+      "description": "File extension used by HTTP/HTTPS/DNS ransomware"
+    },
+    {
+      "family": "HTTP/HTTPS/DNS",
+      "indicator_type": "mutex",
+      "value": "Technique",
+      "description": "Mutex used by HTTP/HTTPS/DNS ransomware"
+    },
+    {
+      "family": "HTTP/HTTPS/DNS",
+      "indicator_type": "ransom_note",
+      "value": "Type",
+      "description": "Ransom note filename for HTTP/HTTPS/DNS"
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "-----------------",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "-----------",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "User-mode",
+      "indicator_type": "ransom_note",
+      "value": "Compare IAT to known good",
+      "description": "Ransom note filename for User-mode"
+    },
+    {
+      "family": "Inline hooking",
+      "indicator_type": "mutex",
+      "value": "User-mode",
+      "description": "Mutex used by Inline hooking ransomware"
+    },
+    {
+      "family": "Enumerate loaded modules, check base addresses",
+      "indicator_type": "mutex",
+      "value": "SSDT hooking",
+      "description": "Mutex used by Enumerate loaded modules, check base addresses ransomware"
+    },
+    {
+      "family": "Enumerate loaded modules, check base addresses",
+      "indicator_type": "ransom_note",
+      "value": "Kernel-mode",
+      "description": "Ransom note filename for Enumerate loaded modules, check base addresses"
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "Check driver IRP handler addresses",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "IRP hooking",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "Kernel-mode",
+      "indicator_type": "ransom_note",
+      "value": "Scan memory for hidden processes",
+      "description": "Ransom note filename for Kernel-mode"
+    },
+    {
+      "family": "IDT hooking",
+      "indicator_type": "mutex",
+      "value": "Kernel-mode",
+      "description": "Mutex used by IDT hooking ransomware"
+    },
+    {
+      "family": "Check filter chain for minifilters",
+      "indicator_type": "mutex",
+      "value": "MBR modification",
+      "description": "Mutex used by Check filter chain for minifilters ransomware"
+    },
+    {
+      "family": "Check filter chain for minifilters",
+      "indicator_type": "ransom_note",
+      "value": "Bootkit",
+      "description": "Ransom note filename for Check filter chain for minifilters"
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "Check Volume Boot Record",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "VBR modification",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "UEFI rootkit",
+      "indicator_type": "mutex",
+      "value": "**Common Rootkit Artifacts:**\n```\nHidden processes: PspCidTable walking vs. EPROCESS list walking\nHidden files: File system minifilter analysis\nHidden registry: Registry callbacks enumeration\nHidden network: NDIS filter driver checks\nKernel driver without digital signature\nSuspicious driver names: randomly named .sys files\nNon-standard service DLL paths\n```\n\n\n### 6.4 Bootkit Signatures",
+      "description": "Mutex used by UEFI rootkit ransomware"
+    },
+    {
+      "family": "UEFI rootkit",
+      "indicator_type": "ransom_note",
+      "value": "Dump and analyze UEFI variables",
+      "description": "Ransom note filename for UEFI rootkit"
+    },
+    {
+      "family": "MBR Signature",
+      "indicator_type": "mutex",
+      "value": "---------",
+      "description": "Mutex used by MBR Signature ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "MBR redirector",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "`55 AA` at offset 510 + custom code",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "Mebroot",
+      "indicator_type": "ransom_note",
+      "value": "Hooks disk read operations",
+      "description": "Ransom note filename for Mebroot"
+    },
+    {
+      "family": "Modified MBR/VBR",
+      "indicator_type": "mutex",
+      "value": "Carberp",
+      "description": "Mutex used by Modified MBR/VBR ransomware"
+    },
+    {
+      "family": "Banking trojan bootkit",
+      "indicator_type": "mutex",
+      "value": "Custom bootloader",
+      "description": "Mutex used by Banking trojan bootkit ransomware"
+    },
+    {
+      "family": "Banking trojan bootkit",
+      "indicator_type": "ransom_note",
+      "value": "Gapz",
+      "description": "Ransom note filename for Banking trojan bootkit"
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "------------",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "------------------",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "RSA public keys embedded",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "Epoch-based structure",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "`<mcconf>` XML tag",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "Config in resources",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "XOR obfuscation",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "Encrypted config",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "Encrypted config file",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "`\\config.bin`",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "VBA with obfuscation",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "Document macros",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "`.dat` encrypted payload",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "Fake installer",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "`qbot` string artifacts",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "Scheduled task",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "SMTP credentials in memory",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "Keylogger strings",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "Code caves in legitimate processes",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "Process injection",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "String in binary",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "`RaccoonStealer`",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "FTP/SMTP credentials",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "SMTP exfiltration",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "`&p1=`, `&p2=` POST params",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "Panel communications",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "Specific DGA patterns",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "DGA algorithm",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "PE in resources",
+      "description": "Mutex used by  ransomware"
+    },
+    {
+      "family": "",
+      "indicator_type": "ransom_note",
+      "value": "Modular structure",
+      "description": "Ransom note filename for "
+    },
+    {
+      "family": "Family/Type",
+      "indicator_type": "mutex",
+      "value": "Ransom Note Filename",
+      "description": "Mutex used by Family/Type"
+    },
+    {
+      "family": "Family/Type",
+      "indicator_type": "registry_key",
+      "value": "Mutex Names",
+      "description": "Registry key used by Family/Type"
+    },
+    {
+      "family": "`@Please_Read_Me@.txt`",
+      "indicator_type": "registry_key",
+      "value": "Locky",
+      "description": "Registry key used by `@Please_Read_Me@.txt`"
+    },
+    {
+      "family": "`Global\\{GUID}`",
+      "indicator_type": "mutex",
+      "value": "CryptoLocker",
+      "description": "Mutex used by `Global\\{GUID}`"
+    },
+    {
+      "family": "`Global\\{GUID}`",
+      "indicator_type": "registry_key",
+      "value": "`.encrypted`, `.cryptolocker`",
+      "description": "Registry key used by `Global\\{GUID}`"
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "`.micro`, `.xxx`, `.ttt`",
+      "description": "Mutex used by "
+    },
+    {
+      "family": "",
+      "indicator_type": "registry_key",
+      "value": "`_H_e_l_p_RECOVER_INSTRUCTIONS.txt`",
+      "description": "Registry key used by "
+    },
+    {
+      "family": "Cerber",
+      "indicator_type": "network_port",
+      "value": "2",
+      "description": "Network port used by Cerber"
+    },
+    {
+      "family": "Cerber",
+      "indicator_type": "network_port",
+      "value": "3",
+      "description": "Network port used by Cerber"
+    },
+    {
+      "family": "Cerber",
+      "indicator_type": "mutex",
+      "value": "`# DECRYPT MY FILES #.html`",
+      "description": "Mutex used by Cerber"
+    },
+    {
+      "family": "Cerber",
+      "indicator_type": "registry_key",
+      "value": "`Global\\{GUID}`",
+      "description": "Registry key used by Cerber"
+    },
+    {
+      "family": "MBR overwrite",
+      "indicator_type": "mutex",
+      "value": "N/A (bootkit)",
+      "description": "Mutex used by MBR overwrite"
+    },
+    {
+      "family": "`RyukReadMe.txt`",
+      "indicator_type": "registry_key",
+      "value": "Sodinokibi/REvil",
+      "description": "Registry key used by `RyukReadMe.txt`"
+    },
+    {
+      "family": "`Global\\{GUID}`",
+      "indicator_type": "mutex",
+      "value": "Maze",
+      "description": "Mutex used by `Global\\{GUID}`"
+    },
+    {
+      "family": "`Global\\{GUID}`",
+      "indicator_type": "registry_key",
+      "value": "`.maze`",
+      "description": "Registry key used by `Global\\{GUID}`"
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "`.CONTI`",
+      "description": "Mutex used by "
+    },
+    {
+      "family": "",
+      "indicator_type": "registry_key",
+      "value": "`readme.txt`",
+      "description": "Registry key used by "
+    },
+    {
+      "family": "LockBit",
+      "indicator_type": "mutex",
+      "value": "`Restore-My-Files.txt`",
+      "description": "Mutex used by LockBit"
+    },
+    {
+      "family": "LockBit",
+      "indicator_type": "registry_key",
+      "value": "`Global\\{GUID}`",
+      "description": "Registry key used by LockBit"
+    },
+    {
+      "family": "Random",
+      "indicator_type": "registry_key",
+      "value": "**Common Ransomware Patterns:**\n```\nEncryption markers: Look for high entropy in user files\nVolume Shadow Copy deletion: vssadmin delete shadows /all /quiet\nEvent log clearing: wevtutil cl System\nRegistry modifications: HKCU\\Software\\{RandomName}\nNetwork share enumeration: net view, net use\nBitcoin addresses in ransom notes: 1[A-Za-z0-9]{26,35}\nTor .onion URLs: http://[a-z2-7]{16,56}\\.onion\nEmail contacts: Usually Protonmail, Tutanota, or similar\n```\n\n\n### 6.2 RAT/Trojan Signatures",
+      "description": "Registry key used by Random"
+    },
+    {
+      "family": "Mutex",
+      "indicator_type": "mutex",
+      "value": "C2 Patterns",
+      "description": "Mutex used by Mutex"
+    },
+    {
+      "family": "`)!VoqA.I4`",
+      "indicator_type": "mutex",
+      "value": "Custom protocol",
+      "description": "Mutex used by `)!VoqA.I4`"
+    },
+    {
+      "family": "`DC_MUTEX-{GUID}`",
+      "indicator_type": "mutex",
+      "value": "HTTP POST",
+      "description": "Mutex used by `DC_MUTEX-{GUID}`"
+    },
+    {
+      "family": "Various",
+      "indicator_type": "mutex",
+      "value": "Base64 over TCP",
+      "description": "Mutex used by Various"
+    },
+    {
+      "family": "`QSR_MUTEX_{GUID}`",
+      "indicator_type": "mutex",
+      "value": "AES encrypted",
+      "description": "Mutex used by `QSR_MUTEX_{GUID}`"
+    },
+    {
+      "family": "`{GUID}`",
+      "indicator_type": "mutex",
+      "value": "DES encrypted",
+      "description": "Mutex used by `{GUID}`"
+    },
+    {
+      "family": "`Remcos_{ID}`",
+      "indicator_type": "mutex",
+      "value": "RC4 encrypted",
+      "description": "Mutex used by `Remcos_{ID}`"
+    },
+    {
+      "family": "`AsyncMutex_{GUID}`",
+      "indicator_type": "mutex",
+      "value": "AES/Pastebin C2",
+      "description": "Mutex used by `AsyncMutex_{GUID}`"
+    },
+    {
+      "family": "`Gh0st`",
+      "indicator_type": "mutex",
+      "value": "Custom protocol",
+      "description": "Mutex used by `Gh0st`"
+    },
+    {
+      "family": "`Global\\{GUID}`",
+      "indicator_type": "mutex",
+      "value": "HTTP/HTTPS",
+      "description": "Mutex used by `Global\\{GUID}`"
+    },
+    {
+      "family": "Various",
+      "indicator_type": "mutex",
+      "value": "HTTP/HTTPS/DNS",
+      "description": "Mutex used by Various"
+    },
+    {
+      "family": "Various",
+      "indicator_type": "registry_key",
+      "value": "**Common RAT Capabilities Indicators:**\n```\nKeylogging: Hooks on GetAsyncKeyState, SetWindowsHookEx\nScreen capture: BitBlt, GetDC API calls\nAudio recording: waveInOpen, waveInStart\nWebcam: DirectShow, Video for Windows APIs\nFile manager: FindFirstFile, FindNextFile\nProcess manager: CreateToolhelp32Snapshot, Process32First\nRemote shell: cmd.exe /c, powershell.exe -exec bypass\nPersistence: Run keys, scheduled tasks, services\n```\n\n\n### 6.3 Rootkit Indicators",
+      "description": "Registry key used by Various"
+    },
+    {
+      "family": "Detection Method",
+      "indicator_type": "mutex",
+      "value": "------",
+      "description": "Mutex used by Detection Method"
+    },
+    {
+      "family": "Detection Method",
+      "indicator_type": "registry_key",
+      "value": "-----------",
+      "description": "Registry key used by Detection Method"
+    },
+    {
+      "family": "User-mode",
+      "indicator_type": "mutex",
+      "value": "Compare IAT to known good",
+      "description": "Mutex used by User-mode"
+    },
+    {
+      "family": "Check function prologues for JMP/CALL",
+      "indicator_type": "mutex",
+      "value": "User-mode",
+      "description": "Mutex used by Check function prologues for JMP/CALL"
+    },
+    {
+      "family": "Check function prologues for JMP/CALL",
+      "indicator_type": "registry_key",
+      "value": "DLL injection",
+      "description": "Registry key used by Check function prologues for JMP/CALL"
+    },
+    {
+      "family": "Kernel-mode",
+      "indicator_type": "mutex",
+      "value": "Compare SSDT entries to known addresses",
+      "description": "Mutex used by Kernel-mode"
+    },
+    {
+      "family": "Check driver IRP handler addresses",
+      "indicator_type": "mutex",
+      "value": "Kernel-mode",
+      "description": "Mutex used by Check driver IRP handler addresses"
+    },
+    {
+      "family": "Check driver IRP handler addresses",
+      "indicator_type": "registry_key",
+      "value": "DKOM (Direct Kernel Object Manipulation)",
+      "description": "Registry key used by Check driver IRP handler addresses"
+    },
+    {
+      "family": "Kernel-mode",
+      "indicator_type": "mutex",
+      "value": "Examine IDT entries",
+      "description": "Mutex used by Kernel-mode"
+    },
+    {
+      "family": "Check filter chain for minifilters",
+      "indicator_type": "mutex",
+      "value": "Bootkit",
+      "description": "Mutex used by Check filter chain for minifilters"
+    },
+    {
+      "family": "Check filter chain for minifilters",
+      "indicator_type": "registry_key",
+      "value": "MBR modification",
+      "description": "Registry key used by Check filter chain for minifilters"
+    },
+    {
+      "family": "Bootkit",
+      "indicator_type": "mutex",
+      "value": "Check Volume Boot Record",
+      "description": "Mutex used by Bootkit"
+    },
+    {
+      "family": "Dump and analyze UEFI variables",
+      "indicator_type": "network_port",
+      "value": "6",
+      "description": "Network port used by Dump and analyze UEFI variables"
+    },
+    {
+      "family": "Dump and analyze UEFI variables",
+      "indicator_type": "network_port",
+      "value": "4",
+      "description": "Network port used by Dump and analyze UEFI variables"
+    },
+    {
+      "family": "Dump and analyze UEFI variables",
+      "indicator_type": "mutex",
+      "value": "Bootkit",
+      "description": "Mutex used by Dump and analyze UEFI variables"
+    },
+    {
+      "family": "Dump and analyze UEFI variables",
+      "indicator_type": "registry_key",
+      "value": "MBR Signature",
+      "description": "Registry key used by Dump and analyze UEFI variables"
+    },
+    {
+      "family": "Infects MBR, loads kernel driver",
+      "indicator_type": "mutex",
+      "value": "Olmasco",
+      "description": "Mutex used by Infects MBR, loads kernel driver"
+    },
+    {
+      "family": "Infects MBR, loads kernel driver",
+      "indicator_type": "registry_key",
+      "value": "`55 AA` at offset 510 + custom code",
+      "description": "Registry key used by Infects MBR, loads kernel driver"
+    },
+    {
+      "family": "Mebroot",
+      "indicator_type": "mutex",
+      "value": "Hooks disk read operations",
+      "description": "Mutex used by Mebroot"
+    },
+    {
+      "family": "VBR infection",
+      "indicator_type": "mutex",
+      "value": "Carberp",
+      "description": "Mutex used by VBR infection"
+    },
+    {
+      "family": "VBR infection",
+      "indicator_type": "registry_key",
+      "value": "Modified MBR",
+      "description": "Registry key used by VBR infection"
+    },
+    {
+      "family": "Gapz",
+      "indicator_type": "mutex",
+      "value": "Advanced VBR/IPL infection",
+      "description": "Mutex used by Gapz"
+    },
+    {
+      "family": "Gapz",
+      "indicator_type": "registry_key",
+      "value": "**MBR Analysis Checklist:**\n```\n1. Read first 512 bytes of physical disk\n2. Check for valid boot signature (55 AA at offset 0x1FE)\n3. Examine partition table (offset 0x1BE)\n4. Compare MBR code to known clean versions\n5. Look for suspicious strings or URLs\n6. Check for code that reads additional sectors\n7. Verify bootloader jump instructions\n```\n\n**Clean MBR Patterns:**\n```\nWindows 7/8/10: Standard bootloader code\nGRUB: \"GRUB\" string, specific code patterns\nWindows XP: Specific boot code signature\nClean signature: Matches known OS bootloader\n```\n\n\n### 6.5 Common Malware Family Signatures",
+      "description": "Registry key used by Gapz"
+    },
+    {
+      "family": "Hex/String",
+      "indicator_type": "registry_key",
+      "value": "--------",
+      "description": "Registry key used by Hex/String"
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "Config in resources",
+      "description": "Mutex used by "
+    },
+    {
+      "family": "",
+      "indicator_type": "registry_key",
+      "value": "`<mcconf>` XML tag",
+      "description": "Registry key used by "
+    },
+    {
+      "family": "Dridex",
+      "indicator_type": "mutex",
+      "value": "XOR obfuscation",
+      "description": "Mutex used by Dridex"
+    },
+    {
+      "family": "Dridex",
+      "indicator_type": "registry_key",
+      "value": "Banking trojan, credential theft",
+      "description": "Registry key used by Dridex"
+    },
+    {
+      "family": "`\\config.bin`",
+      "indicator_type": "mutex",
+      "value": "Banking trojan, webinjects",
+      "description": "Mutex used by `\\config.bin`"
+    },
+    {
+      "family": "VBA with obfuscation",
+      "indicator_type": "network_port",
+      "value": "2",
+      "description": "Network port used by VBA with obfuscation"
+    },
+    {
+      "family": "VBA with obfuscation",
+      "indicator_type": "registry_key",
+      "value": "IcedID",
+      "description": "Registry key used by VBA with obfuscation"
+    },
+    {
+      "family": "Banking trojan",
+      "indicator_type": "mutex",
+      "value": "Qakbot/Qbot",
+      "description": "Mutex used by Banking trojan"
+    },
+    {
+      "family": "Banking trojan",
+      "indicator_type": "registry_key",
+      "value": "Scheduled task",
+      "description": "Registry key used by Banking trojan"
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "Keylogger strings",
+      "description": "Mutex used by "
+    },
+    {
+      "family": "",
+      "indicator_type": "registry_key",
+      "value": "SMTP credentials in memory",
+      "description": "Registry key used by "
+    },
+    {
+      "family": "Formbook",
+      "indicator_type": "mutex",
+      "value": "Code caves in legitimate processes",
+      "description": "Mutex used by Formbook"
+    },
+    {
+      "family": "Formbook",
+      "indicator_type": "registry_key",
+      "value": "Infostealer, keylogger",
+      "description": "Registry key used by Formbook"
+    },
+    {
+      "family": "`RaccoonStealer`",
+      "indicator_type": "mutex",
+      "value": "Credential/crypto stealer",
+      "description": "Mutex used by `RaccoonStealer`"
+    },
+    {
+      "family": "FTP/SMTP credentials",
+      "indicator_type": "registry_key",
+      "value": "AZORult",
+      "description": "Registry key used by FTP/SMTP credentials"
+    },
+    {
+      "family": "Stealer, downloaded payloads",
+      "indicator_type": "mutex",
+      "value": "Ursnif/Gozi",
+      "description": "Mutex used by Stealer, downloaded payloads"
+    },
+    {
+      "family": "Stealer, downloaded payloads",
+      "indicator_type": "registry_key",
+      "value": "DGA algorithm",
+      "description": "Registry key used by Stealer, downloaded payloads"
+    },
+    {
+      "family": "",
+      "indicator_type": "mutex",
+      "value": "Modular structure",
+      "description": "Mutex used by "
+    },
+    {
+      "family": "",
+      "indicator_type": "registry_key",
+      "value": "PE in resources",
+      "description": "Registry key used by "
+    },
+    {
+      "family": "Emotet",
+      "indicator_type": "signature",
+      "value": "RSA public keys embedded",
+      "description": "Epoch-based structure - Modular, downloads payloads"
+    },
+    {
+      "family": "TrickBot",
+      "indicator_type": "signature",
+      "value": "`<mcconf>` XML tag",
+      "description": "Config in resources - Banking trojan, lateral movement"
+    },
+    {
+      "family": "Dridex",
+      "indicator_type": "signature",
+      "value": "XOR obfuscation",
+      "description": "Encrypted config - Banking trojan, credential theft"
+    },
+    {
+      "family": "Zeus/Zbot",
+      "indicator_type": "signature",
+      "value": "Encrypted config file",
+      "description": "`\\config.bin` - Banking trojan, webinjects"
+    },
+    {
+      "family": "Hancitor",
+      "indicator_type": "signature",
+      "value": "VBA with obfuscation",
+      "description": "Document macros - Downloader, C2 beaconing"
+    },
+    {
+      "family": "IcedID",
+      "indicator_type": "signature",
+      "value": "`.dat` encrypted payload",
+      "description": "Fake installer - Banking trojan"
+    },
+    {
+      "family": "Qakbot/Qbot",
+      "indicator_type": "signature",
+      "value": "`qbot` string artifacts",
+      "description": "Scheduled task - Credential theft, lateral movement"
+    },
+    {
+      "family": "Agent Tesla",
+      "indicator_type": "signature",
+      "value": "SMTP credentials in memory",
+      "description": "Keylogger strings - Keylogger, stealer"
+    },
+    {
+      "family": "Formbook",
+      "indicator_type": "signature",
+      "value": "Code caves in legitimate processes",
+      "description": "Process injection - Infostealer, keylogger"
+    },
+    {
+      "family": "Raccoon Stealer",
+      "indicator_type": "signature",
+      "value": "String in binary",
+      "description": "`RaccoonStealer` - Credential/crypto stealer"
+    },
+    {
+      "family": "Lokibot",
+      "indicator_type": "signature",
+      "value": "FTP/SMTP credentials",
+      "description": "SMTP exfiltration - Android/Windows infostealer"
+    },
+    {
+      "family": "AZORult",
+      "indicator_type": "signature",
+      "value": "`&p1=`, `&p2=` POST params",
+      "description": "Panel communications - Stealer, downloaded payloads"
+    },
+    {
+      "family": "Ursnif/Gozi",
+      "indicator_type": "signature",
+      "value": "Specific DGA patterns",
+      "description": "DGA algorithm - Banking trojan"
+    },
+    {
+      "family": "Danabot",
+      "indicator_type": "signature",
+      "value": "PE in resources",
+      "description": "Modular structure - Banking trojan, stealer"
+    }
+  ],
+  "exploit_patterns": [
+    {
+      "technique": "NOP Sled",
+      "pattern": "90909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090",
+      "pattern_type": "hex",
+      "category": "buffer_overflow",
+      "description": "Long sequence of 0x90 (NOP) instructions"
+    },
+    {
+      "technique": "Pattern Padding",
+      "pattern": "41414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141",
+      "pattern_type": "hex",
+      "category": "buffer_overflow",
+      "description": "Repeated 0x41 (A) characters for padding"
+    },
+    {
+      "technique": "ROP Gadget: POP / RET",
+      "pattern": "58C3",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "pop eax ; ret"
+    },
+    {
+      "technique": "ROP Gadget: POP / POP / RET",
+      "pattern": "5B59C3",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "pop ebx ; pop ecx ; ret"
+    },
+    {
+      "technique": "ROP Gadget: MOV / RET",
+      "pattern": "8918C3",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "mov [eax], ebx ; ret"
+    },
+    {
+      "technique": "ROP Gadget: XCHG / RET",
+      "pattern": "94C3",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "xchg eax, esp ; ret"
+    },
+    {
+      "technique": "ROP Gadget: CALL [REG]",
+      "pattern": "FFD0",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "call eax"
+    },
+    {
+      "technique": "ROP Gadget: JMP [REG]",
+      "pattern": "FFE0",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "jmp eax"
+    },
+    {
+      "technique": "ROP Gadget: UTF-8 BOM",
+      "pattern": "...",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "EF BB BF"
+    },
+    {
+      "technique": "ROP Gadget: UTF-16 LE BOM",
+      "pattern": "..",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "FF FE"
+    },
+    {
+      "technique": "ROP Gadget: UTF-16 BE BOM",
+      "pattern": "..",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "FE FF"
+    },
+    {
+      "technique": "ROP Gadget: UTF-32 LE BOM",
+      "pattern": "....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "FF FE 00 00"
+    },
+    {
+      "technique": "ROP Gadget: UTF-32 BE BOM",
+      "pattern": "....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "00 00 FE FF"
+    },
+    {
+      "technique": "ROP Gadget: UTF-7 BOM",
+      "pattern": "+/v8",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2B 2F 76 38"
+    },
+    {
+      "technique": "ROP Gadget: UTF-1 BOM",
+      "pattern": ".dL",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "F7 64 4C"
+    },
+    {
+      "technique": "ROP Gadget: UTF-EBCDIC BOM",
+      "pattern": ".sfs",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "DD 73 66 73"
+    },
+    {
+      "technique": "ROP Gadget: SCSU BOM",
+      "pattern": "...",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0E FE FF"
+    },
+    {
+      "technique": "ROP Gadget: BOCU-1 BOM",
+      "pattern": "..(",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "FB EE 28"
+    },
+    {
+      "technique": "ROP Gadget: PGP Public Key",
+      "pattern": "-----BEGINPGPPUBLIC",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2D 2D 2D 2D 2D 42 45 47 49 4E 20 50 47 50 20 50 55 42 4C 49 43"
+    },
+    {
+      "technique": "ROP Gadget: PGP Private Key",
+      "pattern": "-----BEGINPGPPRIVATE",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2D 2D 2D 2D 2D 42 45 47 49 4E 20 50 47 50 20 50 52 49 56 41 54 45"
+    },
+    {
+      "technique": "ROP Gadget: OpenSSH Private",
+      "pattern": "-----BEGINOPENSSH",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2D 2D 2D 2D 2D 42 45 47 49 4E 20 4F 50 45 4E 53 53 48"
+    },
+    {
+      "technique": "ROP Gadget: RSA Private Key",
+      "pattern": "-----BEGINRSAPRIVATE",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2D 2D 2D 2D 2D 42 45 47 49 4E 20 52 53 41 20 50 52 49 56 41 54 45"
+    },
+    {
+      "technique": "ROP Gadget: SSL/TLS Certificate",
+      "pattern": "-----BEGINCERTIFICATE",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2D 2D 2D 2D 2D 42 45 47 49 4E 20 43 45 52 54 49 46 49 43 41 54 45"
+    },
+    {
+      "technique": "ROP Gadget: CSR",
+      "pattern": "-----BEGINCERTIFICATEREQ",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2D 2D 2D 2D 2D 42 45 47 49 4E 20 43 45 52 54 49 46 49 43 41 54 45 20 52 45 51"
+    },
+    {
+      "technique": "ROP Gadget: DSA Private Key",
+      "pattern": "-----BEGINDSAPRIVATE",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2D 2D 2D 2D 2D 42 45 47 49 4E 20 44 53 41 20 50 52 49 56 41 54 45"
+    },
+    {
+      "technique": "ROP Gadget: EC Private Key",
+      "pattern": "-----BEGINECPRIVATE",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2D 2D 2D 2D 2D 42 45 47 49 4E 20 45 43 20 50 52 49 56 41 54 45"
+    },
+    {
+      "technique": "ROP Gadget: DER Certificate",
+      "pattern": "0.",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "30 82"
+    },
+    {
+      "technique": "ROP Gadget: PKCS#12",
+      "pattern": "0.",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "30 82"
+    },
+    {
+      "technique": "ROP Gadget: NTFS",
+      "pattern": ".R.NTFS",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "EB 52 90 4E 54 46 53 20 20 20 20"
+    },
+    {
+      "technique": "ROP Gadget: exFAT",
+      "pattern": ".v.EXFAT",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "EB 76 90 45 58 46 41 54 20 20 20"
+    },
+    {
+      "technique": "ROP Gadget: ext2/3/4",
+      "pattern": "S.",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "53 EF"
+    },
+    {
+      "technique": "ROP Gadget: XFS",
+      "pattern": "XFSB",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "58 46 53 42"
+    },
+    {
+      "technique": "ROP Gadget: Btrfs",
+      "pattern": "_BHRfS_M",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "5F 42 48 52 66 53 5F 4D"
+    },
+    {
+      "technique": "ROP Gadget: APFS Container",
+      "pattern": "NXSB",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "4E 58 53 42"
+    },
+    {
+      "technique": "ROP Gadget: APFS Volume",
+      "pattern": "APSB",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "41 50 53 42"
+    },
+    {
+      "technique": "ROP Gadget: ReFS",
+      "pattern": "...ReFS",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "00 00 00 52 65 46 53"
+    },
+    {
+      "technique": "ROP Gadget: ZFS",
+      "pattern": "....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "00 BA B1 0C"
+    },
+    {
+      "technique": "ROP Gadget: JFS",
+      "pattern": "JFS1",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "4A 46 53 31"
+    },
+    {
+      "technique": "ROP Gadget: UFS",
+      "pattern": "...T",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "00 01 13 54"
+    },
+    {
+      "technique": "ROP Gadget: CramFS",
+      "pattern": "E=.(",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "45 3D CD 28"
+    },
+    {
+      "technique": "ROP Gadget: VMware VMDK (bin)",
+      "pattern": "KDM",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "4B 44 4D"
+    },
+    {
+      "technique": "ROP Gadget: VMware VMDK (text)",
+      "pattern": "#DiskDesc",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "23 20 44 69 73 6B 20 44 65 73 63"
+    },
+    {
+      "technique": "ROP Gadget: VirtualBox VDI",
+      "pattern": "<<<Oracle",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "3C 3C 3C 20 4F 72 61 63 6C 65"
+    },
+    {
+      "technique": "ROP Gadget: VirtualBox VDI",
+      "pattern": "....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "7F 10 DA BE"
+    },
+    {
+      "technique": "ROP Gadget: QCOW v1",
+      "pattern": "QFI.",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "51 46 49 FB"
+    },
+    {
+      "technique": "ROP Gadget: QCOW2 v2",
+      "pattern": "QFI.....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "51 46 49 FB 00 00 00 02"
+    },
+    {
+      "technique": "ROP Gadget: QCOW2 v3",
+      "pattern": "QFI.....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "51 46 49 FB 00 00 00 03"
+    },
+    {
+      "technique": "ROP Gadget: VHD",
+      "pattern": "conectix",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "63 6F 6E 65 63 74 69 78"
+    },
+    {
+      "technique": "ROP Gadget: VHDX",
+      "pattern": "vhdxfile",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "76 68 64 78 66 69 6C 65"
+    },
+    {
+      "technique": "ROP Gadget: Parallels HDD",
+      "pattern": "Withoutfree",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "57 69 74 68 6F 75 74 20 66 72 65 65"
+    },
+    {
+      "technique": "ROP Gadget: Docker Layer",
+      "pattern": "..",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "1F 8B"
+    },
+    {
+      "technique": "ROP Gadget: APK (Android)",
+      "pattern": "PK..",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "50 4B 03 04"
+    },
+    {
+      "technique": "ROP Gadget: APK Signing (v1)",
+      "pattern": "PK..",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "50 4B 03 04"
+    },
+    {
+      "technique": "ROP Gadget: IPA (iOS)",
+      "pattern": "PK..",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "50 4B 03 04"
+    },
+    {
+      "technique": "ROP Gadget: IPA Code Signature",
+      "pattern": "....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "FA DE 0C C0"
+    },
+    {
+      "technique": "ROP Gadget: iOS Binary (ARM64)",
+      "pattern": "....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "CF FA ED FE"
+    },
+    {
+      "technique": "ROP Gadget: OBB (Android)",
+      "pattern": "PK..",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "50 4B 03 04"
+    },
+    {
+      "technique": "ROP Gadget: Intel HEX",
+      "pattern": ":....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "3A xx xx xx xx"
+    },
+    {
+      "technique": "ROP Gadget: Motorola S-record",
+      "pattern": "S.",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "53 xx"
+    },
+    {
+      "technique": "ROP Gadget: U-Boot Image",
+      "pattern": "'..V",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "27 05 19 56"
+    },
+    {
+      "technique": "ROP Gadget: U-Boot FIT",
+      "pattern": "....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "D0 0D FE ED"
+    },
+    {
+      "technique": "ROP Gadget: Device Tree Blob",
+      "pattern": "....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "D0 0D FE ED"
+    },
+    {
+      "technique": "ROP Gadget: UBI",
+      "pattern": "UBI#",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "55 42 49 23"
+    },
+    {
+      "technique": "ROP Gadget: UBIFS",
+      "pattern": "1...",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "31 18 10 06"
+    },
+    {
+      "technique": "ROP Gadget: JSON (with BOM)",
+      "pattern": "...{",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "EF BB BF 7B"
+    },
+    {
+      "technique": "ROP Gadget: XML",
+      "pattern": "<?xml",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "3C 3F 78 6D 6C"
+    },
+    {
+      "technique": "ROP Gadget: XML (with BOM)",
+      "pattern": "...<",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "EF BB BF 3C"
+    },
+    {
+      "technique": "ROP Gadget: YAML",
+      "pattern": "---",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2D 2D 2D"
+    },
+    {
+      "technique": "ROP Gadget: TOML",
+      "pattern": "[",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "5B"
+    },
+    {
+      "technique": "ROP Gadget: INI",
+      "pattern": "[",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "5B"
+    },
+    {
+      "technique": "ROP Gadget: Apache Avro",
+      "pattern": "Obj.",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "4F 62 6A 01"
+    },
+    {
+      "technique": "ROP Gadget: Apache Parquet",
+      "pattern": "PAR1",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "50 41 52 31"
+    },
+    {
+      "technique": "ROP Gadget: HDF5",
+      "pattern": ".HDF....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "89 48 44 46 0D 0A 1A 0A"
+    },
+    {
+      "technique": "ROP Gadget: NOP (x86)",
+      "pattern": ".",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "90"
+    },
+    {
+      "technique": "ROP Gadget: NOP (ARM)",
+      "pattern": "....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "00 00 A0 E1"
+    },
+    {
+      "technique": "ROP Gadget: NOP (ARM64)",
+      "pattern": "...",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "1F 20 03 D5"
+    },
+    {
+      "technique": "ROP Gadget: NOP (MIPS)",
+      "pattern": "....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "00 00 00 00"
+    },
+    {
+      "technique": "ROP Gadget: INT 0x80 (syscall)",
+      "pattern": "..",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "CD 80"
+    },
+    {
+      "technique": "ROP Gadget: SYSCALL",
+      "pattern": "..",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0F 05"
+    },
+    {
+      "technique": "ROP Gadget: SYSENTER",
+      "pattern": ".4",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0F 34"
+    },
+    {
+      "technique": "ROP Gadget: CALL (rel32)",
+      "pattern": ".....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "E8 xx xx xx xx"
+    },
+    {
+      "technique": "ROP Gadget: JMP (rel32)",
+      "pattern": ".....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "E9 xx xx xx xx"
+    },
+    {
+      "technique": "ROP Gadget: JMP (rel8)",
+      "pattern": "..",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "EB xx"
+    },
+    {
+      "technique": "ROP Gadget: RET",
+      "pattern": ".",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "C3"
+    },
+    {
+      "technique": "ROP Gadget: RET (imm16)",
+      "pattern": "...",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "C2 xx xx"
+    },
+    {
+      "technique": "ROP Gadget: PUSH EBP",
+      "pattern": "U",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "55"
+    },
+    {
+      "technique": "ROP Gadget: MOV EBP,ESP",
+      "pattern": "..",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "89 E5"
+    },
+    {
+      "technique": "ROP Gadget: POP EBP",
+      "pattern": "]",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "5D"
+    },
+    {
+      "technique": "ROP Gadget: XOR EAX,EAX",
+      "pattern": "1.",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "31 C0"
+    },
+    {
+      "technique": "ROP Gadget: XOR RCX,RCX",
+      "pattern": "H1.",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "48 31 C9"
+    },
+    {
+      "technique": "ROP Gadget: INT 3",
+      "pattern": ".",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "CC"
+    },
+    {
+      "technique": "ROP Gadget: NOP sled pattern",
+      "pattern": "....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "90 90 90 90..."
+    },
+    {
+      "technique": "ROP Gadget: Egg hunter",
+      "pattern": "f....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "66 81 CA FF 0F"
+    },
+    {
+      "technique": "ROP Gadget: PDB 7.0 Header",
+      "pattern": "MicrosoftC/C++MSF7.00",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "4D 69 63 72 6F 73 6F 66 74 20 43 2F 43 2B 2B 20 4D 53 46 20 37 2E 30 30"
+    },
+    {
+      "technique": "ROP Gadget: CodeView (PE)",
+      "pattern": "RSDS",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "52 53 44 53"
+    },
+    {
+      "technique": "ROP Gadget: Low byte",
+      "pattern": "0000000011111111",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0x00FF"
+    },
+    {
+      "technique": "ROP Gadget: High byte",
+      "pattern": "1111111100000000",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0xFF00"
+    },
+    {
+      "technique": "ROP Gadget: Low nibble",
+      "pattern": "00001111",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0x0F"
+    },
+    {
+      "technique": "ROP Gadget: High nibble",
+      "pattern": "11110000",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0xF0"
+    },
+    {
+      "technique": "ROP Gadget: Sign bit (32-bit)",
+      "pattern": "10000000...",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0x80000000"
+    },
+    {
+      "technique": "ROP Gadget: All bits set",
+      "pattern": "11111111...",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0xFFFFFFFF"
+    },
+    {
+      "technique": "ROP Gadget: Bit 0",
+      "pattern": "00000001",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0x01"
+    },
+    {
+      "technique": "ROP Gadget: Bit 7",
+      "pattern": "10000000",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0x80"
+    },
+    {
+      "technique": "ROP Gadget: UTF-8 BOM",
+      "pattern": "...",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "EF BB BF"
+    },
+    {
+      "technique": "ROP Gadget: UTF-16 LE BOM",
+      "pattern": "..",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "FF FE"
+    },
+    {
+      "technique": "ROP Gadget: UTF-16 BE BOM",
+      "pattern": "..",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "FE FF"
+    },
+    {
+      "technique": "ROP Gadget: UTF-32 LE BOM",
+      "pattern": "....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "FF FE 00 00"
+    },
+    {
+      "technique": "ROP Gadget: UTF-32 BE BOM",
+      "pattern": "....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "00 00 FE FF"
+    },
+    {
+      "technique": "ROP Gadget: UTF-7",
+      "pattern": "+/v8",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2B 2F 76 38"
+    },
+    {
+      "technique": "ROP Gadget: UTF-1",
+      "pattern": ".dL",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "F7 64 4C"
+    },
+    {
+      "technique": "ROP Gadget: PGP Public Key",
+      "pattern": "-----BEGINPGPPUBLIC",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2D 2D 2D 2D 2D 42 45 47 49 4E 20 50 47 50 20 50 55 42 4C 49 43"
+    },
+    {
+      "technique": "ROP Gadget: PGP Private Key",
+      "pattern": "-----BEGINPGPPRIVATE",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2D 2D 2D 2D 2D 42 45 47 49 4E 20 50 47 50 20 50 52 49 56 41 54 45"
+    },
+    {
+      "technique": "ROP Gadget: OpenSSH Private Key",
+      "pattern": "-----BEGINOPENSSH",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2D 2D 2D 2D 2D 42 45 47 49 4E 20 4F 50 45 4E 53 53 48"
+    },
+    {
+      "technique": "ROP Gadget: RSA Private Key",
+      "pattern": "-----BEGINRSAPRIVATE",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2D 2D 2D 2D 2D 42 45 47 49 4E 20 52 53 41 20 50 52 49 56 41 54 45"
+    },
+    {
+      "technique": "ROP Gadget: SSL/TLS Certificate",
+      "pattern": "-----BEGINCERTIFICATE",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2D 2D 2D 2D 2D 42 45 47 49 4E 20 43 45 52 54 49 46 49 43 41 54 45"
+    },
+    {
+      "technique": "ROP Gadget: EC Private Key",
+      "pattern": "-----BEGINECPRIVATE",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2D 2D 2D 2D 2D 42 45 47 49 4E 20 45 43 20 50 52 49 56 41 54 45"
+    },
+    {
+      "technique": "ROP Gadget: SSH Public Key (RSA)",
+      "pattern": "ssh-rsa",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "73 73 68 2D 72 73 61"
+    },
+    {
+      "technique": "ROP Gadget: SSH Public Key (ED25519)",
+      "pattern": "ssh-ed25519",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "73 73 68 2D 65 64 32 35 35 31 39"
+    },
+    {
+      "technique": "ROP Gadget: PKCS#8 Private Key",
+      "pattern": "-----BEGINPRIVATEKEY",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "2D 2D 2D 2D 2D 42 45 47 49 4E 20 50 52 49 56 41 54 45 20 4B 45 59"
+    },
+    {
+      "technique": "ROP Gadget: NTFS",
+      "pattern": ".R.NTFS",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "EB 52 90 4E 54 46 53 20 20 20 20"
+    },
+    {
+      "technique": "ROP Gadget: `EB xx 90` + `46 41 54 31 32`",
+      "pattern": "\u00c3\u00abx.FAT12",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "...FAT12"
+    },
+    {
+      "technique": "ROP Gadget: `EB xx 90` + `46 41 54 31 36`",
+      "pattern": "\u00c3\u00abx.FAT16",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "...FAT16"
+    },
+    {
+      "technique": "ROP Gadget: `EB 58 90` + `46 41 54 33 32`",
+      "pattern": "\u00c3\u00abX.FAT32",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": ".X.FAT32"
+    },
+    {
+      "technique": "ROP Gadget: exFAT",
+      "pattern": ".v.EXFAT",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "EB 76 90 45 58 46 41 54 20 20 20"
+    },
+    {
+      "technique": "ROP Gadget: ext2",
+      "pattern": "S.",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "53 EF"
+    },
+    {
+      "technique": "ROP Gadget: ext3",
+      "pattern": "S.",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "53 EF"
+    },
+    {
+      "technique": "ROP Gadget: ext4",
+      "pattern": "S.",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "53 EF"
+    },
+    {
+      "technique": "ROP Gadget: APFS",
+      "pattern": "NXSB",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "4E 58 53 42"
+    },
+    {
+      "technique": "ROP Gadget: XFS",
+      "pattern": "XFSB",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "58 46 53 42"
+    },
+    {
+      "technique": "ROP Gadget: Btrfs",
+      "pattern": "_BHRfS_M",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "5F 42 48 52 66 53 5F 4D"
+    },
+    {
+      "technique": "ROP Gadget: MBR (partition table)",
+      "pattern": "U.",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "55 AA"
+    },
+    {
+      "technique": "ROP Gadget: GPT",
+      "pattern": "EFIPART",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "45 46 49 20 50 41 52 54"
+    },
+    {
+      "technique": "ROP Gadget: VMware VMDK",
+      "pattern": "KDM",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "4B 44 4D"
+    },
+    {
+      "technique": "ROP Gadget: VMware VMDK (sparse)",
+      "pattern": "COWD",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "43 4F 57 44"
+    },
+    {
+      "technique": "ROP Gadget: VirtualBox VDI",
+      "pattern": "<<<OracleVM",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "3C 3C 3C 20 4F 72 61 63 6C 65 20 56 4D"
+    },
+    {
+      "technique": "ROP Gadget: QCOW",
+      "pattern": "QFI.....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "51 46 49 FB 00 00 00 01"
+    },
+    {
+      "technique": "ROP Gadget: QCOW2",
+      "pattern": "QFI.....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "51 46 49 FB 00 00 00 02"
+    },
+    {
+      "technique": "ROP Gadget: QCOW2 (v3)",
+      "pattern": "QFI.....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "51 46 49 FB 00 00 00 03"
+    },
+    {
+      "technique": "ROP Gadget: VHD (Microsoft)",
+      "pattern": "conectix",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "63 6F 6E 65 63 74 69 78"
+    },
+    {
+      "technique": "ROP Gadget: VHDX (Microsoft)",
+      "pattern": "vhdxfile",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "76 68 64 78 66 69 6C 65"
+    },
+    {
+      "technique": "ROP Gadget: Docker Image (tar)",
+      "pattern": "ustar",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "75 73 74 61 72"
+    },
+    {
+      "technique": "ROP Gadget: OVA",
+      "pattern": "ustar",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "75 73 74 61 72"
+    },
+    {
+      "technique": "ROP Gadget: U-Boot Legacy",
+      "pattern": "'..V",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "27 05 19 56"
+    },
+    {
+      "technique": "ROP Gadget: U-Boot FIT",
+      "pattern": "....",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "D0 0D FE ED"
+    },
+    {
+      "technique": "ROP Gadget: SquashFS (LE)",
+      "pattern": "hsqs",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "68 73 71 73"
+    },
+    {
+      "technique": "ROP Gadget: SquashFS (BE)",
+      "pattern": "sqsh",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "73 71 73 68"
+    },
+    {
+      "technique": "ROP Gadget: CramFS",
+      "pattern": "E=.(",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "45 3D CD 28"
+    },
+    {
+      "technique": "ROP Gadget: JFFS2",
+      "pattern": "..",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "19 85"
+    },
+    {
+      "technique": "ROP Gadget: Android Boot Image",
+      "pattern": "ANDROID!",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "41 4E 44 52 4F 49 44 21"
+    },
+    {
+      "technique": "ROP Gadget: Low nibble",
+      "pattern": "00001111",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0x0F"
+    },
+    {
+      "technique": "ROP Gadget: High nibble",
+      "pattern": "11110000",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0xF0"
+    },
+    {
+      "technique": "ROP Gadget: Low byte (16-bit)",
+      "pattern": "0000000011111111",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0x00FF"
+    },
+    {
+      "technique": "ROP Gadget: High byte (16-bit)",
+      "pattern": "1111111100000000",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0xFF00"
+    },
+    {
+      "technique": "ROP Gadget: Bit 0 (LSB)",
+      "pattern": "00000001",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0x01"
+    },
+    {
+      "technique": "ROP Gadget: Bit 7 (MSB byte)",
+      "pattern": "10000000",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0x80"
+    },
+    {
+      "technique": "ROP Gadget: Sign bit (32-bit)",
+      "pattern": "10000000...",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "0x80000000"
+    },
+    {
+      "technique": "ROP Gadget: UPX",
+      "pattern": "PUSHAD;MOVESI,...;LEAEDI,...",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "60 BE xx xx xx xx 8D BE xx xx xx xx"
+    },
+    {
+      "technique": "ROP Gadget: PECompact",
+      "pattern": "JMP;PUSH;RET;PUSHFD;PUSHAD",
+      "pattern_type": "hex",
+      "category": "rop",
+      "description": "EB 06 68 xx xx xx xx C3 9C 60"
+    },
+    {
+      "technique": "SQL Injection",
+      "pattern": "' OR 1=1--",
+      "pattern_type": "string",
+      "category": "sqli",
+      "description": "Auth bypass"
+    },
+    {
+      "technique": "SQL Injection",
+      "pattern": "' OR 'a'='a",
+      "pattern_type": "string",
+      "category": "sqli",
+      "description": "Auth bypass variant"
+    },
+    {
+      "technique": "SQL Injection",
+      "pattern": "admin'--",
+      "pattern_type": "string",
+      "category": "sqli",
+      "description": "Comment injection"
+    },
+    {
+      "technique": "SQL Injection",
+      "pattern": "' UNION SELECT",
+      "pattern_type": "string",
+      "category": "sqli",
+      "description": "Union-based injection"
+    },
+    {
+      "technique": "SQL Injection",
+      "pattern": "' AND SLEEP(5)--",
+      "pattern_type": "string",
+      "category": "sqli",
+      "description": "Time-based blind"
+    },
+    {
+      "technique": "SQL Injection",
+      "pattern": "'; DROP TABLE",
+      "pattern_type": "string",
+      "category": "sqli",
+      "description": "Stacked queries"
+    },
+    {
+      "technique": "Cross-Site Scripting",
+      "pattern": "<script>alert(1)</script>",
+      "pattern_type": "string",
+      "category": "xss",
+      "description": "Basic reflected XSS"
+    },
+    {
+      "technique": "Cross-Site Scripting",
+      "pattern": "<img src=x onerror=alert(1)>",
+      "pattern_type": "string",
+      "category": "xss",
+      "description": "Image tag XSS"
+    },
+    {
+      "technique": "Cross-Site Scripting",
+      "pattern": "javascript:alert(1)",
+      "pattern_type": "string",
+      "category": "xss",
+      "description": "JavaScript protocol"
+    },
+    {
+      "technique": "Cross-Site Scripting",
+      "pattern": "<svg onload=alert(1)>",
+      "pattern_type": "string",
+      "category": "xss",
+      "description": "SVG-based XSS"
+    }
+  ],
+  "pe_heuristics": [
+    {
+      "characteristic": "RWX Section",
+      "indicator": "Section with Read-Write-Execute permissions",
+      "risk_score": 2,
+      "description": "Section with Read-Write-Execute permissions"
+    },
+    {
+      "characteristic": "WX Section",
+      "indicator": "Section with Write-Execute permissions",
+      "risk_score": 3,
+      "description": "Section with Write-Execute permissions"
+    },
+    {
+      "characteristic": "Minimal Imports",
+      "indicator": "Only LoadLibrary and GetProcAddress",
+      "risk_score": 2,
+      "description": "Only LoadLibrary and GetProcAddress"
+    },
+    {
+      "characteristic": "Entry Point Anomaly",
+      "indicator": "Entry point not in .text section",
+      "risk_score": 2,
+      "description": "Entry point not in .text section"
+    },
+    {
+      "characteristic": "High Entropy Resources",
+      "indicator": "Resource entropy > 7.5",
+      "risk_score": 2,
+      "description": "Resource entropy > 7.5"
+    },
+    {
+      "characteristic": "Suspicious Section Names",
+      "indicator": "UPX, .aspack, .themida, etc.",
+      "risk_score": 1,
+      "description": "UPX, .aspack, .themida, etc."
+    },
+    {
+      "characteristic": "Timestamp Anomaly",
+      "indicator": "Future date or pre-1990",
+      "risk_score": 1,
+      "description": "Future date or pre-1990"
+    },
+    {
+      "characteristic": "Missing Rich Header",
+      "indicator": "Rich header removed/zeroed",
+      "risk_score": 1,
+      "description": "Rich header removed/zeroed"
+    }
+  ],
+  "xor_keys": [
+    {
+      "key_hex": "00",
+      "key_decimal": 0,
+      "prevalence": "High",
+      "families": [
+        "Decoy/test samples"
+      ]
+    },
+    {
+      "key_hex": "FF",
+      "key_decimal": 255,
+      "prevalence": "Very High",
+      "families": [
+        "Zeus",
+        "Emotet variants"
+      ]
+    },
+    {
+      "key_hex": "AA",
+      "key_decimal": 170,
+      "prevalence": "Medium",
+      "families": [
+        "Generic packers"
+      ]
+    },
+    {
+      "key_hex": "55",
+      "key_decimal": 85,
+      "prevalence": "Medium",
+      "families": [
+        "Custom loaders"
+      ]
+    },
+    {
+      "key_hex": "42",
+      "key_decimal": 66,
+      "prevalence": "Low",
+      "families": [
+        "Scattered use"
+      ]
+    },
+    {
+      "key_hex": "13",
+      "key_decimal": 19,
+      "prevalence": "Medium",
+      "families": [
+        "APT campaigns"
+      ]
+    }
+  ],
+  "metadata": {
+    "total_file_signatures": 276,
+    "total_behavioral_indicators": 203,
+    "total_exploit_patterns": 168,
+    "total_pe_heuristics": 8,
+    "total_xor_keys": 6,
+    "total_items": 661
+  }
+}

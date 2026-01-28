@@ -1,0 +1,17 @@
+# Prometheus Community Edition - Requirements
+#
+# Community Edition has ZERO external dependencies.
+# Uses only Python standard library.
+#
+# This keeps the installation simple and reduces attack surface.
+#
+# Enterprise Edition includes:
+# - FastAPI (REST API)
+# - uvicorn (Web server)
+# - SQLAlchemy (Database)
+# - Redis (Caching)
+# - Celery (Task queue)
+# - And more...
+#
+# For Enterprise Edition:
+# https://github.com/0x44616D69616E/prometheus-enterprise

@@ -1,0 +1,97 @@
+PROMETHEUS COMMUNITY LICENSE
+Version 1.0, January 2026
+
+Copyright (c) 2026 Damian Donahue
+
+This software and associated documentation files (the "Software") are made
+available under the following terms:
+
+PERMITTED USES:
+
+You are granted a free, non-exclusive, non-transferable license to use the
+Software for the following purposes:
+
+1. RESEARCH AND EDUCATION
+   - Academic research and study
+   - Educational purposes in accredited institutions
+   - Personal learning and skill development
+   - Security research and vulnerability analysis
+
+2. NON-PROFIT USE
+   - Use by registered non-profit organizations
+   - Use by educational institutions
+   - Open source project development
+
+3. EVALUATION
+   - 30-day trial for commercial evaluation
+   - Proof-of-concept testing
+   - Technical assessment
+
+PROHIBITED USES:
+
+You may NOT use the Software for:
+
+1. COMMERCIAL PRODUCTION USE
+   - Deployment in commercial production environments
+   - Integration into commercial products or services
+   - Use in revenue-generating activities
+   - Managed security services (MSSP operations)
+   - Security consulting services for paid engagements
+
+2. DERIVATIVE WORKS FOR COMMERCIAL DISTRIBUTION
+   - Creating commercial derivatives without written permission
+   - Repackaging for commercial distribution
+   - SaaS or cloud service offerings based on this Software
+
+ADDITIONAL TERMS:
+
+1. SOURCE CODE
+   - Source code is provided for transparency and learning
+   - Modifications for permitted uses are allowed
+   - Redistribution of modified versions requires written permission
+   - All modifications must maintain this license notice
+
+2. NO WARRANTY
+   - Software provided "AS IS" without warranty of any kind
+   - No liability for damages, data loss, or security incidents
+   - Use at your own risk
+
+3. ATTRIBUTION
+   - Original attribution must be preserved in all copies
+   - Cannot claim authorship or remove copyright notices
+   - Must acknowledge use of Prometheus in derivative works
+
+4. COMMERCIAL LICENSE
+   - Commercial use requires a separate commercial license
+   - Contact: contact@asnspy.com
+   - Enterprise Edition available with additional features
+
+5. TERMINATION
+   - License automatically terminates upon violation of terms
+   - Must destroy all copies upon termination
+   - Reinstatement requires written permission from copyright holder
+
+ENFORCEMENT:
+
+Violation of these terms may result in:
+- Immediate license termination
+- Legal action for damages and injunctive relief
+- Requirement to cease all use of the Software
+
+For commercial licensing, enterprise features, or questions:
+Email: contact@asnspy.com
+GitHub: https://github.com/0x44616D69616E/prometheus-community
+
+---
+
+ATTRIBUTION NOTICE:
+
+This software incorporates intelligence data derived from academic research
+and publicly available security resources. See NOTICE file for complete
+attribution information.
+
+---
+
+This is NOT an Open Source Initiative (OSI) approved license.
+This is a source-available license with restrictions on commercial use.
+For OSI-approved open source licensing, consider Enterprise Edition.

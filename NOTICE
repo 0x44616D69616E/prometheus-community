@@ -1,0 +1,95 @@
+PROMETHEUS COMMUNITY EDITION
+Copyright (c) 2026 Damian Donahue
+
+This software incorporates data and knowledge derived from multiple sources:
+
+================================================================================
+DATA SOURCES
+================================================================================
+
+1. Binary Analysis and Reverse Engineering: Comprehensive Technical Reference
+   Author: Damian Donahue
+   Version: 2.2 (2025)
+   DOI: 10.5281/zenodo.18123287
+   GitHub: https://github.com/0x44616D69616E/binary-analysis-reference
+   License: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+   
+   Citation:
+   @dataset{donahue_binary_analysis_2025,
+     author       = {Donahue, Damian},
+     title        = {Binary Analysis and Reverse Engineering: 
+                     Comprehensive Technical Reference},
+     year         = 2025,
+     publisher    = {Zenodo},
+     version      = {2.2},
+     doi          = {10.5281/zenodo.18123287},
+     url          = {https://doi.org/10.5281/zenodo.18123287}
+   }
+   
+   Intelligence Data Derived:
+   - 276 file format signatures
+   - 203 behavioral indicators for malware families
+   - 168 exploit patterns and techniques
+   - 8 PE heuristic rules
+   - 6 XOR encryption keys
+   Total: 661 intelligence items
+   
+   Usage: All 661 intelligence items are included in this Community Edition
+          with proper attribution under CC BY-SA 4.0 terms.
+   
+2. Public Standards and Specifications
+   - RFC specifications (IETF - public domain)
+   - ISO/IEC file format standards (referenced for educational purposes)
+   - IEEE security protocols
+   - NIST cybersecurity frameworks
+
+3. Publicly Available Security Research
+   - File format signatures (factual data, not copyrightable)
+   - Malware family indicators (observational data)
+   - Exploit techniques (computer science knowledge)
+
+================================================================================
+THIRD-PARTY DEPENDENCIES
+================================================================================
+
+This software may use the following open source libraries:
+
+Python Standard Library
+   License: Python Software Foundation License (PSF)
+   Copyright: Python Software Foundation
+   
+(Additional dependencies listed in requirements.txt with their respective licenses)
+
+================================================================================
+LEGAL NOTICES
+================================================================================
+
+File Signatures: File format signatures are factual data representing
+byte patterns in various file types. These facts are not copyrightable
+under U.S. copyright law and international conventions.
+
+Malware Indicators: Behavioral indicators and malware characteristics
+represent factual observations of malware behavior and are derived from
+published security research and threat intelligence.
+
+No Warranty: This software is provided "AS IS" without warranty of any
+kind. See LICENSE file for complete terms.
+
+================================================================================
+ATTRIBUTION REQUIREMENTS
+================================================================================
+
+If you use, modify, or redistribute this software, you must:
+
+1. Preserve this NOTICE file in all copies
+2. Maintain copyright notices in source files
+3. Provide attribution to Damian Donahue and the Prometheus project
+4. Include a link to: https://github.com/0x44616D69616E/prometheus-community
+
+================================================================================
+CONTACT
+================================================================================
+
+For questions about licensing, attribution, or commercial use:
+Email: contact@asnspy.com
+GitHub: https://github.com/0x44616D69616E

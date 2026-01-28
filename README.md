@@ -427,7 +427,6 @@ prometheus version
 - Commercial/production deployment
 - Revenue-generating activities
 - Organizations with >$1M revenue
-- More than 100 samples per day
 - Managed security services (MSSP)
 
 **For commercial use**: Contact contact@asnspy.com

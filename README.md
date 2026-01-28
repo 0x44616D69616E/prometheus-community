@@ -370,8 +370,6 @@ $ prometheus analyze --json malware.exe > result.json
 
 **Contact for pricing and demo:**
 - 📧 Email: contact@asnspy.com
-- 🔗 GitHub: https://github.com/0x44616D69616E/prometheus-enterprise
-- 💬 Subject: "Enterprise Demo Request"
 
 ---
 

@@ -1,17 +1,14 @@
 """
-PROMETHEUS COMMUNITY EDITION - SIGNATURE ENGINE
+PROMETHEUS - SIGNATURE ENGINE WITH LOCATION TRACKING
 
-Simplified signature matching for malware detection.
+Enhanced to show exactly WHERE signatures are found.
 
 Copyright (c) 2026 Damian Donahue
 """
 
-import json
+from typing import List, Dict, Any
+from .models import SignatureMatch, Location
 import re
-import math
-from pathlib import Path
-from typing import List
-from .models import SignatureMatch
 
 
 def calculate_entropy(data: bytes) -> float:
@@ -19,54 +16,139 @@ def calculate_entropy(data: bytes) -> float:
     if not data:
         return 0.0
     
+    from collections import Counter
+    import math
+    
+    counts = Counter(data)
+    length = len(data)
+    
     entropy = 0.0
-    for x in range(256):
-        p_x = data.count(bytes([x])) / len(data)
-        if p_x > 0:
-            entropy += - p_x * math.log2(p_x)
+    for count in counts.values():
+        probability = count / length
+        entropy -= probability * math.log2(probability)
     
     return entropy
 
 
-def extract_strings(data: bytes, min_length: int = 4) -> List[str]:
-    """Extract printable strings from binary data."""
-    pattern = rb'[\x20-\x7E]{' + str(min_length).encode() + rb',}'
-    strings = re.findall(pattern, data)
-    return [s.decode('ascii', errors='ignore') for s in strings[:100]]  # Limit to 100
+def extract_strings(data: bytes, min_length: int = 4) -> List[Dict[str, Any]]:
+    """
+    Extract printable strings with their locations.
+    
+    Returns list of dicts with 'value', 'offset', 'length'
+    """
+    strings = []
+    current_string = bytearray()
+    start_offset = 0
+    
+    for i, byte in enumerate(data):
+        if 32 <= byte <= 126:  # Printable ASCII
+            if not current_string:
+                start_offset = i
+            current_string.append(byte)
+        else:
+            if len(current_string) >= min_length:
+                try:
+                    string_value = current_string.decode('ascii', errors='ignore')
+                    strings.append({
+                        'value': string_value,
+                        'offset': start_offset,
+                        'length': len(current_string)
+                    })
+                except:
+                    pass
+            current_string = bytearray()
+    
+    # Handle final string
+    if len(current_string) >= min_length:
+        try:
+            string_value = current_string.decode('ascii', errors='ignore')
+            strings.append({
+                'value': string_value,
+                'offset': start_offset,
+                'length': len(current_string)
+            })
+        except:
+            pass
+    
+    return strings[:1000]  # Limit to first 1000 strings
 
 
 class SignatureEngine:
-    """Simple signature matching engine."""
+    """
+    Signature-based detection with location tracking.
     
-    def __init__(self, intelligence_db: dict):
+    Scans binary data for known file format signatures and patterns.
+    Now tracks EXACTLY where each signature is found.
+    """
+    
+    def __init__(self, intel_db: Dict[str, Any]):
         """Initialize with intelligence database."""
-        self.signatures = intelligence_db.get('file_signatures', [])
-        print(f"Loaded {len(self.signatures)} file signatures")
+        self.signatures = intel_db.get('file_signatures', [])
     
     def scan(self, data: bytes) -> List[SignatureMatch]:
-        """Scan data for signature matches."""
+        """
+        Scan data for file signatures and return matches with locations.
+        
+        Args:
+            data: Binary data to scan
+            
+        Returns:
+            List of SignatureMatch objects with location data
+        """
         matches = []
         
         for sig in self.signatures:
+            format_name = sig.get('format_name', 'Unknown')
+            hex_pattern = sig.get('hex_pattern', '')
+            offset_hint = sig.get('offset', 0)
+            category = sig.get('category', 'unknown')
+            
+            # Convert hex pattern to bytes
             try:
-                pattern = sig.get('hex_pattern', '')
-                # Remove b' and ' from pattern string
-                pattern = pattern.replace("b'", "").replace("'", "")
-                
-                # Convert hex pattern to bytes
-                try:
-                    # Handle escaped sequences
-                    pattern_bytes = pattern.encode('utf-8').decode('unicode_escape').encode('latin1')
-                except:
-                    continue
-                
-                # Search for pattern
-                if pattern_bytes in data:
-                    matches.append(SignatureMatch(
-                        signature_name=sig.get('format_name', 'Unknown'),
-                        category=sig.get('category', 'unknown')
-                    ))
-            except Exception:
+                # Remove b' and ' wrapper, handle escape sequences
+                pattern_str = hex_pattern.strip("b'\"")
+                pattern_bytes = bytes(pattern_str, 'utf-8').decode('unicode_escape').encode('latin1')
+            except:
                 continue
+            
+            # Search for pattern in data
+            search_offset = 0
+            while True:
+                idx = data.find(pattern_bytes, search_offset)
+                if idx == -1:
+                    break
+                
+                # Found a match!
+                # Get some context (16 bytes before and after)
+                context_start = max(0, idx - 16)
+                context_end = min(len(data), idx + len(pattern_bytes) + 16)
+                context_bytes = data[context_start:context_end]
+                context_hex = ' '.join(f'{b:02x}' for b in context_bytes)
+                
+                # Create location object
+                location = Location(
+                    offset=idx,
+                    length=len(pattern_bytes),
+                    context=context_hex
+                )
+                
+                # Create match
+                match = SignatureMatch(
+                    signature_name=format_name,
+                    category=category,
+                    location=location,
+                    confidence=sig.get('confidence_weight', 1.0),
+                    explanation=sig.get('explanation', ''),
+                    context=sig.get('context', '')
+                )
+                
+                matches.append(match)
+                
+                # Continue searching for more instances
+                search_offset = idx + 1
+                
+                # Limit matches per signature to avoid flooding
+                if len([m for m in matches if m.signature_name == format_name]) >= 3:
+                    break
         
         return matches

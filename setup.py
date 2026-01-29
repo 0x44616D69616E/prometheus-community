@@ -1,7 +1,7 @@
 """
 Prometheus Community Edition - Setup Configuration
 
-Revolutionary 6-layer malware analysis with knowledge graph intelligence.
+Revolutionary 6-layer malware analysis with explainable detection and location tracking.
 """
 
 from setuptools import setup, find_packages
@@ -13,14 +13,14 @@ long_description = (this_directory / "README.md").read_text(encoding='utf-8')
 
 setup(
     name="prometheus-community",
-    version="1.0.0",
+    version="2.0.0",
     
     # Author information
     author="Damian Donahue",
     author_email="contact@asnspy.com",
     
     # Description
-    description="Revolutionary 6-layer malware analysis with knowledge graph intelligence",
+    description="The most transparent malware analyzer - Explainable detection with forensic-grade location tracking",
     long_description=long_description,
     long_description_content_type="text/markdown",
     
@@ -32,6 +32,7 @@ setup(
         "Source Code": "https://github.com/0x44616D69616E/prometheus-community",
         "Enterprise Edition": "https://github.com/0x44616D69616E/prometheus-enterprise",
         "Discussions": "https://github.com/0x44616D69616E/prometheus-community/discussions",
+        "Research Paper": "https://doi.org/10.5281/zenodo.18123287",
     },
     
     # License
@@ -43,6 +44,7 @@ setup(
         "Intended Audience :: Science/Research",
         "Intended Audience :: Education",
         "Intended Audience :: Information Technology",
+        "Intended Audience :: Developers",
         "Topic :: Security",
         "Topic :: Scientific/Engineering :: Information Analysis",
         "Programming Language :: Python :: 3",
@@ -69,7 +71,7 @@ setup(
         ],
     },
     
-    # Include package data (intelligence database)
+    # Include package data (enhanced intelligence database)
     package_data={
         "prometheus": [
             "data/*.json",
@@ -80,6 +82,7 @@ setup(
     # Keywords for PyPI search
     keywords=[
         "malware analysis",
+        "explainable AI",
         "security",
         "threat intelligence",
         "cybersecurity",
@@ -89,6 +92,10 @@ setup(
         "exploit detection",
         "knowledge graph",
         "security research",
+        "forensics",
+        "MITRE ATT&CK",
+        "transparent detection",
+        "location tracking",
     ],
     
     # Zip safe

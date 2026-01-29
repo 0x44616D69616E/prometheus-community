@@ -1,530 +1,700 @@
-# 🔥 Prometheus Community Edition
+# 🔥 Prometheus Community Edition v2.0.0
 
-**Revolutionary 6-layer malware analysis with knowledge graph intelligence**
+**The Most Transparent Malware Analyzer Available**
 
-Free malware analysis platform for security researchers, students, and educators.
-
-**Based on:** [Binary Analysis and Reverse Engineering: Comprehensive Technical Reference](https://github.com/0x44616D69616E/binary-analysis-reference)  
-**Paper DOI:** [10.5281/zenodo.18123287](https://doi.org/10.5281/zenodo.18123287)
-
-[![License: Custom](https://img.shields.io/badge/License-Prometheus%20Community-blue.svg)](LICENSE)
+[![PyPI version](https://badge.fury.io/py/prometheus-community.svg)](https://badge.fury.io/py/prometheus-community)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![GitHub](https://img.shields.io/badge/GitHub-0x44616D69616E-181717.svg?logo=github)](https://github.com/0x44616D69616E/prometheus-community)
-[![Research Paper](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18123287-blue)](https://doi.org/10.5281/zenodo.18123287)
+[![License](https://img.shields.io/badge/license-Prometheus%20Community%20v1.0-green.svg)](LICENSE)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18123287-blue)](https://doi.org/10.5281/zenodo.18123287)
+
+Revolutionary 6-layer malware analysis with **explainable detection** and **forensic-grade location tracking**. Every finding explained with WHY it matters and WHERE it's located.
 
 ---
 
-## ⚡ Quick Start
+## 🎯 What Makes Prometheus Different
 
-```bash
-# Install
-pip install prometheus-community
+### Complete Transparency
+Unlike black-box tools that say "malware detected, trust us," Prometheus shows you:
+- ✅ **WHAT** was found (actual signatures, indicators, patterns)
+- ✅ **WHY** it matters (severity, uniqueness, explanations)
+- ✅ **WHERE** it's located (exact byte offsets, PE sections)
 
-# Analyze a file
-prometheus analyze malware.exe
+### Educational Value
+Every scan is a learning opportunity:
+- 💎 **Uniqueness ratings** - Know if indicators are definitive (unique) or common
+- 📊 **Severity levels** - Understand criticality (critical/high/medium/low)
+- 🎓 **MITRE ATT&CK** - Full TTP categorization
+- 🔍 **Context** - Learn what each indicator reveals about malware behavior
 
-# Batch analysis (max 10 files)
-prometheus batch samples/
-
-# Check version
-prometheus version
-
-# See Enterprise features
-prometheus upgrade
-```
-
----
-
-## 🎯 What is Prometheus?
-
-Prometheus is a revolutionary malware analysis platform that uses **6 complementary detection layers** and **knowledge graph intelligence** to identify threats that single-method tools miss.
-
-### Why 6 Layers?
-
-Traditional tools rely on one detection method:
-- **VirusTotal**: Signatures only → misses packed/encrypted malware
-- **Cuckoo Sandbox**: Dynamic only → slow, requires execution
-- **Most AV**: Single-method → high false negatives
-
-**Prometheus uses 6 layers simultaneously:**
-
-```
-┌─────────────────────────────────────────────────────────┐
-│            PROMETHEUS 6-LAYER DETECTION                 │
-├─────────────────────────────────────────────────────────┤
-│                                                         │
-│  Layer 1: File Signatures      276 patterns             │
-│           ├─ PE, ELF, Mach-O executables                │
-│           └─ Documents, archives, images                │
-│                                                         │
-│  Layer 2: Behavioral Indicators 203 patterns            │
-│           ├─ Mutex names (WannaCry, Zeus)               │
-│           ├─ Registry keys                              │
-│           └─ File extensions, ransom notes              │
-│                                                         │
-│  Layer 3: Exploit Patterns      168 patterns            │
-│           ├─ Buffer overflows (NOP sleds)               │
-│           ├─ ROP chains                                 │
-│           └─ Shellcode patterns                         │
-│                                                         │
-│  Layer 4: PE Heuristics         8 rules                 │
-│           ├─ Suspicious permissions                     │
-│           └─ Import anomalies                           │
-│                                                         │
-│  Layer 5: Dynamic Analysis      Behavior inference      │
-│           └─ Runtime behavior patterns                  │
-│                                                         │
-│  Layer 6: ML Classification     Pattern matching        │
-│           └─ Family identification                      │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
-                         ▼
-                UNIFIED VERDICT
-         (All layers contribute)
-```
-
-**Result**: Detects malware 6 different ways vs competitors' 1-2 ways
+### Forensic Detail
+Professional-grade analysis:
+- 📍 **Exact byte offsets** for every finding
+- 🔬 **Hex context** around matches for verification
+- 🗺️ **Location maps** showing where malware components hide
+- ✅ **Manual verification** - Can confirm in any hex editor
 
 ---
 
-## ✨ Community Edition Features
+## 🌟 Key Features
 
-### What You Get (FREE)
+### 6-Layer Detection Engine
+1. **File Signatures** - 276 format patterns with location tracking
+2. **Behavioral Indicators** - 203 malware-specific behaviors with explanations
+3. **Exploit Patterns** - 168 exploitation techniques mapped to MITRE
+4. **PE Heuristics** - 8 advanced PE structure analysis rules
+5. **Dynamic Inference** - Behavioral pattern correlation
+6. **ML Classification** - Confidence scoring based on uniqueness
 
-✅ **6-Layer Detection Engine**
-- All 6 detection layers fully functional
-- **661 intelligence items** from comprehensive research
-- Complete implementation of Binary Analysis Reference v2.2
-- Demonstrates state-of-the-art detection techniques
+### Enhanced Intelligence Database
+- **661 intelligence items** with rich metadata
+- **15 unique indicators** (7.4%) - Definitive family identifiers
+- **58 rare indicators** (28.6%) - Family-specific markers  
+- **130 common indicators** (64.0%) - Supporting evidence
+- All items include: severity, uniqueness, confidence, explanation, MITRE ATT&CK, context
 
-✅ **Core Analysis Capabilities**
-- File signature detection (276 patterns)
-- Behavioral indicator matching (203 patterns)
-- Exploit pattern detection (168 patterns)
-- PE heuristic analysis (8 rules)
-- Dynamic behavior inference
-- ML classification
-- ML pattern matching
-
-✅ **Command-Line Interface**
-- Single-file analysis
-- Batch processing (up to 10 files)
-- JSON output support
-- Clean, professional output
-
-✅ **Perfect For:**
-- 🎓 Security research and learning
-- 📚 Academic study
-- 🔬 Proof-of-concept testing
-- 💻 Personal malware analysis
-- 🏫 Educational institutions
-- 🔓 Non-profit organizations
+### Detection Transparency
+- **Detection reasoning** - Explains why confidence is X%
+- **Confidence calculation** - Shows how score was computed
+- **Indicator classification** - Rates each by uniqueness and severity
+- **No black boxes** - Complete visibility into detection logic
 
 ---
 
-## 📊 Community vs Enterprise Comparison
+## 📦 Installation
 
-| Feature | Community | Enterprise |
-|---------|-----------|------------|
-| **Detection Layers** | ✅ All 6 layers | ✅ All 6 layers |
-| **Intelligence Items** | ✅ 661 items | ✅ 661 items |
-| **Signatures** | ✅ 276 file signatures | ✅ 276 file signatures |
-| **Behavioral Indicators** | ✅ 203 patterns | ✅ 203 patterns |
-| **Exploit Patterns** | ✅ 168 patterns | ✅ 168 patterns |
-| **Interface** | CLI only | **CLI + REST API + Web UI** |
-| **Architecture** | Single instance | **Distributed scaling** |
-| **Batch Processing** | Manual | **Automated + unlimited** |
-| **Knowledge Graph** | ❌ No persistence | **✅ Full graph storage** |
-| **Reporting** | JSON only | **PDF, XLSX, DOCX, CSV** |
-| **Multi-User** | ❌ Single user | **✅ Teams + RBAC** |
-| **Authentication** | ❌ None | **✅ SSO/SAML + MFA** |
-| **Integrations** | ❌ None | **✅ Splunk, ELK, Sentinel** |
-| **Support** | Community | **Priority + SLA** |
-| **License** | Non-commercial only | **Commercial license** |
-| **Price** | **FREE** | Custom pricing |
-
-### Key Difference: Platform vs Detection
-
-**Community Edition:**
-- ✅ **Same detection capability** (all 661 intelligence items)
-- ❌ **Limited platform features** (CLI only, no API/UI)
-
-**Enterprise Edition:**
-- ✅ **Same detection capability**  
-- ✅ **Full platform features** (API, UI, scaling, teams, integrations)
-| **Interface** | CLI only | **CLI + REST API + Web UI** |
-| **Daily Limit** | 100 files/day | **Unlimited** |
-| **Batch Processing** | 10 files max | **Unlimited** |
-| **Knowledge Graph** | ❌ No storage | **✅ Full graph database** |
-| **Dynamic Analysis** | Basic inference | **Advanced sandbox** |
-| **ML Models** | Basic patterns | **Advanced models** |
-| **Report Generation** | JSON only | **PDF, XLSX, DOCX, HTML** |
-| **SIEM Integration** | ❌ | **✅ Splunk, ELK, QRadar, Sentinel** |
-| **Multi-User** | ❌ Single user | **✅ Teams + RBAC** |
-| **API Access** | ❌ | **✅ Full REST API** |
-| **Web Interface** | ❌ | **✅ Modern web UI** |
-| **Support** | Community only | **Priority + SLA** |
-| **Commercial Use** | ❌ Not permitted | **✅ Commercial license** |
-| **Price** | **FREE** | Contact for pricing |
-
----
-
-## 💻 Usage Examples
-
-### Basic Analysis
-
-```bash
-$ prometheus analyze malware.exe
-======================================================================
-PROMETHEUS COMMUNITY EDITION v1.0.0
-======================================================================
-
-Based on: Binary Analysis Reference v2.2
-DOI: 10.5281/zenodo.18123287
-
-Loading intelligence database...
-Loaded 276 file signatures
-Loaded 203 behavioral indicators
-Loaded 168 exploit patterns
-Total intelligence items: 647
-
-======================================================================
-✅ PROMETHEUS ENGINE READY
-======================================================================
-
-File Info:
-  - SHA256: b4db3322...
-  - Size: 1,024 bytes
-  - Type: pe
-
-=== Layer 1: File Signatures ===
-  - Entropy: 7.2
-  - Signatures: 3 matches
-  - Strings: 42
-
-=== Layer 2: Behavioral Indicators ===
-  - Matches: 2
-  - Families: WannaCry, RAT
-    • WannaCry: mutex = Global\\MsWinZonesCacheCounterMutexA
-    • RAT: file_extension = .exe
-
-=== Layer 3: Exploit Detection ===
-  - Patterns: 1
-  - Risk: HIGH
-    • NOP Sled (150 consecutive NOPs detected!)
-
-======================================================================
-ANALYSIS COMPLETE
-======================================================================
-Family: WannaCry
-Confidence: 95%
-IOCs: 3
-TTPs: 2
-Duration: 0.003 seconds
-======================================================================
-```
-
-### Batch Analysis
-
-```bash
-$ prometheus batch samples/
-
-Found 50 files
-
-[1/50] sample1.exe... WannaCry (95%)
-[2/50] sample2.dll... TrickBot (87%)
-[3/50] sample3.pdf... Unknown (0%)
-...
-[50/50] sample50.exe... Emotet (92%)
-
-======================================================================
-BATCH ANALYSIS COMPLETE
-======================================================================
-Files analyzed: 50
-Families detected: 12
-
-Family distribution:
-  WannaCry: 15
-  Emotet: 12
-  TrickBot: 8
-  Unknown: 15
-======================================================================
-```
-
-**Note**: Community Edition provides full detection capabilities. Enterprise Edition adds unlimited concurrent batch processing, distributed workers, and progress tracking via Web UI.
-
-### JSON Output
-
-```bash
-$ prometheus analyze --json malware.exe > result.json
-```
-
-```json
-{
-  "sample": {
-    "filename": "malware.exe",
-    "sha256": "b4db3322bdff3e15a50306af60df52d9343d91b0a82ec940dea80ab16de98384",
-    "md5": "5d41402abc4b2a76b9719d911017c592",
-    "file_size": 1024,
-    "file_type": "pe"
-  },
-  "family": "WannaCry",
-  "confidence": 0.95,
-  "ttps": [
-    "Behavioral: 2 indicators",
-    "Exploits: 1 patterns"
-  ],
-  "duration": 0.003
-}
-```
-
----
-
-## 🚀 Upgrade to Enterprise
-
-### Why Upgrade?
-
-**Community Edition is perfect for:**
-- 🎓 Security research and education
-- 🔬 Malware analysis learning
-- 🧪 Testing and evaluation
-- 👤 Individual researchers
-- 📚 Academic institutions
-
-**Enterprise Edition is essential for:**
-- 🏢 Production SOC operations
-- 🔒 Commercial malware analysis services
-- 📊 Team collaboration and workflows
-- 🔗 Integration into security infrastructure (SIEM, ticketing, etc.)
-- 👥 Multi-user organizations
-- 📈 Advanced reporting and compliance
-- ⚡ Scalable, high-availability deployment
-
-### Enterprise Features
-
-#### 🌐 REST API + Web UI
-- Full REST API for automation
-- Modern web interface
-- Swagger/OpenAPI documentation
-- Webhook notifications
-- Real-time analysis tracking
-
-#### 📊 Advanced Reporting
-- PDF, XLSX, DOCX, HTML exports
-- Custom report templates
-- Scheduled automated reports
-- Executive dashboards
-- Trend analysis over time
-- White-label branding
-
-#### 🔗 SIEM Integration
-- Splunk app/add-on
-- ELK/Elasticsearch connector
-- IBM QRadar integration
-- Microsoft Sentinel integration
-- Generic syslog/CEF/LEEF output
-- Real-time alerting
-
-#### 📈 Knowledge Graph
-- Full graph database storage (Neo4j-compatible)
-- Sample → Infrastructure → Actor relationships
-- Campaign tracking
-- Infection chain visualization
-- Threat actor attribution
-- Historical analysis
-
-#### 👥 Multi-User & Teams
-- Team collaboration
-- Role-based access control (RBAC)
-- User management
-- Audit logging
-- SSO/SAML integration (Okta, Azure AD, etc.)
-- Multi-tenancy for MSSPs
-
-#### ⚡ Scalability & Performance
-- Distributed worker architecture
-- Horizontal scaling (unlimited workers)
-- High-availability deployment
-- Load balancing
-- PostgreSQL backend
-- Redis caching
-
-#### 🛡️ Advanced Analysis
-- Full sandbox execution environment
-- Advanced ML model training
-- Custom YARA rules support
-- Retro-hunt capabilities
-- Plugin framework
-- Custom integration SDK
-
-#### 💼 Enterprise Support
-- Priority email support (4hr SLA)
-- Phone support available
-- Dedicated account manager
-- SLA guarantees (99.9% uptime)
-- Professional services
-- Training and certification
-- Custom development
-
-### Get Enterprise
-
-**Contact for pricing and demo:**
-- 📧 Email: contact@asnspy.com
-
----
-
-## 📋 Installation
-
-### Requirements
-
-- Python 3.8 or higher
-- Linux, macOS, or Windows
-- 100MB disk space
-- Internet connection (for pip install only)
-
-### Install from PyPI
-
+### Via pip (Recommended)
 ```bash
 pip install prometheus-community
 ```
 
-### Install from Source
-
+### From Source
 ```bash
-git clone https://github.com/0x44616D69616E/prometheus-community.git
+git clone https://github.com/0x44616D69616E/prometheus-community
 cd prometheus-community
 pip install -e .
 ```
 
 ### Verify Installation
+```bash
+prometheus version
+# Output: Prometheus Community Edition v2.0.0
+```
+
+---
+
+## 🚀 Quick Start
+
+### Analyze a Single File
+```bash
+prometheus analyze malware.exe
+```
+
+### Analyze with JSON Export
+```bash
+prometheus analyze malware.exe --output results.json
+```
+
+### Batch Analysis
+```bash
+prometheus batch /path/to/samples/ --output-dir results/
+```
+
+### Quiet Mode (JSON Only)
+```bash
+prometheus analyze malware.exe --quiet --output results.json
+```
+
+---
+
+## 📖 Usage & Arguments
+
+### Command: `prometheus analyze`
+
+Analyze a single file with complete transparency.
+
+```bash
+prometheus analyze [OPTIONS] FILE
+```
+
+#### Arguments
+
+| Argument | Type | Description | Default |
+|----------|------|-------------|---------|
+| `FILE` | Path | File to analyze (required) | - |
+| `--output`, `-o` | Path | Save results to JSON file | None |
+| `--quiet`, `-q` | Flag | Suppress console output | False |
+| `--intel` | Path | Custom intelligence database | Built-in |
+
+#### Examples
+
+**Basic analysis:**
+```bash
+prometheus analyze suspicious.exe
+```
+
+**Save results:**
+```bash
+prometheus analyze suspicious.exe --output results.json
+```
+
+**Custom intelligence database:**
+```bash
+prometheus analyze suspicious.exe --intel custom_intel.json
+```
+
+**Quiet mode (automation-friendly):**
+```bash
+prometheus analyze suspicious.exe --quiet --output results.json
+```
+
+---
+
+### Command: `prometheus batch`
+
+Analyze multiple files in a directory.
+
+```bash
+prometheus batch [OPTIONS] DIRECTORY
+```
+
+#### Arguments
+
+| Argument | Type | Description | Default |
+|----------|------|-------------|---------|
+| `DIRECTORY` | Path | Directory containing files | - |
+| `--output-dir`, `-d` | Path | Save results to directory | Current dir |
+| `--recursive`, `-r` | Flag | Scan subdirectories | False |
+| `--pattern` | String | File pattern to match | `*` |
+| `--threads` | Integer | Number of parallel threads | 4 |
+
+#### Examples
+
+**Analyze all files in directory:**
+```bash
+prometheus batch /samples/
+```
+
+**Recursive scan with results:**
+```bash
+prometheus batch /samples/ --recursive --output-dir results/
+```
+
+**Specific file pattern:**
+```bash
+prometheus batch /samples/ --pattern "*.exe" --output-dir results/
+```
+
+**Parallel processing:**
+```bash
+prometheus batch /samples/ --threads 8 --output-dir results/
+```
+
+---
+
+### Command: `prometheus version`
+
+Show version information.
 
 ```bash
 prometheus version
 ```
 
+**Output:**
+```
+Prometheus Community Edition v2.0.0
+Revolutionary 6-layer malware analysis with explainable detection
+
+Intelligence: 661 items (276 signatures, 203 behavioral, 168 exploits)
+Python: 3.10.0
+License: Prometheus Community License v1.0
+```
+
+---
+
+### Command: `prometheus upgrade`
+
+Information about enterprise edition.
+
+```bash
+prometheus upgrade
+```
+
+---
+
+## 📊 Example Output
+
+### Sample Analysis
+
+```bash
+$ prometheus analyze wannacry_sample.exe
+```
+
+```
+╔══════════════════════════════════════════════════════════╗
+║   🔥 PROMETHEUS COMMUNITY EDITION v2.0.0                ║
+║   The Most Transparent Malware Analyzer                 ║
+╚══════════════════════════════════════════════════════════╝
+
+Analyzing: wannacry_sample.exe
+SHA256: abc123def456...
+Size: 52,480 bytes
+Type: pe
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📄 Layer 1: File Signatures & Entropy
+
+  Entropy: 7.24
+  ⚠️  HIGH ENTROPY - Likely packed/encrypted
+  Strings: 1,234
+
+  📝 File Signatures: 3 matches
+     • PE (executable)
+       📍 offset 0x00000000
+     • DOS MZ Header (executable)
+       📍 offset 0x00000000
+     • Windows PE32 (executable)
+       📍 offset 0x00000080
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 Layer 2: Behavioral Indicators
+
+  🔴 CRITICAL Indicators (2):
+
+     🔴 Mutex Name: Global\MsWinZonesCacheCounterMutexA
+        💎 UNIQUE | Confidence: 100%
+        📍 offset 0x00001a40, length 37 bytes
+        Why: This mutex is UNIQUE to WannaCry ransomware and is used to 
+             prevent multiple instances from running simultaneously
+        Category: Defense Evasion - T1027
+
+     🔴 File Extension: .WNCRY
+        💎 UNIQUE | Confidence: 95%
+        📍 offset 0x00003f20, length 6 bytes
+        Why: Files encrypted by WannaCry are renamed with this extension - 
+             a signature marker of this ransomware
+        Category: Impact - T1486
+
+  🟠 HIGH Severity Indicators (1):
+
+     🟠 URL: iuqerfsodp9ifjaposdfjhgosurijfaewrwergwea.com
+        💎 UNIQUE | Confidence: 90%
+        📍 offset 0x00004120
+
+  📊 Summary:
+     • 3 unique indicators
+     • 0 rare indicators
+     • 1 families detected: WannaCry
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💥 Layer 3: Exploit Patterns
+
+  💥 Exploit Patterns: 1 detected
+
+     🔴 NOP Sled
+        📍 offset 0x00002f80, length 64 bytes
+        Type: buffer_overflow, Severity: high
+        Why: Long sequence of NOP (0x90) instructions used to make buffer
+             overflow exploits more reliable
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+══════════════════════════════════════════════════════════
+VERDICT
+══════════════════════════════════════════════════════════
+
+🏷️  Family: WannaCry
+📊 Confidence: 95%
+
+🧠 Why this family?
+
+   💎 3 UNIQUE Indicators:
+      ✓ Mutex Name: Global\MsWinZonesCacheCounterMutexA
+        📍 offset 0x00001a40
+        This mutex is UNIQUE to WannaCry ransomware and is used to prevent 
+        multiple...
+      ✓ File Extension: .WNCRY
+        📍 offset 0x00003f20
+        Files encrypted by WannaCry are renamed with this extension - a 
+        signature marker...
+      ✓ Url: iuqerfsodp9ifjaposdfjhgosurijfaewrwergwea.com
+        📍 offset 0x00004120
+        Original WannaCry kill switch - malware checks if this domain 
+        resolves...
+
+   📊 Detection Summary:
+      • 3 unique to WannaCry
+      • 3 total indicators
+      • Confidence: 95%
+
+📍 Key Findings Map:
+   0x00001a40: mutex_name (critical, unique)
+   0x00003f20: file_extension (critical, unique)
+   0x00004120: url (high, unique)
+
+🔍 Indicators of Compromise (5):
+   • http://iuqerfsodp9ifjaposdfjhgosurijfaewrwergwea.com
+   • 192.168.56.20
+   • C:\Windows\tasksche.exe
+   • Global\MsWinZonesCacheCounterMutexA
+   • @WanaDecryptor@.exe
+
+⚔️  Tactics, Techniques & Procedures (4):
+   • Defense Evasion
+   • Impact
+   • Command and Control
+   • Execution
+
+⏱️  Duration: 0.234s
+```
+
+---
+
+## 💻 Python API Usage
+
+### Basic Analysis
+
+```python
+from prometheus import PrometheusEngine
+
+# Initialize engine
+engine = PrometheusEngine()
+
+# Analyze file
+result = engine.analyze_file("malware.exe")
+
+# Access results
+print(f"Family: {result.family}")
+print(f"Confidence: {result.confidence:.0%}")
+print(f"IOCs: {len(result.iocs)}")
+```
+
+### With Custom Intelligence
+
+```python
+from prometheus import PrometheusEngine
+
+# Use custom intelligence database
+engine = PrometheusEngine(intel_path="custom_intel.json")
+result = engine.analyze_file("malware.exe")
+```
+
+### Accessing Detailed Results
+
+```python
+# Get unique indicators only
+unique_indicators = result.get_unique_indicators()
+for indicator in unique_indicators:
+    print(f"{indicator.indicator_type}: {indicator.matched_value}")
+    print(f"Location: offset 0x{indicator.location.offset:08x}")
+    print(f"Explanation: {indicator.explanation}")
+    print()
+
+# Get critical findings
+critical = result.get_critical_indicators()
+print(f"Found {len(critical)} critical indicators")
+
+# Get location map
+location_map = result.get_locations_map()
+print(f"Behavioral indicators at: {location_map['behavioral']}")
+print(f"Exploit patterns at: {location_map['exploits']}")
+```
+
+### Export to JSON
+
+```python
+import json
+
+# Convert to dictionary
+result_dict = result.to_dict()
+
+# Save to file
+with open("results.json", "w") as f:
+    json.dump(result_dict, f, indent=2)
+```
+
+### JSON Output Structure
+
+```json
+{
+  "sample": {
+    "filename": "malware.exe",
+    "sha256": "abc123...",
+    "md5": "def456...",
+    "file_size": 52480,
+    "file_type": "pe"
+  },
+  "detection": {
+    "family": "WannaCry",
+    "confidence": 0.95,
+    "reasoning": {
+      "explanation": "Detected based on 3 UNIQUE indicators, 3 total indicators",
+      "unique_indicators": 3,
+      "total_indicators": 3,
+      "key_indicators": [
+        "mutex_name: Global\\MsWinZonesCacheCounterMutexA",
+        "file_extension: .WNCRY",
+        "url: iuqerfsodp9ifjaposdfjhgosurijfaewrwergwea.com"
+      ]
+    }
+  },
+  "behavioral_details": [
+    {
+      "family": "WannaCry",
+      "type": "mutex_name",
+      "value": "Global\\MsWinZonesCacheCounterMutexA",
+      "location": {
+        "offset": 6720,
+        "offset_hex": "0x00001a40",
+        "length": 37
+      },
+      "severity": "critical",
+      "confidence": 1.0,
+      "uniqueness": "unique",
+      "explanation": "This mutex is UNIQUE to WannaCry..."
+    }
+  ],
+  "location_map": {
+    "signatures": [0, 128],
+    "behavioral": [6720, 16160],
+    "exploits": [12160]
+  }
+}
+```
+
+---
+
+## 🎓 Use Cases
+
+### Security Research
+```bash
+# Analyze unknown sample
+prometheus analyze unknown.exe --output research.json
+
+# Extract exact locations for manual verification
+# Open hex editor at offsets shown in output
+# Verify findings yourself!
+```
+
+### SOC Analysis
+```bash
+# Quick triage
+prometheus analyze alert_binary.exe
+
+# Decision based on:
+# - Severity: CRITICAL indicators require immediate action
+# - Uniqueness: UNIQUE indicators = high confidence
+# - Confidence: 95%+ = escalate immediately
+```
+
+### Malware Education
+```bash
+# Analyze known malware family
+prometheus analyze wannacry.exe
+
+# Learn:
+# - What makes WannaCry distinctive
+# - Where indicators are located
+# - How MITRE ATT&CK applies
+# - Practice hex editor verification
+```
+
+### Forensic Investigation
+```bash
+# Detailed analysis with locations
+prometheus analyze evidence.exe --output forensics.json
+
+# Use location map to:
+# - Extract specific file sections
+# - Identify malicious code regions
+# - Document findings with exact offsets
+# - Integrate with IDA/Ghidra
+```
+
+---
+
+## 🔬 Intelligence Database
+
+### Structure
+
+```json
+{
+  "file_signatures": [276 items],
+  "behavioral_indicators": [203 items],
+  "exploit_patterns": [168 items],
+  "pe_heuristics": [8 items],
+  "xor_keys": [6 items]
+}
+```
+
+### Enhanced Metadata (New in v2.0.0)
+
+Every behavioral indicator includes:
+- `severity` - critical | high | medium | low | info
+- `confidence_weight` - 0.0-1.0
+- `uniqueness` - unique | rare | common
+- `explanation` - Why this indicator matters
+- `commonly_found_in` - Which malware families use this
+- `ttp_category` - MITRE ATT&CK mapping
+- `context` - What behavior this reveals
+
+### Statistics
+
+| Category | Count | Percentage |
+|----------|-------|------------|
+| **Uniqueness** | | |
+| Unique indicators | 15 | 7.4% |
+| Rare indicators | 58 | 28.6% |
+| Common indicators | 130 | 64.0% |
+| **Severity** | | |
+| Critical | 20 | 9.9% |
+| High | 138 | 68.0% |
+| Medium | 45 | 22.2% |
+
+---
+
+## 🆚 Comparison with Other Tools
+
+| Feature | Prometheus v2.0 | VirusTotal | Cuckoo | YARA |
+|---------|----------------|------------|--------|------|
+| **Explains findings** | ✅ Complete | ❌ | ⚠️ Limited | ❌ |
+| **Shows locations** | ✅ Exact offsets | ❌ | ❌ | ✅ Offsets |
+| **Severity levels** | ✅ 5 levels | ❌ | ❌ | ❌ |
+| **Uniqueness rating** | ✅ 3 levels | ❌ | ❌ | ❌ |
+| **MITRE ATT&CK** | ✅ Full mapping | ❌ | ⚠️ Partial | ❌ |
+| **Educational** | ✅ Built-in | ❌ | ❌ | ❌ |
+| **Transparent** | ✅ Complete | ❌ | ⚠️ Limited | ⚠️ Partial |
+| **Open Source** | ✅ Yes | ❌ | ✅ Yes | ✅ Yes |
+
+**Prometheus is the ONLY tool with complete transparency: WHAT + WHY + WHERE**
+
 ---
 
 ## 📚 Documentation
 
-- **[Installation Guide](docs/INSTALLATION.md)** - Detailed setup instructions
-- **[Usage Guide](docs/USAGE.md)** - Complete command reference
-- **[Architecture](docs/ARCHITECTURE.md)** - Technical deep-dive
-- **[Upgrade Guide](docs/UPGRADE_TO_ENTERPRISE.md)** - Enterprise Edition details
-
----
-
-## 📄 License
-
-**Prometheus Community License v1.0**
-
-### ✅ Permitted Uses
-- Research and education
-- Non-profit organizations
-- Personal learning
-- 30-day commercial evaluation
-
-### ❌ Prohibited Uses
-- Commercial/production deployment
-- Revenue-generating activities
-- Organizations with >$1M revenue
-- Managed security services (MSSP)
-
-**For commercial use**: Contact contact@asnspy.com
-
-See [LICENSE](LICENSE) for full terms.
-
----
-
-## 📚 Research Foundation
-
-Prometheus implements the **Binary Analysis and Reverse Engineering: Comprehensive Technical Reference** - a peer-reviewed research paper that catalogs 661 intelligence items across malware detection techniques.
-
-**Paper Information:**
-- **Title**: Binary Analysis and Reverse Engineering: Comprehensive Technical Reference
-- **Author**: Damian Donahue
-- **Version**: 2.2 (2025)
-- **DOI**: [10.5281/zenodo.18123287](https://doi.org/10.5281/zenodo.18123287)
-- **GitHub**: [binary-analysis-reference](https://github.com/0x44616D69616E/binary-analysis-reference)
-- **License**: Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0)
-
-**Citation:**
-```bibtex
-@dataset{donahue_binary_analysis_2025,
-  author       = {Donahue, Damian},
-  title        = {Binary Analysis and Reverse Engineering: 
-                  Comprehensive Technical Reference},
-  year         = 2025,
-  publisher    = {Zenodo},
-  version      = {2.2},
-  doi          = {10.5281/zenodo.18123287},
-  url          = {https://doi.org/10.5281/zenodo.18123287}
-}
-```
-
-**Intelligence Data:**
-- 276 file signatures
-- 203 behavioral indicators  
-- 168 exploit patterns
-- 8 PE heuristics
-- 6 XOR keys
-- **Total: 661 items**
-
-All intelligence data used with proper attribution under CC BY-SA 4.0.
-
-See [NOTICE](NOTICE) for complete attribution information.
-
----
-
-## ⭐ Support
-
-### Community Edition
-- **Issues**: [GitHub Issues](https://github.com/0x44616D69616E/prometheus-community/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/0x44616D69616E/prometheus-community/discussions)
-- **Documentation**: [docs/](docs/)
-
-### Enterprise Edition
-- **Priority Support**: Included with license
-- **Email**: contact@asnspy.com
-- **SLA**: Response within 4 hours (critical issues)
+- **Installation Guide** - Getting started
+- **User Manual** - Complete feature reference
+- **API Documentation** - Python API reference
+- **Intelligence Format** - Custom intelligence guide
+- **Research Paper** - [DOI: 10.5281/zenodo.18123287](https://doi.org/10.5281/zenodo.18123287)
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions to the Community Edition!
-
-- Report bugs via GitHub Issues
-- Suggest features via GitHub Discussions
-- Submit pull requests for improvements
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for:
+- Bug reports
+- Feature requests
+- Intelligence contributions
+- Code contributions
 
 ---
 
-## 📧 Contact
+## 📄 License
 
-- **General Inquiries**: contact@asnspy.com
-- **Enterprise Sales**: contact@asnspy.com
-- **GitHub**: [@0x44616D69616E](https://github.com/0x44616D69616E)
+Prometheus Community Edition is released under the **Prometheus Community License v1.0**.
 
----
+**Key terms:**
+- ✅ **Free** for research, education, and non-profit use
+- ✅ **Source available** - Review and modify code
+- ✅ **No commercial use** without license
+- ✅ **Attribution required**
 
-## 🔥 Built by an AI-Augmented Developer
+For commercial licensing, contact: contact@asnspy.com
 
-Prometheus was created by Damian Donahue using AI assistance (Claude by Anthropic) while experiencing housing instability and working from an iPhone.
-
-**This project proves that AI democratizes advanced software development** - enabling individuals to build production-grade security tools that previously required teams of specialized engineers.
-
-**The future of development is AI-augmented.**
+See [LICENSE](LICENSE) for full terms.
 
 ---
 
-**Ready for production malware analysis?**
+## 🎓 Citation
 
-**[Upgrade to Enterprise Edition →](https://github.com/0x44616D69616E/prometheus-enterprise)**
+If you use Prometheus in research, please cite:
 
-**Questions?** Email contact@asnspy.com
+```bibtex
+@software{prometheus2026,
+  author = {Donahue, Damian},
+  title = {Prometheus Community Edition: Explainable Malware Detection},
+  year = {2026},
+  publisher = {GitHub},
+  version = {2.0.0},
+  url = {https://github.com/0x44616D69616E/prometheus-community},
+  doi = {10.5281/zenodo.18123287}
+}
+```
 
 ---
 
-Copyright (c) 2026 Damian Donahue. Licensed under Prometheus Community License v1.0.
+## 🌟 What's New in v2.0.0
+
+### Major Features
+- 🧠 **Explainable Detection** - Every finding explained
+- 📍 **Location Tracking** - Exact byte offsets for everything
+- 📊 **Enhanced Intelligence** - All 661 items with rich metadata
+- 🎯 **Severity Levels** - Critical/High/Medium/Low/Info
+- 💎 **Uniqueness Ratings** - Unique/Rare/Common
+- 🎓 **MITRE ATT&CK** - Full TTP categorization
+- 🔍 **Detection Reasoning** - Transparent confidence calculation
+
+### See Full Changelog
+- [CHANGELOG.md](CHANGELOG.md) - Complete version history
+- [RELEASE_NOTES.md](RELEASE_NOTES.md) - v2.0.0 details
+
+---
+
+## 💬 Community & Support
+
+- **GitHub Issues** - Bug reports and feature requests
+- **Discussions** - Questions and community chat
+- **Email** - contact@asnspy.com
+- **Documentation** - Complete guides and examples
+
+---
+
+## 🚀 Roadmap
+
+### v2.1.0 (Planned)
+- Interactive hex viewer integration
+- Real-time pattern highlighting
+- STIX 2.1 export format
+- Threat intelligence platform integration
+
+### v2.2.0 (Planned)
+- YARA rule generation from samples
+- Automated report generation
+- Multi-file campaign analysis
+- Timeline reconstruction
+
+---
+
+## ⭐ Star History
+
+If you find Prometheus useful, please star the repo! ⭐
+
+---
+
+## 🙏 Acknowledgments
+
+Built on foundational research:
+- Binary Analysis Academic Reference v2.2
+- MITRE ATT&CK Framework
+- Open source security community
+
+Special thanks to all contributors and users who provided feedback!
+
+---
+
+## 🔥 Why Prometheus?
+
+**"The most transparent malware analyzer available"**
+
+In Greek mythology, Prometheus brought fire (knowledge) to humanity. Our Prometheus brings **transparency and knowledge** to malware analysis - showing you exactly what was found, why it matters, and where it's located.
+
+**No black boxes. No "trust us." Just complete, verifiable transparency.** 🔍
+
+---
+
+**Made with 🔥 by the security research community**
+
+**Prometheus Community Edition v2.0.0** - Transparency in malware analysis

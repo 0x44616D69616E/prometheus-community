@@ -1,62 +1,94 @@
-# 🔥 Prometheus Community Edition v2.0.0
+# 🔥 Prometheus Community Edition v3.0.0
 
-**The Most Transparent Malware Analyzer Available**
+**Enterprise-Grade Malware Analysis Engine**
 
 [![PyPI version](https://badge.fury.io/py/prometheus-community.svg)](https://badge.fury.io/py/prometheus-community)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-Prometheus%20Community%20v1.0-green.svg)](LICENSE)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18123287-blue)](https://doi.org/10.5281/zenodo.18123287)
 
-Revolutionary 6-layer malware analysis with **explainable detection** and **forensic-grade location tracking**. Every finding explained with WHY it matters and WHERE it's located.
+Professional malware analysis with **16 integrated components**, **~95% academic coverage**, and **zero external dependencies**. Analyze Windows PE, Linux ELF, and Android DEX files with forensic-grade accuracy.
 
 ---
 
-## 🎯 What Makes Prometheus Different
+## 🎯 What's New in v3.0.0
 
-### Complete Transparency
-Unlike black-box tools that say "malware detected, trust us," Prometheus shows you:
-- ✅ **WHAT** was found (actual signatures, indicators, patterns)
-- ✅ **WHY** it matters (severity, uniqueness, explanations)
-- ✅ **WHERE** it's located (exact byte offsets, PE sections)
+### Revolutionary Upgrade: 6 Layers → 16 Components
 
-### Educational Value
-Every scan is a learning opportunity:
-- 💎 **Uniqueness ratings** - Know if indicators are definitive (unique) or common
-- 📊 **Severity levels** - Understand criticality (critical/high/medium/low)
-- 🎓 **MITRE ATT&CK** - Full TTP categorization
-- 🔍 **Context** - Learn what each indicator reveals about malware behavior
+**v2.0.0:** 6-layer detection engine with explainable findings  
+**v3.0.0:** 16-component analysis system with **5.3x coverage increase**
 
-### Forensic Detail
-Professional-grade analysis:
-- 📍 **Exact byte offsets** for every finding
-- 🔬 **Hex context** around matches for verification
-- 🗺️ **Location maps** showing where malware components hide
-- ✅ **Manual verification** - Can confirm in any hex editor
+### Major Features
+
+✅ **Complete Platform Coverage**
+- Windows PE executable analysis
+- Linux ELF binary analysis  
+- Android DEX/APK analysis
+
+✅ **Intelligence Automation**
+- Auto-generate YARA detection rules
+- Export IOCs in JSON, CSV, STIX 2.1
+- Professional HTML & Markdown reports
+
+✅ **Advanced Detection**
+- Steganography detection (EOF append, LSB, embedded files)
+- Shellcode identification (NOP sleds, GetPC, syscalls)
+- XOR/encoding analysis (256 keys + Base64/Hex)
+- Packer detection (UPX, ASPack, Themida, 15+ signatures)
+- Anti-analysis techniques (anti-debug, anti-VM, obfuscation)
+- Cryptographic constants (AES, MD5, SHA, DES, RSA)
+- Network artifact detection (C2 domains, suspicious ports)
+
+✅ **Enterprise Ready**
+- 100% offline capable
+- No external dependencies (Python stdlib only)
+- Commercial-use friendly licensing
+- Air-gapped deployment ready
+- Production-grade error handling
 
 ---
 
-## 🌟 Key Features
+## 📊 Key Statistics
 
-### 6-Layer Detection Engine
-1. **File Signatures** - 276 format patterns with location tracking
-2. **Behavioral Indicators** - 203 malware-specific behaviors with explanations
-3. **Exploit Patterns** - 168 exploitation techniques mapped to MITRE
-4. **PE Heuristics** - 8 advanced PE structure analysis rules
-5. **Dynamic Inference** - Behavioral pattern correlation
-6. **ML Classification** - Confidence scoring based on uniqueness
+| Metric | v2.0.0 | v3.0.0 | Improvement |
+|--------|--------|--------|-------------|
+| **Coverage** | ~18% | **~95%** | **5.3x increase** |
+| **Components** | 6 layers | **16 components** | **2.7x more** |
+| **Code** | ~1,500 lines | **9,223 lines** | **6.1x larger** |
+| **Platforms** | Windows | **Win/Linux/Android** | **3 platforms** |
+| **Detection Patterns** | ~100 | **400+** | **4x more** |
+| **Export Formats** | JSON | **JSON/CSV/STIX/YARA/HTML/MD** | **6 formats** |
 
-### Enhanced Intelligence Database
-- **661 intelligence items** with rich metadata
-- **15 unique indicators** (7.4%) - Definitive family identifiers
-- **58 rare indicators** (28.6%) - Family-specific markers  
-- **130 common indicators** (64.0%) - Supporting evidence
-- All items include: severity, uniqueness, confidence, explanation, MITRE ATT&CK, context
+---
 
-### Detection Transparency
-- **Detection reasoning** - Explains why confidence is X%
-- **Confidence calculation** - Shows how score was computed
-- **Indicator classification** - Rates each by uniqueness and severity
-- **No black boxes** - Complete visibility into detection logic
+## 🔍 16 Integrated Components
+
+### Block 1: Foundation (35% coverage)
+1. **File Type Validator** - 31 format signatures, polyglot detection
+2. **Behavioral Detector** - Context-aware pattern matching
+3. **Output Formatter** - 3-tier forensic presentation
+
+### Block 2: Advanced Detection (+20% = 55% coverage)
+4. **Steganography Detector** - EOF append, embedded files, LSB analysis
+5. **Shellcode Detector** - NOP sleds, GetPC, syscall patterns
+6. **XOR/Encoding Detector** - 256-key brute force, Base64, hex
+7. **Nested File Detector** - 31 embedded signature scan
+
+### Block 3: Executable Deep Dive (+15% = 70% coverage)
+8. **PE Analyzer** - Windows executables, 15 packer signatures
+9. **Anti-Analysis Detector** - Anti-debug, anti-VM, obfuscation
+10. **Cryptographic Detector** - AES, MD5, SHA, DES, RSA constants
+
+### Block 4: Cross-Platform & Network (+15% = 85% coverage)
+11. **ELF Analyzer** - Linux binaries, dynamic linking, interpreters
+12. **String Analyzer** - URLs, IPs, paths, commands, registry keys
+13. **Network Artifact Detector** - C2 domains, suspicious ports, DGA
+
+### Block 5: Intelligence Automation (+10% = 95% coverage)
+14. **YARA Rule Generator** - Auto-generate detection rules
+15. **IOC Exporter** - JSON, CSV, STIX 2.1 export
+16. **Android Analyzer** - DEX files, dynamic loading, obfuscation
+17. **Report Generator** - Professional HTML & Markdown reports
 
 ---
 
@@ -77,518 +109,516 @@ pip install -e .
 ### Verify Installation
 ```bash
 prometheus version
-# Output: Prometheus Community Edition v2.0.0
+# Output: Prometheus Community Edition v3.0.0
 ```
 
 ---
 
 ## 🚀 Quick Start
 
-### Analyze a Single File
+### Basic Analysis
 ```bash
 prometheus analyze malware.exe
 ```
 
-### Analyze with JSON Export
+### Export IOCs to All Formats
 ```bash
-prometheus analyze malware.exe --output results.json
+prometheus analyze malware.exe --export-iocs results
+# Creates: results.json, results.csv, results.stix
 ```
 
-### Batch Analysis
+### Generate YARA Rules
 ```bash
-prometheus batch /path/to/samples/ --output-dir results/
+prometheus analyze malware.exe --generate-yara malware.yar
 ```
 
-### Quiet Mode (JSON Only)
+### Generate HTML Report
 ```bash
-prometheus analyze malware.exe --quiet --output results.json
+prometheus analyze malware.exe --report report.html
+```
+
+### Analyze Android APK
+```bash
+prometheus analyze app.apk --android
+```
+
+### Complete Workflow
+```bash
+prometheus analyze malware.exe \
+  --export-iocs indicators \
+  --generate-yara detection.yar \
+  --report analysis.html \
+  --output results.json
 ```
 
 ---
 
-## 📖 Usage & Arguments
+## 📖 CLI Reference
 
 ### Command: `prometheus analyze`
-
-Analyze a single file with complete transparency.
 
 ```bash
 prometheus analyze [OPTIONS] FILE
 ```
 
-#### Arguments
+#### Core Options
 
-| Argument | Type | Description | Default |
-|----------|------|-------------|---------|
+| Option | Type | Description | Default |
+|--------|------|-------------|---------|
 | `FILE` | Path | File to analyze (required) | - |
-| `--output`, `-o` | Path | Save results to JSON file | None |
+| `--output`, `-o` | Path | Save JSON results | None |
 | `--quiet`, `-q` | Flag | Suppress console output | False |
 | `--intel` | Path | Custom intelligence database | Built-in |
 
-#### Examples
+#### Export Options (New in v3.0)
 
-**Basic analysis:**
+| Option | Type | Description |
+|--------|------|-------------|
+| `--export-iocs` | Path | Export IOCs (JSON/CSV/STIX) |
+| `--generate-yara` | Path | Generate YARA rule file |
+| `--report` | Path | Generate HTML report |
+| `--report-md` | Path | Generate Markdown report |
+
+#### Platform Options (New in v3.0)
+
+| Option | Type | Description |
+|--------|------|-------------|
+| `--android` | Flag | Analyze Android APK/DEX |
+| `--pe` | Flag | Force PE analysis |
+| `--elf` | Flag | Force ELF analysis |
+
+#### Detection Options
+
+| Option | Type | Description | Default |
+|--------|------|-------------|---------|
+| `--enable-stego` | Flag | Enable steganography detection | True |
+| `--enable-shellcode` | Flag | Enable shellcode detection | True |
+| `--enable-crypto` | Flag | Enable crypto detection | True |
+| `--enable-network` | Flag | Enable network detection | True |
+
+---
+
+## 💡 Usage Examples
+
+### Windows Malware Analysis
 ```bash
-prometheus analyze suspicious.exe
+# Full analysis with all exports
+prometheus analyze ransomware.exe \
+  --export-iocs iocs/ransomware \
+  --generate-yara rules/ransomware.yar \
+  --report reports/ransomware.html \
+  --output json/ransomware.json
+
+# Results:
+# - iocs/ransomware.json (structured IOCs)
+# - iocs/ransomware.csv (spreadsheet format)
+# - iocs/ransomware.stix (threat intel platform)
+# - rules/ransomware.yar (YARA detection rule)
+# - reports/ransomware.html (analyst report)
+# - json/ransomware.json (complete analysis)
 ```
 
-**Save results:**
+### Linux Binary Analysis
 ```bash
-prometheus analyze suspicious.exe --output results.json
+# Analyze suspicious Linux binary
+prometheus analyze suspicious_binary --elf --report analysis.html
+
+# Detection includes:
+# - ELF structure parsing
+# - RWX segment detection
+# - UPX packer identification
+# - Suspicious interpreter paths
+# - String extraction (URLs, IPs, commands)
 ```
 
-**Custom intelligence database:**
+### Android APK Analysis
 ```bash
-prometheus analyze suspicious.exe --intel custom_intel.json
+# Analyze Android application
+prometheus analyze app.apk --android --export-iocs app_iocs
+
+# Detection includes:
+# - DEX file analysis
+# - Dynamic code loading (DexClassLoader)
+# - Reflection usage
+# - Obfuscation detection (ProGuard/R8)
+# - Suspicious permissions
 ```
 
-**Quiet mode (automation-friendly):**
+### Quick Triage
 ```bash
-prometheus analyze suspicious.exe --quiet --output results.json
+# Fast check with IOC export
+prometheus analyze unknown.exe --quiet --export-iocs quick_check
+
+# Review:
+# - quick_check.json (automated analysis)
+# - quick_check.csv (spreadsheet import)
+# - quick_check.stix (SIEM integration)
+```
+
+### Batch Analysis with Automation
+```bash
+# Analyze directory of samples
+for file in samples/*.exe; do
+  name=$(basename "$file" .exe)
+  prometheus analyze "$file" \
+    --quiet \
+    --export-iocs "iocs/$name" \
+    --generate-yara "rules/$name.yar" \
+    --output "results/$name.json"
+done
 ```
 
 ---
 
-### Command: `prometheus batch`
+## 🎯 Real-World Scenarios
 
-Analyze multiple files in a directory.
-
+### SOC Analyst Workflow
 ```bash
-prometheus batch [OPTIONS] DIRECTORY
+# 1. Quick analysis
+prometheus analyze alert_binary.exe
+
+# 2. If suspicious, export IOCs for blocking
+prometheus analyze alert_binary.exe --export-iocs blocking/alert
+
+# 3. Generate detection rule
+prometheus analyze alert_binary.exe --generate-yara detection.yar
+
+# 4. Create report for team
+prometheus analyze alert_binary.exe --report incident_report.html
 ```
 
-#### Arguments
-
-| Argument | Type | Description | Default |
-|----------|------|-------------|---------|
-| `DIRECTORY` | Path | Directory containing files | - |
-| `--output-dir`, `-d` | Path | Save results to directory | Current dir |
-| `--recursive`, `-r` | Flag | Scan subdirectories | False |
-| `--pattern` | String | File pattern to match | `*` |
-| `--threads` | Integer | Number of parallel threads | 4 |
-
-#### Examples
-
-**Analyze all files in directory:**
+### Malware Researcher Workflow
 ```bash
-prometheus batch /samples/
+# 1. Comprehensive analysis
+prometheus analyze sample.exe --output analysis.json
+
+# 2. Generate YARA rule for detection
+prometheus analyze sample.exe --generate-yara family_detection.yar
+
+# 3. Extract IOCs for threat intel
+prometheus analyze sample.exe --export-iocs threat_intel
+
+# 4. Create detailed report
+prometheus analyze sample.exe --report research_notes.html
 ```
 
-**Recursive scan with results:**
+### Automated Pipeline
 ```bash
-prometheus batch /samples/ --recursive --output-dir results/
-```
+#!/bin/bash
+# Automated malware processing pipeline
 
-**Specific file pattern:**
-```bash
-prometheus batch /samples/ --pattern "*.exe" --output-dir results/
-```
+SAMPLE=$1
+NAME=$(basename "$SAMPLE")
 
-**Parallel processing:**
-```bash
-prometheus batch /samples/ --threads 8 --output-dir results/
-```
+# Analysis
+prometheus analyze "$SAMPLE" \
+  --quiet \
+  --output "analysis/${NAME}.json" \
+  --export-iocs "iocs/${NAME}" \
+  --generate-yara "rules/${NAME}.yar" \
+  --report "reports/${NAME}.html"
 
----
+# Upload to threat intel platform
+curl -X POST https://intel.company.com/api/stix \
+  -H "Content-Type: application/json" \
+  -d @"iocs/${NAME}.stix"
 
-### Command: `prometheus version`
-
-Show version information.
-
-```bash
-prometheus version
-```
-
-**Output:**
-```
-Prometheus Community Edition v2.0.0
-Revolutionary 6-layer malware analysis with explainable detection
-
-Intelligence: 661 items (276 signatures, 203 behavioral, 168 exploits)
-Python: 3.10.0
-License: Prometheus Community License v1.0
-```
-
----
-
-### Command: `prometheus upgrade`
-
-Information about enterprise edition.
-
-```bash
-prometheus upgrade
+# Deploy YARA rule to endpoints
+cp "rules/${NAME}.yar" /var/lib/yara/rules/
 ```
 
 ---
 
 ## 📊 Example Output
 
-### Sample Analysis
-
-```bash
-$ prometheus analyze wannacry_sample.exe
-```
+### Console Output (Enhanced in v3.0)
 
 ```
 ╔══════════════════════════════════════════════════════════╗
-║   🔥 PROMETHEUS COMMUNITY EDITION v2.0.0                ║
-║   The Most Transparent Malware Analyzer                 ║
+║   🔥 PROMETHEUS COMMUNITY EDITION v3.0.0                ║
+║   Enterprise-Grade Malware Analysis                     ║
 ╚══════════════════════════════════════════════════════════╝
 
-Analyzing: wannacry_sample.exe
-SHA256: abc123def456...
-Size: 52,480 bytes
-Type: pe
+Analyzing: malware.exe
+SHA256: a1b2c3d4...
+Size: 524,288 bytes
+Type: PE (Windows executable)
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+═══════════════════════════════════════════════════════════
 
-📄 Layer 1: File Signatures & Entropy
+📋 STATIC ANALYSIS
 
-  Entropy: 7.24
-  ⚠️  HIGH ENTROPY - Likely packed/encrypted
-  Strings: 1,234
+Entropy: 7.84 ⚠️  HIGH - Likely packed or encrypted
+File Type: PE
+Detected Type: PE
+Match: ✓ Valid
 
-  📝 File Signatures: 3 matches
-     • PE (executable)
-       📍 offset 0x00000000
-     • DOS MZ Header (executable)
-       📍 offset 0x00000000
-     • Windows PE32 (executable)
-       📍 offset 0x00000080
+═══════════════════════════════════════════════════════════
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔍 DETECTION RESULTS
 
-🎯 Layer 2: Behavioral Indicators
+[HIGH] PE Packer Detected
+Packer: UPX
+📊 Severity: HIGH | Confidence: 95%
+📍 Location: Section .UPX0 at offset 0x1000
+Context: Binary packed with UPX - common evasion technique
+MITRE: T1027.002 - Software Packing
 
-  🔴 CRITICAL Indicators (2):
+[HIGH] Anti-Debug API
+API: IsDebuggerPresent
+📊 Severity: HIGH | Confidence: 90%
+📍 Location: Import table
+Context: Checks for debugger presence to evade analysis
+MITRE: T1622 - Debugger Evasion
 
-     🔴 Mutex Name: Global\MsWinZonesCacheCounterMutexA
-        💎 UNIQUE | Confidence: 100%
-        📍 offset 0x00001a40, length 37 bytes
-        Why: This mutex is UNIQUE to WannaCry ransomware and is used to 
-             prevent multiple instances from running simultaneously
-        Category: Defense Evasion - T1027
+[MEDIUM] Suspicious Network Indicator
+URL: http://malicious-c2.tk/gate.php
+📊 Severity: MEDIUM | Confidence: 95%
+📍 Location: String at offset 0x3f20
+Context: Suspicious domain with free TLD (.tk)
+MITRE: T1071 - Application Layer Protocol
 
-     🔴 File Extension: .WNCRY
-        💎 UNIQUE | Confidence: 95%
-        📍 offset 0x00003f20, length 6 bytes
-        Why: Files encrypted by WannaCry are renamed with this extension - 
-             a signature marker of this ransomware
-        Category: Impact - T1486
+═══════════════════════════════════════════════════════════
 
-  🟠 HIGH Severity Indicators (1):
+📈 ANALYSIS SUMMARY
 
-     🟠 URL: iuqerfsodp9ifjaposdfjhgosurijfaewrwergwea.com
-        💎 UNIQUE | Confidence: 90%
-        📍 offset 0x00004120
+Total Findings: 12
+ - Exact Matches: 0
+ - Suspicious: 8 (HIGH: 3, MEDIUM: 5)
+ - Informational: 4
 
-  📊 Summary:
-     • 3 unique indicators
-     • 0 rare indicators
-     • 1 families detected: WannaCry
+IOCs Extracted: 5
+ - URLs: 2
+ - IP Addresses: 1
+ - Domains: 2
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TTPs Identified: 7
+ - T1027.002 (Software Packing)
+ - T1622 (Debugger Evasion)
+ - T1071 (Application Layer Protocol)
+ - T1059 (Command Execution)
+ - T1055 (Process Injection)
 
-💥 Layer 3: Exploit Patterns
+Analysis Duration: 0.15 seconds
 
-  💥 Exploit Patterns: 1 detected
+═══════════════════════════════════════════════════════════
 
-     🔴 NOP Sled
-        📍 offset 0x00002f80, length 64 bytes
-        Type: buffer_overflow, Severity: high
-        Why: Long sequence of NOP (0x90) instructions used to make buffer
-             overflow exploits more reliable
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-══════════════════════════════════════════════════════════
-VERDICT
-══════════════════════════════════════════════════════════
-
-🏷️  Family: WannaCry
-📊 Confidence: 95%
-
-🧠 Why this family?
-
-   💎 3 UNIQUE Indicators:
-      ✓ Mutex Name: Global\MsWinZonesCacheCounterMutexA
-        📍 offset 0x00001a40
-        This mutex is UNIQUE to WannaCry ransomware and is used to prevent 
-        multiple...
-      ✓ File Extension: .WNCRY
-        📍 offset 0x00003f20
-        Files encrypted by WannaCry are renamed with this extension - a 
-        signature marker...
-      ✓ Url: iuqerfsodp9ifjaposdfjhgosurijfaewrwergwea.com
-        📍 offset 0x00004120
-        Original WannaCry kill switch - malware checks if this domain 
-        resolves...
-
-   📊 Detection Summary:
-      • 3 unique to WannaCry
-      • 3 total indicators
-      • Confidence: 95%
-
-📍 Key Findings Map:
-   0x00001a40: mutex_name (critical, unique)
-   0x00003f20: file_extension (critical, unique)
-   0x00004120: url (high, unique)
-
-🔍 Indicators of Compromise (5):
-   • http://iuqerfsodp9ifjaposdfjhgosurijfaewrwergwea.com
-   • 192.168.56.20
-   • C:\Windows\tasksche.exe
-   • Global\MsWinZonesCacheCounterMutexA
-   • @WanaDecryptor@.exe
-
-⚔️  Tactics, Techniques & Procedures (4):
-   • Defense Evasion
-   • Impact
-   • Command and Control
-   • Execution
-
-⏱️  Duration: 0.234s
+✅ Analysis complete! Use --help for export options.
 ```
 
 ---
 
-## 💻 Python API Usage
+## 🛠️ Python API
 
-### Basic Analysis
-
+### Basic Usage
 ```python
-from prometheus import PrometheusEngine
+from prometheus import PrometheusEngineV3
 
 # Initialize engine
-engine = PrometheusEngine()
+engine = PrometheusEngineV3()
 
 # Analyze file
 result = engine.analyze_file("malware.exe")
 
-# Access results
-print(f"Family: {result.family}")
-print(f"Confidence: {result.confidence:.0%}")
-print(f"IOCs: {len(result.iocs)}")
+# Access findings
+print(f"Suspicious artifacts: {len(result.suspicious_artifacts)}")
+print(f"IOCs extracted: {len(result.iocs)}")
+print(f"TTPs identified: {result.ttps}")
 ```
 
-### With Custom Intelligence
-
+### Generate YARA Rules
 ```python
-from prometheus import PrometheusEngine
+from prometheus import PrometheusEngineV3
+from prometheus.yara_generator import YARARuleGenerator
 
-# Use custom intelligence database
-engine = PrometheusEngine(intel_path="custom_intel.json")
+engine = PrometheusEngineV3()
 result = engine.analyze_file("malware.exe")
-```
 
-### Accessing Detailed Results
-
-```python
-# Get unique indicators only
-unique_indicators = result.get_unique_indicators()
-for indicator in unique_indicators:
-    print(f"{indicator.indicator_type}: {indicator.matched_value}")
-    print(f"Location: offset 0x{indicator.location.offset:08x}")
-    print(f"Explanation: {indicator.explanation}")
-    print()
-
-# Get critical findings
-critical = result.get_critical_indicators()
-print(f"Found {len(critical)} critical indicators")
-
-# Get location map
-location_map = result.get_locations_map()
-print(f"Behavioral indicators at: {location_map['behavioral']}")
-print(f"Exploit patterns at: {location_map['exploits']}")
-```
-
-### Export to JSON
-
-```python
-import json
-
-# Convert to dictionary
-result_dict = result.to_dict()
+# Generate YARA rule
+generator = YARARuleGenerator()
+yara_rule = generator.generate_ruleset(result, "malware_family")
 
 # Save to file
-with open("results.json", "w") as f:
-    json.dump(result_dict, f, indent=2)
+with open("detection.yar", "w") as f:
+    f.write(yara_rule)
 ```
 
-### JSON Output Structure
+### Export IOCs
+```python
+from prometheus import PrometheusEngineV3
+from prometheus.ioc_exporter import IOCExporter
 
-```json
-{
-  "sample": {
-    "filename": "malware.exe",
-    "sha256": "abc123...",
-    "md5": "def456...",
-    "file_size": 52480,
-    "file_type": "pe"
-  },
-  "detection": {
-    "family": "WannaCry",
-    "confidence": 0.95,
-    "reasoning": {
-      "explanation": "Detected based on 3 UNIQUE indicators, 3 total indicators",
-      "unique_indicators": 3,
-      "total_indicators": 3,
-      "key_indicators": [
-        "mutex_name: Global\\MsWinZonesCacheCounterMutexA",
-        "file_extension: .WNCRY",
-        "url: iuqerfsodp9ifjaposdfjhgosurijfaewrwergwea.com"
-      ]
-    }
-  },
-  "behavioral_details": [
-    {
-      "family": "WannaCry",
-      "type": "mutex_name",
-      "value": "Global\\MsWinZonesCacheCounterMutexA",
-      "location": {
-        "offset": 6720,
-        "offset_hex": "0x00001a40",
-        "length": 37
-      },
-      "severity": "critical",
-      "confidence": 1.0,
-      "uniqueness": "unique",
-      "explanation": "This mutex is UNIQUE to WannaCry..."
-    }
-  ],
-  "location_map": {
-    "signatures": [0, 128],
-    "behavioral": [6720, 16160],
-    "exploits": [12160]
-  }
-}
+engine = PrometheusEngineV3()
+result = engine.analyze_file("malware.exe")
+
+# Export to all formats
+exporter = IOCExporter()
+exporter.save_exports(result, output_dir="iocs", base_name="malware")
+
+# Creates:
+# - iocs/malware.json
+# - iocs/malware.csv
+# - iocs/malware.stix
+```
+
+### Generate Reports
+```python
+from prometheus import PrometheusEngineV3
+from prometheus.report_generator import ReportGenerator
+
+engine = PrometheusEngineV3()
+result = engine.analyze_file("malware.exe")
+
+# Generate HTML report
+generator = ReportGenerator()
+html = generator.generate_html(result)
+
+with open("report.html", "w") as f:
+    f.write(html)
+
+# Generate Markdown report
+md = generator.generate_markdown(result)
+
+with open("report.md", "w") as f:
+    f.write(md)
 ```
 
 ---
 
-## 🎓 Use Cases
+## 🔬 Detection Capabilities
 
-### Security Research
-```bash
-# Analyze unknown sample
-prometheus analyze unknown.exe --output research.json
+### Windows PE Analysis
+- ✅ PE structure parsing (DOS, NT, COFF, Optional headers)
+- ✅ Section analysis (.text, .data, .rdata, .rsrc, etc.)
+- ✅ Import/Export table analysis
+- ✅ RWX section detection
+- ✅ Packer identification (UPX, ASPack, Themida, 15+ signatures)
+- ✅ Entry point anomalies
+- ✅ Dangerous API detection (30+ APIs across 6 categories)
+- ✅ Anti-debug techniques
+- ✅ Anti-VM techniques
 
-# Extract exact locations for manual verification
-# Open hex editor at offsets shown in output
-# Verify findings yourself!
+### Linux ELF Analysis
+- ✅ ELF header parsing (64/32-bit, endianness)
+- ✅ Section analysis (.text, .data, .bss, .rodata, etc.)
+- ✅ Program header analysis (LOAD, DYNAMIC, INTERP, etc.)
+- ✅ RWX segment detection
+- ✅ Interpreter analysis
+- ✅ Dynamic linking analysis
+- ✅ UPX packer detection
+- ✅ Stripped binary detection
+
+### Android APK/DEX Analysis
+- ✅ DEX file structure parsing
+- ✅ Dynamic code loading detection (DexClassLoader)
+- ✅ Reflection pattern analysis
+- ✅ Obfuscation detection (ProGuard/R8)
+- ✅ Suspicious class/method detection
+- ✅ Asset/cache directory references
+
+### Cross-Platform Detection
+- ✅ Steganography (EOF append, embedded files, LSB)
+- ✅ Shellcode (NOP sleds, GetPC, syscalls)
+- ✅ XOR/encoding (256 keys, Base64, hex)
+- ✅ Nested files (31 signatures)
+- ✅ Cryptography (AES, MD5, SHA, DES, RSA)
+- ✅ String analysis (URLs, IPs, commands, paths)
+- ✅ Network artifacts (C2 domains, ports, DGA)
+
+---
+
+## 📁 Project Structure
+
 ```
-
-### SOC Analysis
-```bash
-# Quick triage
-prometheus analyze alert_binary.exe
-
-# Decision based on:
-# - Severity: CRITICAL indicators require immediate action
-# - Uniqueness: UNIQUE indicators = high confidence
-# - Confidence: 95%+ = escalate immediately
-```
-
-### Malware Education
-```bash
-# Analyze known malware family
-prometheus analyze wannacry.exe
-
-# Learn:
-# - What makes WannaCry distinctive
-# - Where indicators are located
-# - How MITRE ATT&CK applies
-# - Practice hex editor verification
-```
-
-### Forensic Investigation
-```bash
-# Detailed analysis with locations
-prometheus analyze evidence.exe --output forensics.json
-
-# Use location map to:
-# - Extract specific file sections
-# - Identify malicious code regions
-# - Document findings with exact offsets
-# - Integrate with IDA/Ghidra
+prometheus-community/
+├── prometheus/
+│   ├── __init__.py
+│   ├── engine_v3_0_0.py              # Main analysis engine
+│   ├── models_v3.py                  # Data models
+│   ├── config.py                     # Configuration
+│   ├── cli.py                        # CLI interface
+│   │
+│   ├── core/                         # Core components
+│   │   ├── file_type_validator.py
+│   │   ├── behavioral_detector_v3.py
+│   │   └── output_formatter.py
+│   │
+│   ├── detection/                    # Detection modules
+│   │   ├── steganography_detector.py
+│   │   ├── shellcode_detector.py
+│   │   ├── xor_encoding_detector.py
+│   │   ├── nested_file_detector.py
+│   │   ├── pe_analyzer.py
+│   │   ├── elf_analyzer.py
+│   │   ├── anti_analysis_detector.py
+│   │   ├── crypto_detector.py
+│   │   ├── string_analyzer.py
+│   │   └── network_detector.py
+│   │
+│   ├── automation/                   # Intelligence automation
+│   │   ├── yara_generator.py
+│   │   ├── ioc_exporter.py
+│   │   ├── android_analyzer.py
+│   │   └── report_generator.py
+│   │
+│   └── data/
+│       └── intelligence_v2_1_cleaned.json
+│
+├── tests/
+│   ├── test_complete_system.py
+│   ├── validate_block1.py
+│   ├── validate_block2.py
+│   ├── validate_block3.py
+│   ├── validate_block4.py
+│   └── validate_block5.py
+│
+├── docs/
+│   ├── BLOCK_1_IMPLEMENTATION.md
+│   ├── BLOCK_2_IMPLEMENTATION.md
+│   ├── BLOCK_3_IMPLEMENTATION.md
+│   ├── BLOCK_4_IMPLEMENTATION.md
+│   ├── BLOCK_5_IMPLEMENTATION.md
+│   └── COMPREHENSIVE_TEST_REPORT.md
+│
+├── README.md
+├── setup.py
+├── CHANGELOG.md
+├── LICENSE
+└── requirements.txt (empty - no dependencies!)
 ```
 
 ---
 
-## 🔬 Intelligence Database
+## 🆚 Comparison
 
-### Structure
-
-```json
-{
-  "file_signatures": [276 items],
-  "behavioral_indicators": [203 items],
-  "exploit_patterns": [168 items],
-  "pe_heuristics": [8 items],
-  "xor_keys": [6 items]
-}
-```
-
-### Enhanced Metadata (New in v2.0.0)
-
-Every behavioral indicator includes:
-- `severity` - critical | high | medium | low | info
-- `confidence_weight` - 0.0-1.0
-- `uniqueness` - unique | rare | common
-- `explanation` - Why this indicator matters
-- `commonly_found_in` - Which malware families use this
-- `ttp_category` - MITRE ATT&CK mapping
-- `context` - What behavior this reveals
-
-### Statistics
-
-| Category | Count | Percentage |
-|----------|-------|------------|
-| **Uniqueness** | | |
-| Unique indicators | 15 | 7.4% |
-| Rare indicators | 58 | 28.6% |
-| Common indicators | 130 | 64.0% |
-| **Severity** | | |
-| Critical | 20 | 9.9% |
-| High | 138 | 68.0% |
-| Medium | 45 | 22.2% |
-
----
-
-## 🆚 Comparison with Other Tools
-
-| Feature | Prometheus v2.0 | VirusTotal | Cuckoo | YARA |
-|---------|----------------|------------|--------|------|
-| **Explains findings** | ✅ Complete | ❌ | ⚠️ Limited | ❌ |
-| **Shows locations** | ✅ Exact offsets | ❌ | ❌ | ✅ Offsets |
-| **Severity levels** | ✅ 5 levels | ❌ | ❌ | ❌ |
-| **Uniqueness rating** | ✅ 3 levels | ❌ | ❌ | ❌ |
-| **MITRE ATT&CK** | ✅ Full mapping | ❌ | ⚠️ Partial | ❌ |
-| **Educational** | ✅ Built-in | ❌ | ❌ | ❌ |
-| **Transparent** | ✅ Complete | ❌ | ⚠️ Limited | ⚠️ Partial |
-| **Open Source** | ✅ Yes | ❌ | ✅ Yes | ✅ Yes |
-
-**Prometheus is the ONLY tool with complete transparency: WHAT + WHY + WHERE**
+| Feature | Prometheus v3.0 | VirusTotal | YARA | Cuckoo |
+|---------|----------------|------------|------|--------|
+| **Offline Analysis** | ✅ Yes | ❌ No | ✅ Yes | ✅ Yes |
+| **Windows PE** | ✅ Advanced | ✅ Yes | ⚠️ Basic | ✅ Yes |
+| **Linux ELF** | ✅ Advanced | ⚠️ Limited | ⚠️ Basic | ⚠️ Limited |
+| **Android APK** | ✅ Advanced | ✅ Yes | ⚠️ Basic | ✅ Yes |
+| **YARA Generation** | ✅ Auto | ❌ No | N/A | ❌ No |
+| **IOC Export** | ✅ 3 formats | ⚠️ Limited | ❌ No | ⚠️ Limited |
+| **Report Generation** | ✅ HTML/MD | ❌ No | ❌ No | ✅ HTML |
+| **No Dependencies** | ✅ Yes | N/A | ❌ No | ❌ No |
+| **Open Source** | ✅ Yes | ❌ No | ✅ Yes | ✅ Yes |
+| **Commercial Use** | ✅ Yes | 💰 Paid | ✅ Yes | ✅ Yes |
 
 ---
 
 ## 📚 Documentation
 
-- **Installation Guide** - Getting started
-- **User Manual** - Complete feature reference
-- **API Documentation** - Python API reference
-- **Intelligence Format** - Custom intelligence guide
-- **Research Paper** - [DOI: 10.5281/zenodo.18123287](https://doi.org/10.5281/zenodo.18123287)
+- [Installation Guide](docs/INSTALLATION.md)
+- [User Manual](docs/USER_MANUAL.md)
+- [API Reference](docs/API_REFERENCE.md)
+- [Block Implementation Guides](docs/)
+- [Test Report](docs/COMPREHENSIVE_TEST_REPORT.md)
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for:
-- Bug reports
-- Feature requests
-- Intelligence contributions
-- Code contributions
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
@@ -599,10 +629,10 @@ Prometheus Community Edition is released under the **Prometheus Community Licens
 **Key terms:**
 - ✅ **Free** for research, education, and non-profit use
 - ✅ **Source available** - Review and modify code
-- ✅ **No commercial use** without license
-- ✅ **Attribution required**
+- ✅ **Commercial use allowed** with attribution
+- ✅ **No external dependencies** - Deploy anywhere
 
-For commercial licensing, contact: contact@asnspy.com
+For enterprise licensing, contact: contact@asnspy.com
 
 See [LICENSE](LICENSE) for full terms.
 
@@ -610,15 +640,13 @@ See [LICENSE](LICENSE) for full terms.
 
 ## 🎓 Citation
 
-If you use Prometheus in research, please cite:
-
 ```bibtex
 @software{prometheus2026,
   author = {Donahue, Damian},
-  title = {Prometheus Community Edition: Explainable Malware Detection},
+  title = {Prometheus Community Edition: Enterprise Malware Analysis},
   year = {2026},
   publisher = {GitHub},
-  version = {2.0.0},
+  version = {3.0.0},
   url = {https://github.com/0x44616D69616E/prometheus-community},
   doi = {10.5281/zenodo.18123287}
 }
@@ -626,51 +654,28 @@ If you use Prometheus in research, please cite:
 
 ---
 
-## 🌟 What's New in v2.0.0
+## 🌟 What's Coming
 
-### Major Features
-- 🧠 **Explainable Detection** - Every finding explained
-- 📍 **Location Tracking** - Exact byte offsets for everything
-- 📊 **Enhanced Intelligence** - All 661 items with rich metadata
-- 🎯 **Severity Levels** - Critical/High/Medium/Low/Info
-- 💎 **Uniqueness Ratings** - Unique/Rare/Common
-- 🎓 **MITRE ATT&CK** - Full TTP categorization
-- 🔍 **Detection Reasoning** - Transparent confidence calculation
-
-### See Full Changelog
-- [CHANGELOG.md](CHANGELOG.md) - Complete version history
-- [RELEASE_NOTES.md](RELEASE_NOTES.md) - v2.0.0 details
-
----
-
-## 💬 Community & Support
-
-- **GitHub Issues** - Bug reports and feature requests
-- **Discussions** - Questions and community chat
-- **Email** - contact@asnspy.com
-- **Documentation** - Complete guides and examples
-
----
-
-## 🚀 Roadmap
-
-### v2.1.0 (Planned)
-- Interactive hex viewer integration
-- Real-time pattern highlighting
-- STIX 2.1 export format
-- Threat intelligence platform integration
-
-### v2.2.0 (Planned)
-- YARA rule generation from samples
-- Automated report generation
+### v3.1.0 (Planned)
+- Machine learning-based classification
+- Behavioral pattern correlation
 - Multi-file campaign analysis
-- Timeline reconstruction
+- Interactive web interface
+
+### v3.2.0 (Planned)
+- Real-time monitoring integration
+- Cloud sandbox integration
+- Threat intelligence feeds
+- Automated playbooks
 
 ---
 
-## ⭐ Star History
+## 💬 Community
 
-If you find Prometheus useful, please star the repo! ⭐
+- **GitHub Issues** - Bug reports and features
+- **Discussions** - Questions and community
+- **Email** - contact@asnspy.com
+- **Documentation** - Complete guides
 
 ---
 
@@ -681,20 +686,31 @@ Built on foundational research:
 - MITRE ATT&CK Framework
 - Open source security community
 
-Special thanks to all contributors and users who provided feedback!
-
 ---
 
-## 🔥 Why Prometheus?
+## 🔥 Why Prometheus v3.0?
 
-**"The most transparent malware analyzer available"**
+**From transparency to enterprise capability**
 
-In Greek mythology, Prometheus brought fire (knowledge) to humanity. Our Prometheus brings **transparency and knowledge** to malware analysis - showing you exactly what was found, why it matters, and where it's located.
+- **v1.0:** Basic detection with 6 layers
+- **v2.0:** Explainable detection with location tracking
+- **v3.0:** Enterprise-grade analysis with full automation
 
-**No black boxes. No "trust us." Just complete, verifiable transparency.** 🔍
+**Complete solution:**
+- ✅ Analyze any platform (Windows/Linux/Android)
+- ✅ Generate detection rules (YARA)
+- ✅ Export indicators (JSON/CSV/STIX)
+- ✅ Create reports (HTML/Markdown)
+- ✅ Deploy anywhere (no dependencies)
+
+**Built for:**
+- 🏢 Enterprise SOC teams
+- 🔬 Malware researchers
+- 🎓 Security educators
+- 🛡️ Incident responders
 
 ---
 
 **Made with 🔥 by the security research community**
 
-**Prometheus Community Edition v2.0.0** - Transparency in malware analysis
+**Prometheus Community Edition v3.0.0** - Enterprise malware analysis for everyone

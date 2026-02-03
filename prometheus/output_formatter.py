@@ -9,7 +9,7 @@ Copyright (c) 2026 Damian Donahue
 """
 
 from typing import List
-from models_v3 import (
+from prometheus.models_v3 import (
     AnalysisResult, ExactMatch, SuspiciousArtifact, InformationalArtifact,
     FileTypeValidationResult
 )

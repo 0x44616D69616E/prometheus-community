@@ -10,7 +10,7 @@ Copyright (c) 2026 Damian Donahue
 
 from dataclasses import dataclass
 from typing import List, Tuple, Optional
-from models_v3 import Location, SuspiciousArtifact, Severity
+from prometheus.models_v3 import Location, SuspiciousArtifact, Severity
 
 
 @dataclass

@@ -13,7 +13,7 @@ Copyright (c) 2026 Damian Donahue
 
 import re
 from typing import Optional, Tuple
-from config import PrometheusConfig, ValidationStrictness
+from prometheus.config import PrometheusConfig, ValidationStrictness
 
 
 class ContextValidator:

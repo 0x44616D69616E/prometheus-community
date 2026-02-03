@@ -17,7 +17,7 @@ import csv
 from datetime import datetime
 from typing import List, Dict, Any
 from io import StringIO
-from models_v3 import AnalysisResult, ExactMatch, SuspiciousArtifact
+from prometheus.models_v3 import AnalysisResult, ExactMatch, SuspiciousArtifact
 
 
 class IOCExporter:

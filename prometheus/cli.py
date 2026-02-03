@@ -16,8 +16,8 @@ def print_banner():
     """Print Prometheus banner."""
     print("""
 ╔══════════════════════════════════════════════════════════╗
-║   🔥 PROMETHEUS COMMUNITY EDITION v3.0.0                 ║
-║   Enterprise-Grade Malware Analysis                      ║
+║   🔥 PROMETHEUS COMMUNITY EDITION v3.0.0                ║
+║   Enterprise-Grade Malware Analysis                     ║
 ╚══════════════════════════════════════════════════════════╝
 """)
 

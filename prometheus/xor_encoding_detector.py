@@ -12,7 +12,7 @@ import re
 import base64
 from dataclasses import dataclass
 from typing import List, Tuple, Optional
-from models_v3 import Location, SuspiciousArtifact, InformationalArtifact, Severity
+from prometheus.models_v3 import Location, SuspiciousArtifact, InformationalArtifact, Severity
 
 
 @dataclass

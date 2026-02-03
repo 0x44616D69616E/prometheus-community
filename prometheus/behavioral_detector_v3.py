@@ -8,12 +8,12 @@ Copyright (c) 2026 Damian Donahue
 """
 
 from typing import List, Dict, Any, Tuple
-from models_v3 import (
+from prometheus.models_v3 import (
     ExactMatch, SuspiciousArtifact, InformationalArtifact,
     Location, Severity, Uniqueness, ClassificationTier
 )
-from context_validator import ContextValidator
-from config import PrometheusConfig
+from prometheus.context_validator import ContextValidator
+from prometheus.config import PrometheusConfig
 
 
 class BehavioralDetectorV3:

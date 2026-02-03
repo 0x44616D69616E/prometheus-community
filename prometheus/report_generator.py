@@ -13,7 +13,7 @@ Copyright (c) 2026 Damian Donahue
 
 from datetime import datetime
 from typing import Dict, Any
-from models_v3 import AnalysisResult, Severity
+from prometheus.models_v3 import AnalysisResult, Severity
 
 
 class ReportGenerator:

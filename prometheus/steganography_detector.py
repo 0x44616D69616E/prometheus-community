@@ -10,7 +10,7 @@ Copyright (c) 2026 Damian Donahue
 
 from dataclasses import dataclass
 from typing import List, Dict, Optional, Tuple
-from models_v3 import Location, ExactMatch, SuspiciousArtifact, InformationalArtifact
+from prometheus.models_v3 import Location, ExactMatch, SuspiciousArtifact, InformationalArtifact
 
 
 @dataclass

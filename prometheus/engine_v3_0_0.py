@@ -18,31 +18,31 @@ import json
 from typing import Dict, Any, List, Optional
 from pathlib import Path
 
-from models_v3 import (
+from prometheus.models_v3 import (
     Sample, AnalysisResult, FileType, StaticAnalysis,
     ExactMatch, SuspiciousArtifact, InformationalArtifact,
     FileTypeValidationResult
 )
-from config import PrometheusConfig
+from prometheus.config import PrometheusConfig
 from behavioral_detector_v3 import BehavioralDetectorV3
-from file_type_validator import FileTypeValidator
-from output_formatter import OutputFormatter
+from prometheus.file_type_validator import FileTypeValidator
+from prometheus.output_formatter import OutputFormatter
 
 # Block 2 detectors
-from steganography_detector import SteganographyDetector
-from shellcode_detector import ShellcodeDetector
-from xor_encoding_detector import XOREncodingDetector
-from nested_file_detector import NestedFileDetector
+from prometheus.steganography_detector import SteganographyDetector
+from prometheus.shellcode_detector import ShellcodeDetector
+from prometheus.xor_encoding_detector import XOREncodingDetector
+from prometheus.nested_file_detector import NestedFileDetector
 
 # Block 3 detectors
-from pe_analyzer import PEAnalyzer
-from anti_analysis_detector import AntiAnalysisDetector
-from crypto_detector import CryptographicDetector
+from prometheus.pe_analyzer import PEAnalyzer
+from prometheus.anti_analysis_detector import AntiAnalysisDetector
+from prometheus.crypto_detector import CryptographicDetector
 
 # Block 4 detectors
-from elf_analyzer import ELFAnalyzer
-from string_analyzer import StringAnalyzer
-from network_detector import NetworkArtifactDetector
+from prometheus.elf_analyzer import ELFAnalyzer
+from prometheus.string_analyzer import StringAnalyzer
+from prometheus.network_detector import NetworkArtifactDetector
 
 
 def calculate_entropy(data: bytes) -> float:

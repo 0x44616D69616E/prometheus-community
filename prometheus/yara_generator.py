@@ -16,7 +16,7 @@ Copyright (c) 2026 Damian Donahue
 from dataclasses import dataclass
 from typing import List, Dict, Any, Optional
 from datetime import datetime
-from models_v3 import AnalysisResult, ExactMatch, SuspiciousArtifact
+from prometheus.models_v3 import AnalysisResult, ExactMatch, SuspiciousArtifact
 
 
 @dataclass

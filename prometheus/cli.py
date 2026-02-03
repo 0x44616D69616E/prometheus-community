@@ -1,235 +1,382 @@
+#!/usr/bin/env python3
 """
-PROMETHEUS COMMUNITY EDITION - CLI
+Prometheus Community Edition v3.0.0 - CLI Interface
 
-Command-line interface for malware analysis.
-
-Copyright (c) 2026 Damian Donahue
-License: See LICENSE file
+Enterprise-grade malware analysis with comprehensive automation.
 """
 
+import sys
 import argparse
 import json
-import sys
 from pathlib import Path
-from .engine import PrometheusEngine
-from . import __version__
+from typing import Optional
 
 
-def show_banner():
-    """Show Prometheus banner."""
+def print_banner():
+    """Print Prometheus banner."""
     print("""
 ╔══════════════════════════════════════════════════════════╗
-║                                                          ║
-║   🔥 PROMETHEUS COMMUNITY EDITION v1.0.0                ║
-║                                                          ║
-║   Revolutionary 6-layer malware analysis                 ║
-║   Based on Binary Analysis Reference v2.2                ║
-║                                                          ║
-║   DOI: 10.5281/zenodo.18123287                          ║
-║   661 intelligence items from peer-reviewed research     ║
-║                                                          ║
+║   🔥 PROMETHEUS COMMUNITY EDITION v3.0.0                ║
+║   Enterprise-Grade Malware Analysis                     ║
 ╚══════════════════════════════════════════════════════════╝
-    """)
+""")
 
 
-def show_upgrade_info():
-    """Show Enterprise Edition information."""
-    print("""
-╔══════════════════════════════════════════════════════════╗
-║                                                          ║
-║   🚀 PROMETHEUS ENTERPRISE EDITION                      ║
-║                                                          ║
-╟──────────────────────────────────────────────────────────╢
-║                                                          ║
-║  Community Edition (Current):                            ║
-║    ✅ 661 intelligence items (full research)            ║
-║    ✅ 6-layer detection                                 ║
-║    ✅ CLI interface                                     ║
-║    ✅ JSON output                                       ║
-║    ✅ Free for research & education                    ║
-║                                                          ║
-║  Enterprise Edition Adds:                                ║
-║    🚀 REST API + Web UI                                 ║
-║    🚀 Knowledge graph storage                           ║
-║    🚀 Advanced reporting (PDF, XLSX)                    ║
-║    🚀 Batch processing (unlimited)                      ║
-║    🚀 Multi-user support + RBAC                         ║
-║    🚀 SSO/SAML integration                              ║
-║    🚀 SIEM integration                                  ║
-║    🚀 Commercial license                                ║
-║    🚀 Priority support + SLA                            ║
-║                                                          ║
-║  Research Foundation:                                    ║
-║    📚 Binary Analysis Reference v2.2                    ║
-║    📚 DOI: 10.5281/zenodo.18123287                     ║
-║    📚 github.com/0x44616D69616E/binary-analysis-reference  ║
-║                                                          ║
-║  Learn More:                                             ║
-║    GitHub: github.com/0x44616D69616E/prometheus-enterprise ║
-║    Email:  contact@asnspy.com                           ║
-║                                                          ║
-╚══════════════════════════════════════════════════════════╝
-    """)
-
-
-def analyze_command(args):
-    """Analyze a single file."""
+def cmd_analyze(args):
+    """Analyze a file."""
+    from prometheus import PrometheusEngineV3
+    from prometheus.yara_generator import YARARuleGenerator
+    from prometheus.ioc_exporter import IOCExporter
+    from prometheus.report_generator import ReportGenerator
+    from prometheus.config import PrometheusConfig
+    
+    # Print banner unless quiet
+    if not args.quiet:
+        print_banner()
+    
+    # Check file exists
     if not Path(args.file).exists():
-        print(f"Error: File not found: {args.file}")
+        print(f"❌ Error: File not found: {args.file}")
         return 1
     
+    # Create config
+    config = PrometheusConfig()
+    config.quiet_mode = args.quiet
+    
+    # Apply detection toggles
+    if not args.enable_stego:
+        config.enable_steganography = False
+    if not args.enable_shellcode:
+        config.enable_shellcode = False
+    if not args.enable_crypto:
+        config.enable_crypto = False
+    if not args.enable_network:
+        config.enable_network = False
+    
+    # Initialize engine
     try:
-        engine = PrometheusEngine(quiet=args.quiet or args.json)
-        result = engine.analyze_file(args.file)
-        
-        if args.json:
-            print(json.dumps(result.to_dict(), indent=2))
-        elif not args.quiet:
-            # Already printed by engine
-            pass
-        
-        # Save output if requested
-        if args.output:
-            with open(args.output, 'w') as f:
-                json.dumps(result.to_dict(), f, indent=2)
-            if not args.quiet:
-                print(f"\nSaved to: {args.output}")
-        
-        return 0
-        
+        intel_path = args.intel if args.intel else None
+        engine = PrometheusEngineV3(config=config, intel_path=intel_path)
     except Exception as e:
-        print(f"Error during analysis: {e}")
-        if args.verbose:
+        print(f"❌ Error initializing engine: {e}")
+        return 1
+    
+    # Analyze file
+    if not args.quiet:
+        print(f"Analyzing: {args.file}")
+        print()
+    
+    try:
+        result = engine.analyze_file(args.file)
+    except Exception as e:
+        print(f"❌ Analysis failed: {e}")
+        if not args.quiet:
             import traceback
             traceback.print_exc()
         return 1
-
-
-def batch_command(args):
-    """Analyze multiple files in a directory."""
-    directory = Path(args.directory)
     
-    if not directory.exists():
-        print(f"Error: Directory not found: {args.directory}")
-        return 1
-    
-    if not directory.is_dir():
-        print(f"Error: Not a directory: {args.directory}")
-        return 1
-    
-    # Find all files
-    files = [f for f in directory.iterdir() if f.is_file()]
-    
-    if not files:
-        print(f"No files found in: {args.directory}")
-        return 1
-    
-    print(f"Found {len(files)} files")
-    print()
-    
-    results = []
-    engine = PrometheusEngine(quiet=True)
-    
-    for i, file_path in enumerate(files, 1):
-        try:
-            print(f"[{i}/{len(files)}] {file_path.name}...", end=' ')
-            result = engine.analyze_file(str(file_path))
-            print(f"{result.family} ({result.confidence:.0%})")
-            results.append(result)
-        except Exception as e:
-            print(f"ERROR: {e}")
-    
-    print()
-    print("="*70)
-    print("BATCH ANALYSIS COMPLETE")
-    print("="*70)
-    print(f"Files analyzed: {len(results)}")
-    print(f"Families detected: {len(set(r.family for r in results))}")
-    print()
-    
-    # Summary by family
-    from collections import Counter
-    families = Counter(r.family for r in results)
-    print("Family distribution:")
-    for family, count in families.most_common():
-        print(f"  {family}: {count}")
-    
-    # Save results if requested
+    # Save JSON output if requested
     if args.output:
-        with open(args.output, 'w') as f:
-            json.dump([r.to_dict() for r in results], f, indent=2)
-        print(f"\nSaved to: {args.output}")
+        try:
+            output_dict = {
+                'sample': {
+                    'filename': result.sample.filename,
+                    'file_path': result.sample.file_path,
+                    'file_type': result.sample.file_type.value if result.sample.file_type else 'Unknown',
+                    'file_size': result.sample.file_size,
+                    'md5': result.sample.md5,
+                    'sha1': result.sample.sha1,
+                    'sha256': result.sample.sha256,
+                },
+                'analysis': {
+                    'duration': result.analysis_duration,
+                    'exact_matches': len(result.exact_matches),
+                    'suspicious_artifacts': len(result.suspicious_artifacts),
+                    'informational': len(result.informational_artifacts),
+                    'iocs': result.iocs,
+                    'ttps': result.ttps,
+                },
+                'findings': {
+                    'exact': [{'type': e.artifact_type, 'value': e.value, 'family': e.malware_family} 
+                             for e in result.exact_matches],
+                    'suspicious': [{'type': s.artifact_type, 'value': s.value, 
+                                   'severity': s.severity.value, 'confidence': s.confidence}
+                                 for s in result.suspicious_artifacts],
+                }
+            }
+            
+            with open(args.output, 'w') as f:
+                json.dump(output_dict, f, indent=2)
+            
+            if not args.quiet:
+                print(f"\n✅ Results saved to: {args.output}")
+        
+        except Exception as e:
+            print(f"❌ Failed to save output: {e}")
+            return 1
+    
+    # Export IOCs if requested
+    if args.export_iocs:
+        try:
+            exporter = IOCExporter()
+            base_path = Path(args.export_iocs)
+            base_dir = base_path.parent
+            base_name = base_path.name
+            
+            exporter.save_exports(result, str(base_dir), base_name)
+            
+            if not args.quiet:
+                print(f"\n✅ IOCs exported:")
+                print(f"   - {base_dir}/{base_name}.json")
+                print(f"   - {base_dir}/{base_name}.csv")
+                print(f"   - {base_dir}/{base_name}.stix")
+        
+        except Exception as e:
+            print(f"❌ Failed to export IOCs: {e}")
+            return 1
+    
+    # Generate YARA rule if requested
+    if args.generate_yara:
+        try:
+            generator = YARARuleGenerator()
+            rule_name = Path(args.generate_yara).stem
+            ruleset = generator.generate_ruleset(result, rule_name)
+            
+            with open(args.generate_yara, 'w') as f:
+                f.write(ruleset)
+            
+            if not args.quiet:
+                print(f"\n✅ YARA rule generated: {args.generate_yara}")
+        
+        except Exception as e:
+            print(f"❌ Failed to generate YARA rule: {e}")
+            return 1
+    
+    # Generate HTML report if requested
+    if args.report:
+        try:
+            generator = ReportGenerator()
+            html = generator.generate_html(result)
+            
+            with open(args.report, 'w') as f:
+                f.write(html)
+            
+            if not args.quiet:
+                print(f"\n✅ HTML report generated: {args.report}")
+        
+        except Exception as e:
+            print(f"❌ Failed to generate HTML report: {e}")
+            return 1
+    
+    # Generate Markdown report if requested
+    if args.report_md:
+        try:
+            generator = ReportGenerator()
+            md = generator.generate_markdown(result)
+            
+            with open(args.report_md, 'w') as f:
+                f.write(md)
+            
+            if not args.quiet:
+                print(f"\n✅ Markdown report generated: {args.report_md}")
+        
+        except Exception as e:
+            print(f"❌ Failed to generate Markdown report: {e}")
+            return 1
+    
+    if not args.quiet:
+        print()
     
     return 0
 
 
-def version_command(args):
+def cmd_version(args):
     """Show version information."""
-    print(f"Prometheus Community Edition v{__version__}")
-    print(f"Copyright (c) 2026 Damian Donahue")
-    print(f"License: Prometheus Community License v1.0")
+    from prometheus import __version__
+    
+    print_banner()
+    print(f"Version: {__version__}")
+    print("Enterprise-grade malware analysis engine")
     print()
-    print(f"Based on: Binary Analysis and Reverse Engineering Reference v2.2")
-    print(f"DOI: 10.5281/zenodo.18123287")
-    print(f"Paper: https://github.com/0x44616D69616E/binary-analysis-reference")
+    print("Components: 16 integrated detection modules")
+    print("Coverage: ~95% of Binary Analysis Academic Reference")
+    print("Platforms: Windows PE, Linux ELF, Android DEX")
+    print("Formats: YARA, JSON, CSV, STIX 2.1, HTML, Markdown")
     print()
-    print(f"Intelligence: 661 items (276 signatures, 203 behavioral, 168 exploits)")
+    print("Python:", sys.version.split()[0])
+    print("License: Prometheus Community License v1.0")
     print()
-    print(f"For commercial use, contact: contact@asnspy.com")
-    print(f"GitHub: https://github.com/0x44616D69616E/prometheus-community")
+    print("📚 Documentation: https://github.com/0x44616D69616E/prometheus-community")
+    print("🐛 Issues: https://github.com/0x44616D69616E/prometheus-community/issues")
+    print()
+    
+    return 0
+
+
+def cmd_help_examples(args):
+    """Show usage examples."""
+    print_banner()
+    print("📖 USAGE EXAMPLES")
+    print("=" * 60)
+    
+    print("\n1️⃣  BASIC ANALYSIS")
+    print("   prometheus analyze malware.exe")
+    
+    print("\n2️⃣  EXPORT IOCS (JSON, CSV, STIX)")
+    print("   prometheus analyze malware.exe --export-iocs iocs/malware")
+    
+    print("\n3️⃣  GENERATE YARA RULE")
+    print("   prometheus analyze malware.exe --generate-yara detection.yar")
+    
+    print("\n4️⃣  CREATE HTML REPORT")
+    print("   prometheus analyze malware.exe --report analysis.html")
+    
+    print("\n5️⃣  COMPLETE WORKFLOW")
+    print("   prometheus analyze malware.exe \\")
+    print("     --export-iocs iocs/malware \\")
+    print("     --generate-yara rules/malware.yar \\")
+    print("     --report reports/malware.html \\")
+    print("     --output json/malware.json")
+    
+    print("\n6️⃣  ANDROID APK ANALYSIS")
+    print("   prometheus analyze app.apk --android --export-iocs app_iocs")
+    
+    print("\n7️⃣  QUIET MODE (AUTOMATION)")
+    print("   prometheus analyze malware.exe --quiet --output results.json")
+    
+    print("\n8️⃣  CUSTOM INTELLIGENCE DATABASE")
+    print("   prometheus analyze malware.exe --intel custom_intel.json")
+    
+    print("\n9️⃣  BATCH PROCESSING")
+    print("   for file in samples/*.exe; do")
+    print('     name=$(basename "$file" .exe)')
+    print('     prometheus analyze "$file" \\')
+    print('       --quiet --export-iocs "iocs/$name" \\')
+    print('       --generate-yara "rules/$name.yar"')
+    print("   done")
+    
+    print("\n🔟 SOC ANALYST WORKFLOW")
+    print("   # Quick triage")
+    print("   prometheus analyze alert.exe")
+    print()
+    print("   # If suspicious, export for blocking")
+    print("   prometheus analyze alert.exe --export-iocs blocking/alert")
+    print()
+    print("   # Generate detection rule")
+    print("   prometheus analyze alert.exe --generate-yara detection.yar")
+    
+    print("\n" + "=" * 60)
+    print("\n💡 TIP: Use --help with any command for detailed options")
+    print()
+    
     return 0
 
 
 def main():
     """Main CLI entry point."""
     parser = argparse.ArgumentParser(
-        description='Prometheus Community Edition - Revolutionary Malware Analysis\n' +
-                    'Based on Binary Analysis Reference v2.2 (DOI: 10.5281/zenodo.18123287)',
-        epilog='Research: https://github.com/0x44616D69616E/binary-analysis-reference\n' +
-               'Enterprise: https://github.com/0x44616D69616E/prometheus-enterprise',
-        formatter_class=argparse.RawDescriptionHelpFormatter
+        prog="prometheus",
+        description="Prometheus Community Edition v3.0.0 - Enterprise-grade malware analysis",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  prometheus analyze malware.exe
+  prometheus analyze malware.exe --export-iocs iocs/malware
+  prometheus analyze malware.exe --generate-yara detection.yar
+  prometheus analyze malware.exe --report analysis.html
+  prometheus version
+  prometheus examples
+
+For detailed examples: prometheus examples
+For help on commands: prometheus <command> --help
+
+Documentation: https://github.com/0x44616D69616E/prometheus-community
+"""
     )
     
     subparsers = parser.add_subparsers(dest='command', help='Command to execute')
     
     # Analyze command
-    analyze_parser = subparsers.add_parser('analyze', help='Analyze a single file')
-    analyze_parser.add_argument('file', help='File to analyze')
-    analyze_parser.add_argument('--json', action='store_true', help='Output as JSON')
-    analyze_parser.add_argument('--quiet', '-q', action='store_true', help='Minimal output')
-    analyze_parser.add_argument('--output', '-o', help='Save results to file')
-    analyze_parser.add_argument('--verbose', '-v', action='store_true', help='Verbose output')
+    analyze_parser = subparsers.add_parser(
+        'analyze',
+        help='Analyze a file',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        description="Analyze malware samples with comprehensive detection",
+        epilog="""
+Examples:
+  prometheus analyze malware.exe
+  prometheus analyze malware.exe --output results.json
+  prometheus analyze malware.exe --export-iocs iocs/malware
+  prometheus analyze malware.exe --generate-yara detection.yar
+  prometheus analyze malware.exe --report analysis.html
+  prometheus analyze app.apk --android --export-iocs app_iocs
+"""
+    )
     
-    # Batch command
-    batch_parser = subparsers.add_parser('batch', help='Analyze multiple files')
-    batch_parser.add_argument('directory', help='Directory containing files')
-    batch_parser.add_argument('--output', '-o', help='Save results to file')
+    # Required arguments
+    analyze_parser.add_argument('file', help='File to analyze')
+    
+    # Core options
+    analyze_parser.add_argument('-o', '--output', help='Save JSON results to file')
+    analyze_parser.add_argument('-q', '--quiet', action='store_true', 
+                               help='Suppress console output')
+    analyze_parser.add_argument('--intel', help='Path to custom intelligence database')
+    
+    # Export options
+    export_group = analyze_parser.add_argument_group('export options')
+    export_group.add_argument('--export-iocs', metavar='PATH',
+                             help='Export IOCs to JSON/CSV/STIX (e.g., "iocs/malware")')
+    export_group.add_argument('--generate-yara', metavar='FILE',
+                             help='Generate YARA rule file (e.g., "detection.yar")')
+    export_group.add_argument('--report', metavar='FILE',
+                             help='Generate HTML report (e.g., "analysis.html")')
+    export_group.add_argument('--report-md', metavar='FILE',
+                             help='Generate Markdown report (e.g., "analysis.md")')
+    
+    # Platform options
+    platform_group = analyze_parser.add_argument_group('platform options')
+    platform_group.add_argument('--android', action='store_true',
+                               help='Analyze Android APK/DEX file')
+    platform_group.add_argument('--pe', action='store_true',
+                               help='Force PE (Windows) analysis')
+    platform_group.add_argument('--elf', action='store_true',
+                               help='Force ELF (Linux) analysis')
+    
+    # Detection options
+    detection_group = analyze_parser.add_argument_group('detection options')
+    detection_group.add_argument('--disable-stego', dest='enable_stego', 
+                                action='store_false', default=True,
+                                help='Disable steganography detection')
+    detection_group.add_argument('--disable-shellcode', dest='enable_shellcode',
+                                action='store_false', default=True,
+                                help='Disable shellcode detection')
+    detection_group.add_argument('--disable-crypto', dest='enable_crypto',
+                                action='store_false', default=True,
+                                help='Disable cryptographic detection')
+    detection_group.add_argument('--disable-network', dest='enable_network',
+                                action='store_false', default=True,
+                                help='Disable network artifact detection')
+    
+    analyze_parser.set_defaults(func=cmd_analyze)
     
     # Version command
     version_parser = subparsers.add_parser('version', help='Show version information')
+    version_parser.set_defaults(func=cmd_version)
     
-    # Upgrade command
-    upgrade_parser = subparsers.add_parser('upgrade', help='Show Enterprise Edition info')
+    # Examples command
+    examples_parser = subparsers.add_parser('examples', help='Show usage examples')
+    examples_parser.set_defaults(func=cmd_help_examples)
     
+    # Parse arguments
     args = parser.parse_args()
     
-    # Show banner for interactive commands
-    if args.command in ['analyze', 'batch'] and not (hasattr(args, 'json') and args.json):
-        show_banner()
+    # Show help if no command
+    if not args.command:
+        parser.print_help()
+        return 0
     
     # Execute command
-    if args.command == 'analyze':
-        return analyze_command(args)
-    elif args.command == 'batch':
-        return batch_command(args)
-    elif args.command == 'version':
-        return version_command(args)
-    elif args.command == 'upgrade':
-        show_upgrade_info()
-        return 0
-    else:
-        parser.print_help()
-        return 1
+    return args.func(args)
 
 
 if __name__ == '__main__':

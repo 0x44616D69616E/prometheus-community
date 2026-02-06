@@ -13,7 +13,7 @@ long_description = (this_directory / "README.md").read_text(encoding='utf-8')
 
 setup(
     name="prometheus-community",
-    version="3.0.5",
+    version="3.1.0",
     
     # Author information
     author="Damian Donahue",

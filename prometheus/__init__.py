@@ -1,6 +1,6 @@
-"""Prometheus Community Edition v3.0.3"""
+"""Prometheus Community Edition v3.0.4"""
 
-__version__ = "3.0.3"
+__version__ = "3.0.4"
 __author__ = "Damian Donahue"
 __email__ = "contact@asnspy.com"
 

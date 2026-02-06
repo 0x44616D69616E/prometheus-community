@@ -14,9 +14,10 @@ from typing import Optional
 
 def print_banner():
     """Print Prometheus banner."""
-    print("""
+    from prometheus import __version__
+    print(f"""
 ╔══════════════════════════════════════════════════════════╗
-║   🔥 PROMETHEUS COMMUNITY EDITION v3.0.0                ║
+║   🔥 PROMETHEUS COMMUNITY EDITION v{__version__:<18} ║
 ║   Enterprise-Grade Malware Analysis                     ║
 ╚══════════════════════════════════════════════════════════╝
 """)

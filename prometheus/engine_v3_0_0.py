@@ -122,9 +122,16 @@ class PrometheusEngineV3:
         
         # Load intelligence database
         if intel_path is None:
-            intel_path = '/mnt/project/intelligence_v2_1_cleaned.json'
-            if not Path(intel_path).exists():
-                intel_path = '/mnt/project/intelligence.json'
+            # Use package data directory (installed package)
+            package_dir = Path(__file__).parent
+            intel_path = package_dir / 'data' / 'intelligence.json'
+            
+            # Verify file exists
+            if not intel_path.exists():
+                raise FileNotFoundError(
+                    f"Intelligence database not found at {intel_path}. "
+                    f"Package may be corrupted. Try reinstalling: pip install --force-reinstall prometheus-community"
+                )
         
         with open(intel_path, 'r') as f:
             self.intel_db = json.load(f)

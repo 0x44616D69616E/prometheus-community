@@ -1,5 +1,5 @@
 """
-PROMETHEUS v3.0.0 - ELF ANALYZER
+PROMETHEUS - ELF ANALYZER
 
 Deep analysis of Linux ELF (Executable and Linkable Format) files.
 
@@ -19,7 +19,7 @@ Copyright (c) 2026 Damian Donahue
 import struct
 from dataclasses import dataclass
 from typing import List, Tuple, Optional, Dict
-from prometheus.models_v3 import Location, SuspiciousArtifact, InformationalArtifact, Severity
+from prometheus.models import Location, SuspiciousArtifact, InformationalArtifact, Severity
 
 
 @dataclass

@@ -1,5 +1,5 @@
 """
-PROMETHEUS v3.0.0 - OUTPUT FORMATTER
+PROMETHEUS - OUTPUT FORMATTER
 
 Forensic-style output formatting for 3-tier classification system.
 
@@ -9,7 +9,7 @@ Copyright (c) 2026 Damian Donahue
 """
 
 from typing import List
-from prometheus.models_v3 import (
+from prometheus.models import (
     AnalysisResult, ExactMatch, SuspiciousArtifact, InformationalArtifact,
     FileTypeValidationResult
 )
@@ -39,7 +39,7 @@ class OutputFormatter:
         """Format analysis header."""
         output = []
         output.append("╔" + "═" * 58 + "╗")
-        output.append("║   🔥 PROMETHEUS COMMUNITY EDITION v3.0.0                ║")
+        output.append("║   🔥 PROMETHEUS COMMUNITY EDITION                       ║")
         output.append("║   Forensic Binary Analysis Engine                      ║")
         output.append("╚" + "═" * 58 + "╝")
         output.append("")

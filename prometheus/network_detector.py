@@ -1,5 +1,5 @@
 """
-PROMETHEUS v3.0.0 - NETWORK ARTIFACT DETECTOR
+PROMETHEUS - NETWORK ARTIFACT DETECTOR
 
 Detects network-related artifacts and C2 indicators.
 
@@ -18,7 +18,7 @@ Copyright (c) 2026 Damian Donahue
 import re
 from dataclasses import dataclass
 from typing import List, Tuple
-from prometheus.models_v3 import Location, SuspiciousArtifact, InformationalArtifact, Severity
+from prometheus.models import Location, SuspiciousArtifact, InformationalArtifact, Severity
 
 
 @dataclass

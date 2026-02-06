@@ -1,5 +1,5 @@
 """
-PROMETHEUS v3.0.0 - CRYPTOGRAPHIC ARTIFACT DETECTOR
+PROMETHEUS - CRYPTOGRAPHIC ARTIFACT DETECTOR
 
 Detects cryptographic constants, algorithms, and implementations.
 
@@ -11,7 +11,7 @@ Copyright (c) 2026 Damian Donahue
 import struct
 from dataclasses import dataclass
 from typing import List, Tuple
-from prometheus.models_v3 import Location, SuspiciousArtifact, InformationalArtifact, Severity
+from prometheus.models import Location, SuspiciousArtifact, InformationalArtifact, Severity
 
 
 @dataclass

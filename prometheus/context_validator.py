@@ -1,5 +1,5 @@
 """
-PROMETHEUS v3.0.0 - CONTEXT VALIDATION SYSTEM
+PROMETHEUS - CONTEXT VALIDATION SYSTEM
 
 Validates that detected patterns appear in proper context to reduce false positives.
 

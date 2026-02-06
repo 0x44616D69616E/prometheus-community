@@ -1,5 +1,5 @@
 """
-PROMETHEUS v3.0.0 - IOC EXPORTER
+PROMETHEUS - IOC EXPORTER
 
 Exports Indicators of Compromise (IOCs) in multiple formats.
 
@@ -17,7 +17,7 @@ import csv
 from datetime import datetime
 from typing import List, Dict, Any
 from io import StringIO
-from prometheus.models_v3 import AnalysisResult, ExactMatch, SuspiciousArtifact
+from prometheus.models import AnalysisResult, ExactMatch, SuspiciousArtifact
 
 
 class IOCExporter:
@@ -46,7 +46,7 @@ class IOCExporter:
         """
         iocs = {
             'metadata': {
-                'generator': 'Prometheus v3.0.0',
+                'generator': 'Prometheus',
                 'generated': datetime.now().isoformat(),
                 'sample': {
                     'filename': result.sample.filename if result.sample else 'unknown',

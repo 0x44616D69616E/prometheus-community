@@ -1,5 +1,5 @@
 """
-PROMETHEUS v3.0.0 - ANTI-ANALYSIS DETECTOR
+PROMETHEUS - ANTI-ANALYSIS DETECTOR
 
 Detects anti-debugging, anti-VM, and obfuscation techniques.
 
@@ -10,7 +10,7 @@ Copyright (c) 2026 Damian Donahue
 
 from dataclasses import dataclass
 from typing import List, Tuple
-from prometheus.models_v3 import Location, SuspiciousArtifact, Severity
+from prometheus.models import Location, SuspiciousArtifact, Severity
 
 
 @dataclass

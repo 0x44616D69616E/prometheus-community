@@ -1,5 +1,5 @@
 """
-PROMETHEUS v3.0.0 - STEGANOGRAPHY DETECTOR
+PROMETHEUS - STEGANOGRAPHY DETECTOR
 
 Detects hidden data in files using multiple steganography techniques.
 
@@ -10,7 +10,7 @@ Copyright (c) 2026 Damian Donahue
 
 from dataclasses import dataclass
 from typing import List, Dict, Optional, Tuple
-from prometheus.models_v3 import Location, ExactMatch, SuspiciousArtifact, InformationalArtifact
+from prometheus.models import Location, ExactMatch, SuspiciousArtifact, InformationalArtifact, Severity
 
 
 @dataclass
@@ -370,8 +370,6 @@ class SteganographyDetector:
     
     def _to_suspicious(self, steg_match: SteganographyMatch) -> SuspiciousArtifact:
         """Convert SteganographyMatch to SuspiciousArtifact."""
-        from models_v3 import Severity
-        
         location = Location(
             offset=steg_match.location,
             length=steg_match.size_estimate

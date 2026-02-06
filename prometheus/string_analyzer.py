@@ -1,5 +1,5 @@
 """
-PROMETHEUS v3.0.0 - STRING ANALYZER
+PROMETHEUS - STRING ANALYZER
 
 Advanced string extraction and classification.
 
@@ -21,7 +21,7 @@ Copyright (c) 2026 Damian Donahue
 import re
 from dataclasses import dataclass
 from typing import List, Tuple, Set
-from prometheus.models_v3 import Location, SuspiciousArtifact, InformationalArtifact, Severity
+from prometheus.models import Location, SuspiciousArtifact, InformationalArtifact, Severity
 
 
 @dataclass

@@ -1,5 +1,5 @@
 """
-PROMETHEUS v3.0.0 - NESTED FILE DETECTOR
+PROMETHEUS - NESTED FILE DETECTOR
 
 Detects files embedded within other files (polyglots, nested archives, etc.).
 
@@ -10,7 +10,7 @@ Copyright (c) 2026 Damian Donahue
 
 from dataclasses import dataclass
 from typing import List, Tuple, Dict, Optional
-from prometheus.models_v3 import Location, SuspiciousArtifact, InformationalArtifact, Severity
+from prometheus.models import Location, SuspiciousArtifact, InformationalArtifact, Severity
 
 
 @dataclass

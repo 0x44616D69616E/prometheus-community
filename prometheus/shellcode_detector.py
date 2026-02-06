@@ -1,5 +1,5 @@
 """
-PROMETHEUS v3.0.0 - SHELLCODE DETECTOR
+PROMETHEUS - SHELLCODE DETECTOR
 
 Detects shellcode patterns in binary data.
 
@@ -10,7 +10,7 @@ Copyright (c) 2026 Damian Donahue
 
 from dataclasses import dataclass
 from typing import List, Tuple, Optional
-from prometheus.models_v3 import Location, SuspiciousArtifact, Severity
+from prometheus.models import Location, SuspiciousArtifact, Severity
 
 
 @dataclass

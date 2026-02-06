@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Prometheus Community Edition v3.0.0 - CLI Interface
+Prometheus Community Edition - CLI Interface
 
 Enterprise-grade malware analysis with comprehensive automation.
 """
@@ -25,7 +25,7 @@ def print_banner():
 
 def cmd_analyze(args):
     """Analyze a file."""
-    from prometheus import PrometheusEngineV3
+    from prometheus import PrometheusEngine
     from prometheus.yara_generator import YARARuleGenerator
     from prometheus.ioc_exporter import IOCExporter
     from prometheus.report_generator import ReportGenerator
@@ -57,7 +57,7 @@ def cmd_analyze(args):
     # Initialize engine
     try:
         intel_path = args.intel if args.intel else None
-        engine = PrometheusEngineV3(config=config, intel_path=intel_path)
+        engine = PrometheusEngine(config=config, intel_path=intel_path)
     except Exception as e:
         print(f"❌ Error initializing engine: {e}")
         return 1
@@ -277,7 +277,7 @@ def main():
     """Main CLI entry point."""
     parser = argparse.ArgumentParser(
         prog="prometheus",
-        description="Prometheus Community Edition v3.0.0 - Enterprise-grade malware analysis",
+        description="Prometheus Community Edition - Enterprise-grade malware analysis",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:

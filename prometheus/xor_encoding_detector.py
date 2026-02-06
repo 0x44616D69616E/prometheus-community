@@ -1,5 +1,5 @@
 """
-PROMETHEUS v3.0.0 - XOR & ENCODING DETECTOR
+PROMETHEUS - XOR & ENCODING DETECTOR
 
 Detects and decodes XOR obfuscation and common encodings.
 
@@ -12,7 +12,7 @@ import re
 import base64
 from dataclasses import dataclass
 from typing import List, Tuple, Optional
-from prometheus.models_v3 import Location, SuspiciousArtifact, InformationalArtifact, Severity
+from prometheus.models import Location, SuspiciousArtifact, InformationalArtifact, Severity
 
 
 @dataclass

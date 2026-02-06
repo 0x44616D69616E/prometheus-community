@@ -1,5 +1,5 @@
 """
-PROMETHEUS v3.0.0 - PE STRUCTURE ANALYZER
+PROMETHEUS - PE STRUCTURE ANALYZER
 
 Deep analysis of Windows PE (Portable Executable) files.
 
@@ -20,7 +20,7 @@ Copyright (c) 2026 Damian Donahue
 import struct
 from dataclasses import dataclass
 from typing import List, Tuple, Optional, Dict
-from prometheus.models_v3 import Location, SuspiciousArtifact, InformationalArtifact, Severity
+from prometheus.models import Location, SuspiciousArtifact, InformationalArtifact, Severity
 
 
 @dataclass

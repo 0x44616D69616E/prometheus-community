@@ -1,5 +1,5 @@
 """
-PROMETHEUS v3.0.0 - ANDROID ANALYZER
+PROMETHEUS - ANDROID ANALYZER
 
 Analysis of Android DEX (Dalvik Executable) files.
 
@@ -19,7 +19,7 @@ Copyright (c) 2026 Damian Donahue
 import struct
 from dataclasses import dataclass
 from typing import List, Tuple, Optional
-from prometheus.models_v3 import Location, SuspiciousArtifact, InformationalArtifact, Severity
+from prometheus.models import Location, SuspiciousArtifact, InformationalArtifact, Severity
 
 
 @dataclass

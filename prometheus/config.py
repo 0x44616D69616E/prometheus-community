@@ -1,5 +1,5 @@
 """
-PROMETHEUS v3.0.0 - CONFIGURATION SYSTEM
+PROMETHEUS - CONFIGURATION SYSTEM
 
 User-configurable settings for analysis behavior.
 

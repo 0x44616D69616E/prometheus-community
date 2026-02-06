@@ -1,4 +1,4 @@
-# 🔥 Prometheus Community Edition v3.0.0
+# 🔥 Prometheus Community Edition v3.1.0
 
 **Enterprise-Grade Malware Analysis Engine**
 
@@ -11,12 +11,30 @@ Professional malware analysis with **16 integrated components**, **~95% academic
 
 ---
 
-## 🎯 What's New in v3.0.0
+## 🎯 What's New in v3.1.0
 
-### Revolutionary Upgrade: 6 Layers → 16 Components
+### Major Refactoring: Version-Agnostic Architecture
 
-**v2.0.0:** 6-layer detection engine with explainable findings  
-**v3.0.0:** 16-component analysis system with **5.3x coverage increase**
+**v3.1.0 introduces a complete architectural refactoring** removing all version-numbered modules and classes for a stable, future-proof codebase.
+
+**Breaking Changes for API Users:**
+- `PrometheusEngineV3` → `PrometheusEngine`
+- `models_v3.py` → `models.py`
+- `engine_v3_0_0.py` → `engine.py`
+- `behavioral_detector_v3.py` → `behavioral_detector.py`
+
+**Benefits:**
+- ✅ No more import breakage with version updates
+- ✅ Cleaner, more intuitive API
+- ✅ Professional Python packaging standards
+- ✅ Future-proof architecture
+
+**CLI users:** No changes needed - commands work identically!
+
+### Previous: v3.0.0 - Revolutionary Upgrade
+
+**v2.0.0:** 6-layer detection engine  
+**v3.0.0:** 16-component system with **5.3x coverage increase**
 
 ### Major Features
 
@@ -50,7 +68,7 @@ Professional malware analysis with **16 integrated components**, **~95% academic
 
 ## 📊 Key Statistics
 
-| Metric | v2.0.0 | v3.0.0 | Improvement |
+| Metric | v2.0.0 | v3.1.0 | Improvement |
 |--------|--------|--------|-------------|
 | **Coverage** | ~18% | **~95%** | **5.3x increase** |
 | **Components** | 6 layers | **16 components** | **2.7x more** |
@@ -109,7 +127,7 @@ pip install -e .
 ### Verify Installation
 ```bash
 prometheus version
-# Output: Prometheus Community Edition v3.0.0
+# Output: Prometheus Community Edition v3.1.0
 ```
 
 ---
@@ -151,6 +169,27 @@ prometheus analyze malware.exe \
   --output results.json
 ```
 
+
+---
+
+## ⚠️ Migration from v3.0.x
+
+**CLI Users:** No changes needed! All commands work identically.
+
+**API Users:** Update your imports:
+
+```python
+# Before (v3.0.x)
+from prometheus import PrometheusEngineV3
+from prometheus.models_v3 import Severity
+
+# After (v3.1.0+)
+from prometheus import PrometheusEngine
+from prometheus.models import Severity
+```
+
+See [REFACTORING_v3_1_0.md](docs/REFACTORING_v3_1_0.md) for complete migration guide.
+
 ---
 
 ## 📖 CLI Reference
@@ -170,7 +209,7 @@ prometheus analyze [OPTIONS] FILE
 | `--quiet`, `-q` | Flag | Suppress console output | False |
 | `--intel` | Path | Custom intelligence database | Built-in |
 
-#### Export Options (New in v3.0)
+#### Export Options
 
 | Option | Type | Description |
 |--------|------|-------------|
@@ -179,7 +218,7 @@ prometheus analyze [OPTIONS] FILE
 | `--report` | Path | Generate HTML report |
 | `--report-md` | Path | Generate Markdown report |
 
-#### Platform Options (New in v3.0)
+#### Platform Options
 
 | Option | Type | Description |
 |--------|------|-------------|
@@ -335,7 +374,7 @@ cp "rules/${NAME}.yar" /var/lib/yara/rules/
 
 ```
 ╔══════════════════════════════════════════════════════════╗
-║   🔥 PROMETHEUS COMMUNITY EDITION v3.0.0                ║
+║   🔥 PROMETHEUS COMMUNITY EDITION v3.1.0                ║
 ║   Enterprise-Grade Malware Analysis                     ║
 ╚══════════════════════════════════════════════════════════╝
 
@@ -412,10 +451,10 @@ Analysis Duration: 0.15 seconds
 
 ### Basic Usage
 ```python
-from prometheus import PrometheusEngineV3
+from prometheus import PrometheusEngine
 
 # Initialize engine
-engine = PrometheusEngineV3()
+engine = PrometheusEngine()
 
 # Analyze file
 result = engine.analyze_file("malware.exe")
@@ -428,10 +467,10 @@ print(f"TTPs identified: {result.ttps}")
 
 ### Generate YARA Rules
 ```python
-from prometheus import PrometheusEngineV3
+from prometheus import PrometheusEngine
 from prometheus.yara_generator import YARARuleGenerator
 
-engine = PrometheusEngineV3()
+engine = PrometheusEngine()
 result = engine.analyze_file("malware.exe")
 
 # Generate YARA rule
@@ -445,10 +484,10 @@ with open("detection.yar", "w") as f:
 
 ### Export IOCs
 ```python
-from prometheus import PrometheusEngineV3
+from prometheus import PrometheusEngine
 from prometheus.ioc_exporter import IOCExporter
 
-engine = PrometheusEngineV3()
+engine = PrometheusEngine()
 result = engine.analyze_file("malware.exe")
 
 # Export to all formats
@@ -463,10 +502,10 @@ exporter.save_exports(result, output_dir="iocs", base_name="malware")
 
 ### Generate Reports
 ```python
-from prometheus import PrometheusEngineV3
+from prometheus import PrometheusEngine
 from prometheus.report_generator import ReportGenerator
 
-engine = PrometheusEngineV3()
+engine = PrometheusEngine()
 result = engine.analyze_file("malware.exe")
 
 # Generate HTML report
@@ -533,14 +572,14 @@ with open("report.md", "w") as f:
 prometheus-community/
 ├── prometheus/
 │   ├── __init__.py
-│   ├── engine_v3_0_0.py              # Main analysis engine
-│   ├── models_v3.py                  # Data models
+│   ├── engine.py              # Main analysis engine
+│   ├── models.py                  # Data models
 │   ├── config.py                     # Configuration
 │   ├── cli.py                        # CLI interface
 │   │
 │   ├── core/                         # Core components
 │   │   ├── file_type_validator.py
-│   │   ├── behavioral_detector_v3.py
+│   │   ├── behavioral_detector.py
 │   │   └── output_formatter.py
 │   │
 │   ├── detection/                    # Detection modules
@@ -646,7 +685,7 @@ See [LICENSE](LICENSE) for full terms.
   title = {Prometheus Community Edition: Enterprise Malware Analysis},
   year = {2026},
   publisher = {GitHub},
-  version = {3.0.0},
+  version = {3.1.0},
   url = {https://github.com/0x44616D69616E/prometheus-community},
   doi = {10.5281/zenodo.18123287}
 }
@@ -713,4 +752,4 @@ Built on foundational research:
 
 **Made with 🔥 by the security research community**
 
-**Prometheus Community Edition v3.0.0** - Enterprise malware analysis for everyone
+**Prometheus Community Edition v3.1.0** - Enterprise malware analysis for everyone

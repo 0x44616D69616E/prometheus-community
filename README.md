@@ -562,7 +562,7 @@ prometheus-community/
 │   │   └── report_generator.py
 │   │
 │   └── data/
-│       └── intelligence_v2_1_cleaned.json
+│       └── intelligence.json
 │
 ├── tests/
 │   ├── test_complete_system.py

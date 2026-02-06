@@ -1,5 +1,5 @@
 """
-PROMETHEUS v3.0.0 - COMPREHENSIVE SYSTEM TEST
+PROMETHEUS - COMPREHENSIVE SYSTEM TEST
 
 End-to-end testing of ALL components across ALL blocks.
 Tests real scenarios, error handling, edge cases, and integration.
@@ -25,7 +25,7 @@ def test_block1_foundation():
     try:
         # Test 1: File Type Validator with real PE file
         print("\n[1/3] Testing File Type Validator...")
-        from file_type_validator import FileTypeValidator
+        from prometheus.file_type_validator import FileTypeValidator
         
         validator = FileTypeValidator()
         
@@ -61,8 +61,8 @@ def test_block1_foundation():
     try:
         # Test 2: Behavioral Detector
         print("\n[2/3] Testing Behavioral Detector...")
-        from behavioral_detector_v3 import BehavioralDetectorV3
-        from config import PrometheusConfig
+        from prometheus.behavioral_detector import BehavioralDetector
+        from prometheus.config import PrometheusConfig
         import json
         
         # Load real intelligence DB
@@ -71,7 +71,7 @@ def test_block1_foundation():
             intel_db = json.load(f)
         
         config = PrometheusConfig()
-        detector = BehavioralDetectorV3(intel_db, config)
+        detector = BehavioralDetector(intel_db, config)
         
         # Test with pattern that IS in the database (WannaCry mutex)
         test_data = {
@@ -98,8 +98,8 @@ def test_block1_foundation():
     try:
         # Test 3: Output Formatter
         print("\n[3/3] Testing Output Formatter...")
-        from output_formatter import OutputFormatter
-        from models_v3 import ExactMatch, Location
+        from prometheus.output_formatter import OutputFormatter
+        from prometheus.models import ExactMatch, Location
         
         formatter = OutputFormatter(quiet=True)
         
@@ -135,7 +135,7 @@ def test_block2_advanced_detection():
     try:
         # Test 1: Steganography Detector
         print("\n[1/4] Testing Steganography Detector...")
-        from steganography_detector import SteganographyDetector
+        from prometheus.steganography_detector import SteganographyDetector
         
         detector = SteganographyDetector()
         
@@ -159,7 +159,7 @@ def test_block2_advanced_detection():
     try:
         # Test 2: Shellcode Detector
         print("\n[2/4] Testing Shellcode Detector...")
-        from shellcode_detector import ShellcodeDetector
+        from prometheus.shellcode_detector import ShellcodeDetector
         
         detector = ShellcodeDetector()
         
@@ -182,7 +182,7 @@ def test_block2_advanced_detection():
     try:
         # Test 3: XOR Encoding Detector
         print("\n[3/4] Testing XOR Encoding Detector...")
-        from xor_encoding_detector import XOREncodingDetector
+        from prometheus.xor_encoding_detector import XOREncodingDetector
         
         detector = XOREncodingDetector()
         
@@ -206,7 +206,7 @@ def test_block2_advanced_detection():
     try:
         # Test 4: Nested File Detector
         print("\n[4/4] Testing Nested File Detector...")
-        from nested_file_detector import NestedFileDetector
+        from prometheus.nested_file_detector import NestedFileDetector
         
         detector = NestedFileDetector()
         
@@ -241,7 +241,7 @@ def test_block3_executable_analysis():
     try:
         # Test 1: PE Analyzer
         print("\n[1/3] Testing PE Analyzer...")
-        from pe_analyzer import PEAnalyzer
+        from prometheus.pe_analyzer import PEAnalyzer
         
         analyzer = PEAnalyzer()
         
@@ -269,7 +269,7 @@ def test_block3_executable_analysis():
     try:
         # Test 2: Anti-Analysis Detector
         print("\n[2/3] Testing Anti-Analysis Detector...")
-        from anti_analysis_detector import AntiAnalysisDetector
+        from prometheus.anti_analysis_detector import AntiAnalysisDetector
         
         detector = AntiAnalysisDetector()
         
@@ -292,7 +292,7 @@ def test_block3_executable_analysis():
     try:
         # Test 3: Cryptographic Detector
         print("\n[3/3] Testing Cryptographic Detector...")
-        from crypto_detector import CryptographicDetector
+        from prometheus.crypto_detector import CryptographicDetector
         
         detector = CryptographicDetector()
         
@@ -331,7 +331,7 @@ def test_block4_crossplatform():
     try:
         # Test 1: ELF Analyzer
         print("\n[1/3] Testing ELF Analyzer...")
-        from elf_analyzer import ELFAnalyzer
+        from prometheus.elf_analyzer import ELFAnalyzer
         
         analyzer = ELFAnalyzer()
         
@@ -357,7 +357,7 @@ def test_block4_crossplatform():
     try:
         # Test 2: String Analyzer
         print("\n[2/3] Testing String Analyzer...")
-        from string_analyzer import StringAnalyzer
+        from prometheus.string_analyzer import StringAnalyzer
         
         analyzer = StringAnalyzer()
         
@@ -380,7 +380,7 @@ def test_block4_crossplatform():
     try:
         # Test 3: Network Artifact Detector
         print("\n[3/3] Testing Network Artifact Detector...")
-        from network_detector import NetworkArtifactDetector
+        from prometheus.network_detector import NetworkArtifactDetector
         
         detector = NetworkArtifactDetector()
         
@@ -413,8 +413,8 @@ def test_block5_automation():
     try:
         # Test 1: YARA Generator
         print("\n[1/4] Testing YARA Generator...")
-        from yara_generator import YARARuleGenerator
-        from models_v3 import AnalysisResult, Sample, ExactMatch, Location
+        from prometheus.yara_generator import YARARuleGenerator
+        from prometheus.models import AnalysisResult, Sample, ExactMatch, Location
         
         generator = YARARuleGenerator()
         
@@ -453,8 +453,8 @@ def test_block5_automation():
     try:
         # Test 2: IOC Exporter
         print("\n[2/4] Testing IOC Exporter...")
-        from ioc_exporter import IOCExporter
-        from models_v3 import SuspiciousArtifact, Severity, StaticAnalysis
+        from prometheus.ioc_exporter import IOCExporter
+        from prometheus.models import SuspiciousArtifact, Severity, StaticAnalysis
         
         exporter = IOCExporter()
         
@@ -504,7 +504,7 @@ def test_block5_automation():
     try:
         # Test 3: Android Analyzer
         print("\n[3/4] Testing Android Analyzer...")
-        from android_analyzer import AndroidAnalyzer
+        from prometheus.android_analyzer import AndroidAnalyzer
         
         analyzer = AndroidAnalyzer()
         
@@ -529,7 +529,7 @@ def test_block5_automation():
     try:
         # Test 4: Report Generator
         print("\n[4/4] Testing Report Generator...")
-        from report_generator import ReportGenerator
+        from prometheus.report_generator import ReportGenerator
         
         generator = ReportGenerator()
         
@@ -575,8 +575,8 @@ def test_integrated_engine():
     
     try:
         print("\n[1/1] Testing Complete Engine Integration...")
-        from prometheus_complete import PrometheusEngineV3
-        from config import PrometheusConfig
+        from prometheus.engine import PrometheusEngine
+        from prometheus.config import PrometheusConfig
         
         # Create config with all detectors enabled
         config = PrometheusConfig()
@@ -584,7 +584,7 @@ def test_integrated_engine():
         
         # Use real intelligence DB
         intel_path = '/mnt/project/intelligence_v2_1_cleaned.json'
-        engine = PrometheusEngineV3(config=config, intel_path=intel_path)
+        engine = PrometheusEngine(config=config, intel_path=intel_path)
         
         # Verify all 13 detectors loaded
         assert hasattr(engine, 'behavioral_detector')
@@ -664,8 +664,8 @@ def test_error_handling():
     
     try:
         print("\n[1/5] Testing empty file handling...")
-        from prometheus_complete import PrometheusEngineV3
-        from config import PrometheusConfig
+        from prometheus.engine import PrometheusEngine
+        from prometheus.config import PrometheusConfig
         
         config = PrometheusConfig()
         config.quiet_mode = True
@@ -675,7 +675,7 @@ def test_error_handling():
             f.write(b'')  # Empty file
         
         try:
-            engine = PrometheusEngineV3(config=config)
+            engine = PrometheusEngine(config=config)
             result = engine.analyze_file(temp_path)
             # Should not crash
             print("  ✅ Empty file handled")
@@ -689,7 +689,7 @@ def test_error_handling():
         print("\n[2/5] Testing malformed PE...")
         pe_content = b'MZ' + b'\x00' * 10  # Truncated PE
         
-        from pe_analyzer import PEAnalyzer
+        from prometheus.pe_analyzer import PEAnalyzer
         analyzer = PEAnalyzer()
         suspicious, info = analyzer.analyze(pe_content, "bad.exe")
         # Should not crash
@@ -702,7 +702,7 @@ def test_error_handling():
         print("\n[3/5] Testing malformed ELF...")
         elf_content = b'\x7fELF' + b'\x00' * 10  # Truncated ELF
         
-        from elf_analyzer import ELFAnalyzer
+        from prometheus.elf_analyzer import ELFAnalyzer
         analyzer = ELFAnalyzer()
         suspicious, info = analyzer.analyze(elf_content, "bad.elf")
         # Should not crash
@@ -715,7 +715,7 @@ def test_error_handling():
         print("\n[4/5] Testing malformed DEX...")
         dex_content = b'dex\n' + b'\x00' * 10  # Truncated DEX
         
-        from android_analyzer import AndroidAnalyzer
+        from prometheus.android_analyzer import AndroidAnalyzer
         analyzer = AndroidAnalyzer()
         suspicious, info = analyzer.analyze(dex_content, "bad.dex")
         # Should not crash
@@ -729,7 +729,7 @@ def test_error_handling():
         # Test with large but manageable content
         large_content = b'\x00' * (1024 * 1024)  # 1MB of zeros
         
-        from string_analyzer import StringAnalyzer
+        from prometheus.string_analyzer import StringAnalyzer
         analyzer = StringAnalyzer()
         suspicious, info = analyzer.analyze(large_content)
         # Should complete without hanging
@@ -746,7 +746,7 @@ def main():
     print("\n")
     print("╔" + "=" * 68 + "╗")
     print("║" + " " * 68 + "║")
-    print("║" + "  PROMETHEUS v3.0.0 - COMPREHENSIVE SYSTEM TEST".center(68) + "║")
+    print("║" + "  PROMETHEUS - COMPREHENSIVE SYSTEM TEST".center(68) + "║")
     print("║" + "  Production Readiness Validation".center(68) + "║")
     print("║" + " " * 68 + "║")
     print("╚" + "=" * 68 + "╝")

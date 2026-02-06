@@ -24,7 +24,7 @@ from prometheus.models_v3 import (
     FileTypeValidationResult
 )
 from prometheus.config import PrometheusConfig
-from behavioral_detector_v3 import BehavioralDetectorV3
+from prometheus.behavioral_detector_v3 import BehavioralDetectorV3
 from prometheus.file_type_validator import FileTypeValidator
 from prometheus.output_formatter import OutputFormatter
 

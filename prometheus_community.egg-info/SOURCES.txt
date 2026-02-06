@@ -3,6 +3,7 @@ LICENSE
 MANIFEST.in
 README.md
 requirements.txt
+setup.cfg
 setup.py
 docs/BLOCK_1_IMPLEMENTATION.md
 docs/BLOCK_2_IMPLEMENTATION.md
@@ -14,16 +15,16 @@ docs/INDEX.md
 prometheus/__init__.py
 prometheus/android_analyzer.py
 prometheus/anti_analysis_detector.py
-prometheus/behavioral_detector_v3.py
+prometheus/behavioral_detector.py
 prometheus/cli.py
 prometheus/config.py
 prometheus/context_validator.py
 prometheus/crypto_detector.py
 prometheus/elf_analyzer.py
-prometheus/engine_v3_0_0.py
+prometheus/engine.py
 prometheus/file_type_validator.py
 prometheus/ioc_exporter.py
-prometheus/models_v3.py
+prometheus/models.py
 prometheus/nested_file_detector.py
 prometheus/network_detector.py
 prometheus/output_formatter.py
@@ -34,7 +35,7 @@ prometheus/steganography_detector.py
 prometheus/string_analyzer.py
 prometheus/xor_encoding_detector.py
 prometheus/yara_generator.py
-prometheus/data/intelligence_v2_1_cleaned.json
+prometheus/data/intelligence.json
 prometheus_community.egg-info/PKG-INFO
 prometheus_community.egg-info/SOURCES.txt
 prometheus_community.egg-info/dependency_links.txt

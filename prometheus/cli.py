@@ -17,8 +17,8 @@ def print_banner():
     from prometheus import __version__
     print(f"""
 ╔══════════════════════════════════════════════════════════╗
-║   🔥 PROMETHEUS COMMUNITY EDITION v{__version__:<18} ║
-║   Enterprise-Grade Malware Analysis                     ║
+║   🔥 PROMETHEUS COMMUNITY EDITION v{__version__:<18}     ║
+║   Enterprise-Grade Malware Analysis                      ║
 ╚══════════════════════════════════════════════════════════╝
 """)
 

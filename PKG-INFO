@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: prometheus-community
-Version: 3.0.3
+Version: 3.0.4
 Summary: Enterprise-grade malware analysis engine - Windows/Linux/Android support with YARA generation and IOC export
 Home-page: https://github.com/0x44616D69616E/prometheus-community
 Author: Damian Donahue
